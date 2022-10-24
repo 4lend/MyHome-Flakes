@@ -1,3 +1,5 @@
+# THIS REPO COPY FROM https://github.com/r17x/rumah-kita-sendiri
+
 # Rumah Kita Sendiri (Home-Manager) with Nix Flakes.
 
 > Lihat Video disini -> https://youtu.be/M2kyVx-DZAk 
