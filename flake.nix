@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
   };
@@ -8,7 +8,6 @@
   outputs = {self, home-manager, ...}@inputs:
     let
       system = "x86_64-linux";
-      # https://search.nixos.org/ <-- mencari packages apa saja yang tersedia di nix;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations = {
@@ -17,13 +16,22 @@
 
           modules = [
             ({pkgs, ...}:{
-              home.stateVersion = "22.05";
+              home.stateVersion = "22.11";
               home.username = "alfurqani";
               home.homeDirectory = "/home/alfurqani";
+              home.packages = with pkgs; [
+                git  neofetch  vim  neovim  wget  uget  uget-integrator  woeusb  ventoy-bin  bat  duf  exa  adguardhome  
+		alacritty
+                archiver
+                aria
+                ascii
+                audacious
+                bat
+                bitwarden
+                bitwarden-cli
 
-              # home.packages = with pkgs; [
-              #   git  neofetch  vim  neovim  wget  uget  uget-integrator  woeusb  ventoy-bin  bat  duf  exa  adguardhome  
-              # ];
+		librewolf
+              ];
 	      
       # nixosConfigurations = {
       #   import ./outputs/nixos-conf.nix {
