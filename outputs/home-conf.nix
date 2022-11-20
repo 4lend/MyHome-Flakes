@@ -1,3 +1,18 @@
+{ inputs, system, ... };
+
+with inputs;
+
+let 
+  pkgs = import nixpkgs {
+    inherit system;
+
+    config.allowUnfree = true;
+
+    imports = [
+      homeage.homeManagerModules.homeage
+      ../home/home.nix
+    ];
+  };
         alfurqani = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
@@ -20,4 +35,5 @@
 		librewolf
               ];
 
-
+in
+  
