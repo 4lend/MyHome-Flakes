@@ -24,12 +24,12 @@ in
   programs.home-manager.enable = true;
 
   imports = builtins.concatMap import [
-    ./modules
-    ./age
+    # ./modules
+    # ./age
     ./programs
-    ./scripts
-    ./services
-    ./themes
+    # ./scripts
+    # ./services
+    # ./themes
   ];
 
   xdg = {
