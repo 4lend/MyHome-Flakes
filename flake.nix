@@ -1,4 +1,6 @@
 {
+  description = "home-manager with flake";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -10,8 +12,10 @@
       # pkgs = inputs.nixpkgs.legacyPackages.${system};
     {
       homeConfigurations = {
-        import ./outputs/home-conf.nix {
-          inherit inputs system;
+        alfurqani = home-manager.lib.homeManagerConfiguration
+	{
+        # import ./outputs/home-conf.nix {
+        #   inherit inputs system;
 	}
       };
       
