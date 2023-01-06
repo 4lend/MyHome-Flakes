@@ -2,21 +2,32 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader.
-  boot.loader = {
-  systemd-boot.enable = true;
-  efi.canTouchEfiVariables = true;
-  efi.efiSysMountPoint = "/boot/efi";
-  timeout = 2;
+  boot = 
+  {
+    loader = 
+    {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
+      timeout = 3;
+    };
+    # kernelPackages = linuxKernel.packages.linux_xanmod_stable.zfsUnstable;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
+  services.xserver.videoDrivers = [];
 
   ## NETWORKING ##
   networking =
@@ -33,7 +44,7 @@
     networkmanager =
     {
       enable = true;
-      # dns = "dnsmasq";
+      dns = "dnsmasq";  # one of "default", "dnsmasq", "unbound", "systemd-resolved", "none"
       # enableStrongSwan = true;
     };
 
@@ -118,38 +129,48 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  # Enable the MATE,PANTHEON,XFCE Desktop Environment.
-  services.xserver = {
-  enable = true;
-  displayManager.lightdm.enable = false;
-  desktopManager.pantheon.enable = false;
+  ### DESKTOP ENVIRONMENT ### 
+  services.xserver = 
+  {
+    enable = true;
 
-  ## CONFIGURE PANTHEON ##
+    # GNOME
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
-  desktopManager.cinnamon.enable = false;
-  desktopManager.mate.enable = false;
-  desktopManager.xfce.enable = false;
-  
-  # GNOME
-  displayManager.gdm.enable = true;
-  desktopManager.gnome.enable = true;
+    # # PANTHEON #
+    # displayManager.lightdm.enable = true;
+    # desktopManager = 
+    # {
+    #   pantheon = 
+    #   {
+    #     enable = true;
+    #     debug = false;
+    #     # extraWingpanelIndicators = "";
+    #     # extraSwitchboardPlugs = "";
+    #     # extraGSettingsOverrides = "";
+    #     # extraGSettingsOverridePackages = "";
+    #   };
+    # };
 
+    # # XFCE & QTILE
+    # desktopManager = 
+    # {
+    #   default = "xfce";
+    #   xfce =
+    #   {
+    #     enable = true;
+    #     enableXfwm = false;
+    #     noDesktop = true;
+    #   };
+    #   xterm.enable = true;
+    # };
+    # windowManager.qtile.enable = true;
+
+    desktopManager.cinnamon.enable = false;
+    desktopManager.mate.enable = false;
+    desktopManager.xfce.enable = false;
   };
-
-  # THIS USING XFCE DE AND I3 WINDOW MANAGER
-  # services.xserver = {
-  #   enable = true;   
-  #   desktopManager = {
-  #     default = "xfce";
-  #     xterm.enable = false;
-  #     xfce = {
-  #       enable = true;
-  #       noDesktop = true;
-  #       enableXfwm = false;
-  #     };
-  #   };
-  #   windowManager.i3.enable = true;
-  # };
   
   # Configure keymap in X11
   services.xserver = {
@@ -185,6 +206,13 @@
   ### SERVICES ###
   services = 
   {
+    # ## PANTHEON DESKTOP ##
+    # pantheon = 
+    # {
+    #   apps.enable = true;
+    #   contractor.enable = false;
+    # };
+
     # ## NEXTDNS ##
     # nextdns = 
     # {
@@ -201,47 +229,47 @@
     #   # ];
     # };
 
-    ## ADGUARDHOME ##
-    adguardhome = 
-    {
-      enable = true;
-      openFirewall = true;
-      settings =
-      {
-        dns =
-        {
-          bind_host = 
-            # "1.1.1.1";
-            "173.245.48.0";
-        
-          bind_port = "20";
+    # ## ADGUARDHOME ##
+    # adguardhome = 
+    # {
+    #   enable = true;
+    #   openFirewall = true;
+    #   settings =
+    #   {
+    #     dns =
+    #     {
+    #       bind_host = 
+    #         # "1.1.1.1";
+    #         "173.245.48.0";
+    #     
+    #       bind_port = "20";
 
-          # query logging
-          querylog_enabled = true;
-          querylog_file_enabled = true;
-          querylog_interval = "24h";
-          querylog_size_memory = 1000;   # entries
-          anonymize_client_ip = true;   # for now
+    #       # query logging
+    #       querylog_enabled = true;
+    #       querylog_file_enabled = true;
+    #       querylog_interval = "24h";
+    #       querylog_size_memory = 1000;   # entries
+    #       anonymize_client_ip = true;   # for now
 
-          # adguard
-          protection_enable = true;
-          blocking_mode = "default";
-          filtering_enable = true;
+    #       # adguard
+    #       protection_enable = true;
+    #       blocking_mode = "default";
+    #       filtering_enable = true;
 
-          # cloudflare DNS
-          cloudflare.dns =
-          [
-            "1.1.1.1"
-            "1.0.0.1"
-          ];
+    #       # cloudflare DNS
+    #       cloudflare.dns =
+    #       [
+    #         "1.1.1.1"
+    #         "1.0.0.1"
+    #       ];
 
-          # caching
-          cache_size = 536870912;  # 512 MB
-          cache_ttl_min = 1800;    # 30 min
-          cache_optimistic = true; # return stale and then refresh
-        };
-      };
-    };
+    #       # caching
+    #       cache_size = 536870912;  # 512 MB
+    #       cache_ttl_min = 1800;    # 30 min
+    #       cache_optimistic = true; # return stale and then refresh
+    #     };
+    #   };
+    # };
 
     ## DNSCRYPT-PROXY2 ##
     dnscrypt-proxy2 =
@@ -342,126 +370,259 @@
   {
     enable = true;
   };
-  programs.zsh =
+
+  ## PROGRAMS ##
+  programs = 
   {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting = 
+    # ## PANTHEON ##
+    # pantheon-tweaks.enable = true;
+
+    ## ZSH ##
+    zsh =
     {
       enable = true;
-      highlighters = 
-      [
-        "main"
-      ];
-    };
-    autosuggestions =
-    {
-      enable = true;
-      async = true;
-      strategy = 
-      [
-	"history"
-	"completion"
-        "match_prev_cmd"
-      ];
-      # extraConfig = 
+      enableCompletion = true;
+      syntaxHighlighting = 
+      {
+        enable = true;
+        highlighters = 
+        [
+          "main"
+        ];
+      };
+      autosuggestions =
+      {
+        enable = true;
+        async = true;
+        strategy = 
+        [
+          "history"
+          "completion"
+          "match_prev_cmd"
+        ];
+        # extraConfig = 
+        # {
+        #   "bindkey '\t'" = "autosuggest-accept";
+        # };
+      };
+      # ohMyZsh =
       # {
-      #   "bindkey '\t'" = "autosuggest-accept";
+      #   enable = true;
       # };
     };
-    # ohMyZsh =
+     
+    ## FISH ##
+    fish = 
+    {
+      enable = true;
+    }; 
+
+    ## THEFUCK ##
+    thefuck = 
+    {
+      enable = true;
+      alias = "";
+    };
+
+    ## STARSHIP ##
+    starship = 
+    {
+      enable	= true;
+      enableBashIntegration = true;
+      settings	= {
+      add_newline = true;
+      command_timeout = 1000;
+      cmd_duration = {
+        format = " [$duration]($style) ";
+        style = "bold #EC7279";
+        show_notifications = true;
+      };
+      nix_shell = {
+        format = " [$symbol$state]($style) ";
+      };
+      battery = {
+        full_symbol = "🔋 ";
+        charging_symbol = "⚡️ ";
+        discharging_symbol = "💀 ";
+      };
+      git_branch = {
+        format = "[$symbol$branch]($style) ";
+      };
+      gcloud = {
+        format = "[$symbol$active]($style) ";
+      };
+      };
+    };
+
+    # ## FZF ##
+    # fzf =
     # {
-    #   enable = true;
+    #   keybindings = true;
+    #   fuzzyCompletion = true;
     # };
-  };
-   
-  programs.fish = 
-  {
-    enable = true;
-    # shellInit	= fishConfig;
-  }; 
 
-  ## STARSHIP ##
-  programs.starship = 
-  {
-    enable	= true;
-    settings	= {
-    add_newline = true;
-    command_timeout = 1000;
-    cmd_duration = {
-      format = " [$duration]($style) ";
-      style = "bold #EC7279";
-      show_notifications = true;
-    };
-    nix_shell = {
-      format = " [$symbol$state]($style) ";
-    };
-    battery = {
-      full_symbol = "🔋 ";
-      charging_symbol = "⚡️ ";
-      discharging_symbol = "💀 ";
-    };
-    git_branch = {
-      format = "[$symbol$branch]($style) ";
-    };
-    gcloud = {
-      format = "[$symbol$active]($style) ";
-    };
-    };
-  };
-
-  ## ALACRITTY ##
-  # programs.alacritty = {
-  #   enable	= true;
-  # };
-
-  ## TMUX ##
-  programs.tmux = {
-    enable	= true;
-    shortcut	= "a";
-    terminal 	= "screen-256color";
-    keyMode	= "vi";
-    clock24 	= true;
-    # extraConfig	= 
-    # "
-    #   set -g default-command /run/current-system/sw/bin/zsh
-    # ";
-    plugins 	= with pkgs.tmuxPlugins; [
-      jump
-      battery
-      copycat
-      vim-tmux-navigator
-      prefix-highlight
-      tmux-fzf
-      yank
-      cpu
-      net-speed
-      nord
+      ## TMUX ##
+    tmux = 
+    {
+      enable = true;
+      shortcut = "a";
+      terminal = "screen-256color";
+      clock24 = true; 
+      keyMode = "vi";
+      customPaneNavigationAndResize = true;
+      historyLimit = 10000;
+      resizeAmount = 10;
+      aggressiveResize = true;
+      plugins = with pkgs.tmuxPlugins;
+      [
+        jump
+        battery
+        copycat
+        vim-tmux-navigator
+        vim-tmux-focus-events
+        tmux-fzf
+        tmux-thumbs
+        yank
+        cpu
+        net-speed
+        nord
+        fpp
+        cpu
+        open
+        tilish
+        urlview
+        sysstat
+        sidebar
+        copy-toolkit
+        online-status
+        prefix-highlight
+        extrakto
       ];
-  };
+      extraConfig = 
+      ''
+        set -g default-terminal "xterm-256color"
+        set -g default-command  /run/current-system/sw/bin/fish
+        set -g default-shell /run/current-system/sw/bin/fish
 
-  ## NEOVIM ##
-  programs.neovim = {
-    enable	= true;
-    viAlias	= true;
-    vimAlias	= true;
-    defaultEditor = true;
-  };
+        # bind r source-file $HOME/.config/tmux/tmux.conf \; display "Reloaded!"
+        bind r source-file /etc/tmux.conf \; display "Reloaded!"
 
-  ## GIT ##
-  programs.git = {
-    enable = true;
-    config = {
+        unbind % 
+        unbind '"' 
+        unbind c 
+
+        # window
+        bind-key Space new-window
+        bind-key b new-window 
+        bind-key i split-window -h
+        bind-key h split-window -v
+
+        # bind -t vi-copy y copy-pipe 'xclip -in -selection clipboard'
+
+        # resizing pane
+        bind -r C-k resize-pane -U 5
+        bind -r C-j resize-pane -D 5
+        bind -r C-h resize-pane -L 5
+        bind -r C-l resize-pane -R 5
+
+        ## no prefix
+        # switch panes using Alt-arrow without prefix
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
+
+        # switch window
+        bind -n M-p previous-window
+        bind -n M-n next-window
+
+        # yank
+        bind -n M-] paste-buffer
+        bind -n M-[ copy-mode
+      '';
     };
+
+    # ## TMUX ##
+    # tmux = {
+    #   enable	= true;
+    #   shortcut	= "a";
+    #   terminal 	= "screen-256color";
+    #   keyMode	= "vi";
+    #   clock24 	= true;
+    #   # extraConfig	= 
+    #   # "
+    #   #   set -g default-command /run/current-system/sw/bin/fish
+    #   #   set -g default-shell /run/current-system/sw/bin/fish
+    #   # ";
+    #   plugins 	= with pkgs.tmuxPlugins; [
+    #     jump
+    #     battery
+    #     copycat
+    #     vim-tmux-navigator
+    #     prefix-highlight
+    #     tmux-fzf
+    #     yank
+    #     cpu
+    #     net-speed
+    #     nord
+    #     ];
+    # };
+
+    ## NEOVIM ##
+    neovim = {
+      enable	= true;
+      viAlias	= true;
+      vimAlias	= true;
+      defaultEditor = true;
+      configure =
+      {
+        customRC = ''
+          imap jj <Esc>
+          set number
+          set relativenumber
+          syntax on
+          inoremap jj <Esc>
+        '';
+        packages.myVimPackage = with pkgs.vimPlugins;
+        {
+          start = 
+          [ 
+            nord-vim 
+            nord-nvim
+            # fugitive
+            # yuck-vim
+            # vim_current_word
+            # vim-lightline-coc
+            # vimoutliner
+            # tmuxline-vim
+            # cmp-cmdline-history
+            # bufferline-nvim
+            # nordic-nvim
+            # onenord-nvim
+          ]; 
+        };
+      };
+    };
+
+    ## GIT ##
+    git = 
+    {
+      enable = true;
+      package = pkgs.gitFull;
+      # config = 
+      # {
+      #   git config --global user.name "Alfurqani";
+      #   git config --global user.email "syifa.alfurqoni@gmail.com";
+      # };
+    };
+
+    ## AUTOJUMP ##
+    autojump.enable = true;
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-
 
   ### FONTS ### 
-    fonts = {
+  fonts = 
+  {
     enableDefaultFonts = true;
     fonts = with pkgs; [
       nerdfonts
@@ -469,6 +630,16 @@
       comic-mono
       comic-neue
       comic-relief
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-emoji
+      vistafonts
+      helvetica-neue-lt-std
+      victor-mono
+      ibm-plex
+      smiley-sans  # A condensed and oblique Chinese typeface seeking a visual balance between the humanist and the geometric
+      lxgw-wenkai  # An open-source Chinese font derived from Fontworks' Klee One
+      lexend  # A variable font family designed to aid in reading proficiency
     ];
     fontconfig = {
       enable = true;
@@ -476,7 +647,8 @@
         monospace	=  [ "ComicMono" ];
         sansSerif	=  [ "ComicMono" ];
         serif		=  [ "ComicMono" ];
-	emoji		=  [ "Material-Design-Icons" ];
+	emoji		=  [ "nerdfonts" ];
+	# emoji		=  [ "Material-Design-Icons" ];
         # monospace	=  [ "ComicRelief" ];
         # sansSerif	=  [ "ComicRelief" ];
         # serif		=  [ "ComicRelief" ];
@@ -503,6 +675,7 @@
       nc	= "nix-channel";
       ncl	= "nix-channel --list"; 
       nca	= "nix-channel --add";
+      ncrm	= "nix-channel --remove";
       ncu	= "nix-channel --update";
       hb	= "home-manager build";
       hs	= "home-manager switch";
@@ -525,20 +698,23 @@
       gcm	= "git commit -m";
       gam	= "git commit -a -m";
       gsi	= "git switch";
+      gco	= "git checkout";
       gr 	= "git remote";
       gra	= "git remote add";
       grmv	= "git remote remove";
       grv	= "git remote -v";
+      gb	= "git branch";
       gbl	= "git branch --list";
       gp	= "git push -u";
       gl	= "git log";
 
       y		= "yt-dlp";
-      yy	= "yt-dlp --extract-audio --audio-quality 0";
+      yy	= "yt-dlp --ignore-config --extract-audio --audio-quality 0";
       c		= "cd";
       d		= "cd ..";
       v		= "vim";
       nv	= "nvim";
+      p		= "spacevim";
       t 	= "tmux";
       e		= "exit";
       lv	= "lvim";
@@ -565,79 +741,121 @@
       udmd	= "udisksctl unmount -b";
     };
 
+    # EXCLUDE GNOME PACKAGE
+    gnome.excludePackages = (with pkgs; 
+    [
+    gnome-photos
+    gnome-tour
+    ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gnome-music
+    gnome-terminal
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+    ]);
+
+    # # EXCLUDE PANTHEON PACKAGE
+    # pantheon.excludePackages = with pkgs.pantheon;
+    # [
+    #   elementary-sound-theme
+    #   elementary-mail
+    #   elementary-code
+    #   elementary-tasks
+    #   elementary-music
+    #   elementary-videos
+    #   elementary-photos
+    #   elementary-camera
+    #   elementary-wallpapers
+    # ];
+
     systemPackages = with pkgs;
     [
-      javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  python310Packages.dbus-python  yarn  docker  python39Full  python310Full  electron  cargo  dbus
-      
-      # nodejs & npm
-      nodejs  
-      nodePackages.npm
-      nodePackages_latest.npm
-      node2nix
+      javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  yarn  jq  nim  nimble-unwrapped
 
+      ascii
+      atool
+      audacious
+      bat
+      cargo
       cmatrix
-      flatpak
+      darktable
+      dbus
+      electron
+      exa
       firewalld
+      font-manager
       gnupg
       gparted
       input-remapper
-      nix-index
-      ntfs3g
+      kitty-themes
+      libsForQt5.dolphin
+      libreoffice
+      inkscape
+      nomacs
+      notepadqq
+      okular
+      onlyoffice-bin
+      pcmanfm
+      pfetch
+      plank
+      protonvpn-cli
+      protonvpn-gui
+      python310Packages.protonvpn-nm-lib
+      qbittorrent
+      shotwell
+      simplenote
       steam
+      subdl
+      speedtest-cli
+      standardnotes
+      trash-cli
+      ueberzug
+      wpsoffice
       xorg.xkill
 
-      # file manager
-      pcmanfm
-      libsForQt5.dolphin
+      # python
+      python310Packages.dbus-python  
+      python310Full    
+      python310Packages.pip  
+      python310Packages.urllib3
+      python310Packages.types-urllib3
+      python310Packages.soupsieve
+      python310Packages.idna
+      python310Packages.charset-normalizer
+      python310Packages.certifi
+      python310Packages.requests
+      python310Packages.beautifulsoup4
+      python310Packages.soupsieve
 
-      # cinnamon package
-      cinnamon.nemo
-
-      # image
-      darktable
-      shotwell
-      nomacs
-      inkscape
-
-      # text editor, notes, office productivity
-      vscode-with-extensions 
-      geany
-      wpsoffice
-      notepadqq
-      libreoffice
-      onlyoffice-bin
-      standardnotes
-      simplenote
-      okular
+      # an
+      hakuneko
+      yacreader
+      anime-downloader
+      anup
+      adl
+      filebot
+      nhentai
+      HentaiAtHome
 
       # share
       opendrop
 
       # social
       discord
-      # whatsapp-for-linux
-      rPackages.telegram
-      tdesktop
+      whatsapp-for-linux
       mailspring
-      rPackages.Rfacebook
-      rPackages.facebookadsR
-      caprine-bin
-      gfbgraph
-      rPackages.rfacebookstat
-      mautrix-facebook
-      purple-facebook
-      libreddit
       headset
-      lemmy-ui
-      lemmy-server
       giara
-      # haskellPackages.reddit
-      rPackages.twitteR
-      python310Packages.twitter
-      turses
-
-      franz
-      cawbird
+      slack
+      tdesktop
 
       # audio
       wireplumber
@@ -651,62 +869,83 @@
       archiver
       xarchiver
       fsarchiver
-      unrar
       zip
+      unrar
+      p7zip
 
       # network
       adguardhome
       tor
       dnscrypt-proxy2
-      protonvpn-cli
-      protonvpn-gui
-      python310Packages.protonvpn-nm-lib
+      openssl
 
       # media player
-      audacious
       mpv
       vlc
       cmus
       cava
       streamlink
-      python310Packages.deemix
-      python310Packages.deezer-py
-      python310Packages.deezer-python
+      moc
+      musikcube
+      mp3blaster
+      python310Packages.deemix  
+      python310Packages.deezer-py  
+      python310Packages.deezer-python  
       nuclear
       spotify
       spotify-tui
-      spotify-cli-linux
-      downonspot
-      sptlrx 
+      librespot
 
       # terminal
       alacritty
       kitty
-      kitty-themes
       tmux
+      git
+      ranger
+      joshuto
+      deer
+      pistol
       terminal-typeracer
       vim
       page
+      duf
       neovim-unwrapped
+      spacevim
       nvimpager
       neovide
       uivonim
-      bat
-      duf
-      ascii
-      atool
-      pfetch
-      plank
-      ranger
-      vifm
-      vifm-full
-      trash-cli
-      exa
-      git
-      speedtest-cli
+      z-lua
+      peco
+      autojump
+      pazi
+      fasd
       yank
       xsel
-      wl-clipboard
+      xclip
+      mov-cli
+      vifm
+      vifm-full
+      wget
+      # alternative man tools / unix documentation
+      cheat  # Create and view interactive cheatsheets on the command-line
+      cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
+      navi  # An interactive cheatsheet tool for the command-line and application launchers
+      tldr  # Simplified and community-driven man pages
+      tealdeer  # A very fast implementation of tldr in Rust
+
+      # text editor
+      geany
+      obsidian
+      vscode-with-extensions 
+
+      # nix
+      nix-index
+      nix-prefetch
+      nix-prefetch-hg
+      nix-prefetch-git
+      nix-prefetch-github
+      nix-prefetch-scripts
+      nix-prefetch-docker
 
       # browser
       firefox
@@ -717,25 +956,39 @@
       google-chrome
       opera
       palemoon
+      epiphany
 
       # downloader
       yt-dlp
       youtube-dl 
       ytmdl
-      subdl
       aria
       python310Packages.aria2p
       uget
       uget-integrator
-      wget
-      qbittorrent
+      axel 
+      downonspot  # A spotify downloader writter in rust
+      spotdl  # Download your Spotify playlists and songs along with album art and metadata
 
       # usb bootable
       woeusb
       woeusb-ng
       etcher
       ventoy-bin
-      # ventoy-full-bin
+      unetbootin
+      ntfs3g
+      fd
+
+      # # pantheon package
+      # pantheon.switchboard
+      # pantheon-tweaks
+      # pantheon.wingpanel
+      # pantheon.wingpanel-indicator-a11y
+      # pantheon.wingpanel-with-indicators
+      # pantheon.wingpanel-indicator-network
+
+      # cinnamon package
+      cinnamon.nemo
 
       # xfce package
       xfce.ristretto
@@ -744,10 +997,11 @@
       xfce.tumbler
 
       # shell
+      starship
       fish
+      fishPlugins.bass
       zsh
       bashInteractive
-      starship
 
       # configuration dotfiles
       home-manager
@@ -757,6 +1011,7 @@
       btop
       htop
       neofetch
+      bottom
       checkip
       freshfetch
       ipfetch
@@ -764,22 +1019,29 @@
       pridefetch
 
       # virtual machine
+      anbox
+      waydroid
+      flatpak
       gnome.gnome-boxes
       vmware-workstation
       virtualbox
       qemu
       qemu_kvm
       qtemu
-      virtualboxWithExtpack
+      # virtualboxWithExtpack
+      libreelec-dvb-firmware
+      kodi
+      kodi-gbm
+      kodi
+      docker  
+      docker-compose
 
-      # an
-      anime-downloader
-      hakuneko
-      ani-cli
-      anup
-      adl
-      filebot
-      # haskellPackages.myanimelist-export
+      # appimage
+      appimagekit
+      appimage-run
+
+      # kernel
+      linuxKernel.packages.linux_xanmod_stable.zfsUnstable
     ];
   };
 
@@ -792,7 +1054,8 @@
   nixpkgs.config = 
   {
   allowUnsupportedSystem = true;
-
+  allowUnfree = true;
+  allowBroken = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -806,6 +1069,13 @@
   # List services that you want to enable:
    services.flatpak.enable = true;
    xdg.portal.enable = true;
+   xdg.portal.wlr.enable = true;
+   # xdg.portal.extraPortals =
+   # {
+   #   xdg-desktop-portal-xfce
+   #   xdg-desktop-portal-gtk
+   #   xdg-desktop-portal-kde
+   # };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -823,7 +1093,17 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  # system.stateVersion = "22.05"; # Did you read the comment?
+
+  ### SYSTEM CONFIGURATION ## 
+  system = 
+  {
+    stateVersion = "nixos-unstable"; # Did you read the comment?
+    autoUpgrade = 
+    { 
+      enable = true;
+      channel = "https://nixos.org/channels/nixpkgs-unstable";
+    };
+  };
 
   nix = 
   {
@@ -832,7 +1112,11 @@
       enable = true;
       keys = []; 
     };
-    package = pkgs.nixFlakes;
+    package = with pkgs;
+    [
+      nixFlakes
+      nixUnstable
+    ];
     extraOptions = "experimental-features = nix-command flakes";
   };
 

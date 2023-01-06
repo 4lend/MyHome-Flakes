@@ -4,20 +4,35 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
 
-  home.username = "alfurqani";
-  home.homeDirectory = "/home/alfurqani";
-
-  home.stateVersion = "22.11";
+  ## cover by flakes
+  # home.username = "alfurqani";
+  # home.homeDirectory = "/home/alfurqani";
+  # home.stateVersion = "22.11";
 
   # imports = 
   # [
   #   ./modules
   # ];
+  home = 
+  {
+    ## packages ##
+    packages = with pkgs;
+    [
+      cloudflare-warp
+    ];
 
-  home.packages = with pkgs;
-  [
-    cloudflare-warp
-  ];
+    ## keyboard ##
+    keyboard = 
+    {
+      layout = "us";
+      variant = "qwerty";
+      options = 
+      [
+        "grp:win_space_toggle"
+        "grp:caps_toggle,grp_led:scroll"
+      ];
+    };
+  };
 
   programs =
   {
@@ -38,7 +53,8 @@
 	selection.save_to_clipboard = true; 
 	window =
 	{
-	  opacity = 1.0;
+	  opacity = 1.00;
+	  # opacity = 0.90;
 	  decorations = "none";
 	  padding = 
 	  {
@@ -101,14 +117,22 @@
       enable = true;
       config = 
       {
-        sub-font = "Comic Sans";
-        sub-font-size = 35;
-        sub-color = "#FFFE25";
+        sub-font = "ComicMono";
+        # sub-font = "SourceCodePro-Bold";
+        sub-font-size = 37;
+        # sub-color = "#FFFFFF";  # white
+        sub-color = "#FFFE25";  # yellow
+	# sub-border-color = "#202020";
+	sub-border-color = "#000000";  # black
+	sub-border-size = "3";  # default
+	sub-bold = "no";
+	sub-pos = 99;
         window = "fullscreen";
         speed = 1.15;
         playback = "save-position-on-quit";
 	fullscreen = "yes";
 	save-position-on-quit = "yes";
+	sub-ass-override = "force";
       };
     };
 
@@ -120,6 +144,8 @@
       font = 
         {
           name = "ComicMono";
+          # name = "LexendZetta";
+          # name = "ComicNeueAngular";
           size = 14;
         };
       extraConfig =
@@ -137,6 +163,9 @@
 
 	  fish_color_valid_path --none
 
+	  toggle_fullscreen yes
+	  macos_traditional_fullscreen yes
+	  --start-as
         ";
       keybindings =
       {
@@ -149,18 +178,72 @@
       };
     };
 
-    ## TMUX ##
-    tmux = 
-    {
-      enable = true;
-      clock24 = true; 
-      keyMode = "vi";
-      extraConfig = 
-      ''
-        set -g default-terminal "xterm-256color"
-	
-      '';
-    };
+    # ## TMUX ##
+    # tmux = 
+    # {
+    #   enable = true;
+    #   shortcut = "a";
+    #   terminal = "screen-256color";
+    #   clock24 = true; 
+    #   keyMode = "vi";
+    #   customPaneNavigationAndResize = true;
+    #   historyLimit = 10000;
+    #   newSession = true;
+    #   plugins = with pkgs.tmuxPlugins;
+    #   [
+    #     jump
+    #     battery
+    #     copycat
+    #     vim-tmux-navigator
+    #     vim-tmux-focus-events
+    #     tmux-fzf
+    #     tmux-thumbs
+    #     yank
+    #     cpu
+    #     net-speed
+    #     nord
+
+    #     fpp
+    #     cpu
+    #     open
+    #     tilish
+    #     urlview
+    #     sysstat
+    #     sidebar
+    #     # fuzzback
+    #     copy-toolkit
+    #     online-status
+    #     prefix-highlight
+    #   ];
+    #   extraConfig = 
+    #   ''
+    #     set -g default-terminal "xterm-256color"
+    #     set -g default-command  /run/current-system/sw/bin/fish
+    #     set -g default-shell /run/current-system/sw/bin/fish
+
+    #     bind r source-file $HOME/.config/tmux/tmux.conf \; display "Reloaded!"
+
+    #     unbind % 
+    #     unbind '"' 
+
+    #     bind-key Space new-window
+    #     bind-key b new-window 
+    #     bind-key i split-window -h
+    #     bind-key h split-window -v
+
+    #     # Resizing pane
+    #     bind -r C-k resize-pane -U 5
+    #     bind -r C-j resize-pane -D 5
+    #     bind -r C-h resize-pane -L 5
+    #     bind -r C-l resize-pane -R 5
+
+    #     # switch panes using Alt-arrow without prefix
+    #     bind -n M-Left select-pane -L
+    #     bind -n M-Right select-pane -R
+    #     bind -n M-Up select-pane -U
+    #     bind -n M-Down select-pane -D
+    #   '';
+    # };
 
     # ## FISH ##
     # fish = 
@@ -227,9 +310,13 @@
       settings = 
       {
         sub-langs = "en";
-	downloader = "aria2c";
+	downloader = "httpie";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
+	# downloader = "aria2c";
 	write-subs = true;
 	write-auto-subs = true;
+	# video-multistream = true;
+	# list-formats = true;
+	# progress = true;
       };
       # extraConfig = 
       # "
@@ -246,26 +333,40 @@
       enable = true;
       userEmail = "syifa.alfurqoni@gmail.com";
       userName = "Alfurqani";
+      # ignores = "result";
+      # signing = 
+      # signing.gpgPath = "";
+      # signing.key = "";
+      # signing.signByDefault = true;
     };
 
-    ## NEOVIM ## 
-    neovim =
-    {
-      enable = true;
-      coc.enable = true;
-      viAlias = true;
-      vimAlias = true;
-      extraConfig = 
-      ''
-        set number
-	set relativenumber
-      '';
-    };
+    # ## NEOVIM ## 
+    # neovim =
+    # {
+    #   enable = true;
+    #   viAlias = true;
+    #   vimAlias = true; 
+    #   coc.enable = true;
+    #   extraConfig = 
+    #   ''
+    #     set number
+    #     set relativenumber
+    #   '';
+    # };
 
     qutebrowser =
     {
     enable = true;
     enableDefaultBindings = true;
+    };
+
+    ## Z-LUA ##
+    z-lua = 
+    {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
     };
   };
 
