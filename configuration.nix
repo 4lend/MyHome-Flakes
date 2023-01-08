@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
+      # <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -21,8 +21,6 @@
       efi.efiSysMountPoint = "/boot/efi";
       timeout = 3;
     };
-    # kernelPackages = linuxKernel.packages.linux_xanmod_stable.zfsUnstable;
-    # kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -173,9 +171,12 @@
   };
   
   # Configure keymap in X11
-  services.xserver = {
+  console.useXkbConfig = true;
+  services.xserver = 
+  {
     layout = "us";
     xkbVariant = "";
+    xkbOptions = "ctrl:swapcaps";
   };
 
   # Enable CUPS to print documents.
@@ -428,7 +429,7 @@
     starship = 
     {
       enable	= true;
-      enableBashIntegration = true;
+      # enableBashIntegration = true;
       settings	= {
       add_newline = true;
       command_timeout = 1000;
@@ -510,6 +511,8 @@
         unbind % 
         unbind '"' 
         unbind c 
+	unbind n
+	unbind p
 
         # window
         bind-key Space new-window
@@ -539,34 +542,11 @@
         # yank
         bind -n M-] paste-buffer
         bind -n M-[ copy-mode
+
+	# rename
+	bind n rename-window
       '';
     };
-
-    # ## TMUX ##
-    # tmux = {
-    #   enable	= true;
-    #   shortcut	= "a";
-    #   terminal 	= "screen-256color";
-    #   keyMode	= "vi";
-    #   clock24 	= true;
-    #   # extraConfig	= 
-    #   # "
-    #   #   set -g default-command /run/current-system/sw/bin/fish
-    #   #   set -g default-shell /run/current-system/sw/bin/fish
-    #   # ";
-    #   plugins 	= with pkgs.tmuxPlugins; [
-    #     jump
-    #     battery
-    #     copycat
-    #     vim-tmux-navigator
-    #     prefix-highlight
-    #     tmux-fzf
-    #     yank
-    #     cpu
-    #     net-speed
-    #     nord
-    #     ];
-    # };
 
     ## NEOVIM ##
     neovim = {
@@ -927,6 +907,7 @@
       vifm-full
       wget
       # alternative man tools / unix documentation
+      bro
       cheat  # Create and view interactive cheatsheets on the command-line
       cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
       navi  # An interactive cheatsheet tool for the command-line and application launchers
@@ -939,6 +920,7 @@
       vscode-with-extensions 
 
       # nix
+      nix
       nix-index
       nix-prefetch
       nix-prefetch-hg
@@ -1097,7 +1079,7 @@
   ### SYSTEM CONFIGURATION ## 
   system = 
   {
-    stateVersion = "nixos-unstable"; # Did you read the comment?
+    stateVersion = "nixos-unstable"; 
     autoUpgrade = 
     { 
       enable = true;
@@ -1114,10 +1096,10 @@
     };
     package = with pkgs;
     [
+      # pkgs.nix
       nixFlakes
       nixUnstable
     ];
     extraOptions = "experimental-features = nix-command flakes";
   };
-
 }

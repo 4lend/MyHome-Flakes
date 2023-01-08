@@ -4,10 +4,9 @@
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
 
-  ## cover by flakes
-  # home.username = "alfurqani";
-  # home.homeDirectory = "/home/alfurqani";
-  # home.stateVersion = "22.11";
+  home.username = "alfurqani";
+  home.homeDirectory = "/home/alfurqani";
+  home.stateVersion = "23.05";
 
   # imports = 
   # [
@@ -119,7 +118,7 @@
       {
         sub-font = "ComicMono";
         # sub-font = "SourceCodePro-Bold";
-        sub-font-size = 37;
+        sub-font-size = 38;
         # sub-color = "#FFFFFF";  # white
         sub-color = "#FFFE25";  # yellow
 	# sub-border-color = "#202020";
