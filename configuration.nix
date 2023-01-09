@@ -296,13 +296,25 @@
     #   openFirewall = true;
     # };
 
-    # ## CLOUDFLARE-CFDYNDNS ##
-    # cfdyndns = 
-    # {
-    #   enable = true;
-    #   email = "syifa.alfurqoni@gmail.com";
-    #   apikeyFile = "https://api.cloudflare.com/client/v4";
-    # };
+    ## CLOUDFLARE-CFDYNDNS ##
+    cfdyndns = 
+    {
+      enable = true;
+      email = "syifa.alfurqoni@gmail.com";
+      apikeyFile = "https://api.cloudflare.com/client/v4";
+    };
+
+    ## cloudflare-dyndns ##
+    cloudflare-dyndns =
+    {
+      enable = true;
+      ipv4 = true;
+      ipv6 = true;
+      proxied = true;
+      domains = [];
+      deleteMissing = false;
+      apiTokenFile = "";
+    };
 
     # ## cloudflare, custom, google, opendns, quad9
     # https-dns-proxy = 
@@ -498,12 +510,16 @@
         online-status
         prefix-highlight
         extrakto
+	sensible
       ];
       extraConfig = 
       ''
         set -g default-terminal "xterm-256color"
         set -g default-command  /run/current-system/sw/bin/fish
         set -g default-shell /run/current-system/sw/bin/fish
+
+        set -s escape-time 0
+        set -g base-index 1
 
         # bind r source-file $HOME/.config/tmux/tmux.conf \; display "Reloaded!"
         bind r source-file /etc/tmux.conf \; display "Reloaded!"
@@ -550,10 +566,16 @@
 
     ## NEOVIM ##
     neovim = {
-      enable	= true;
-      viAlias	= true;
-      vimAlias	= true;
+      enable = true;
+      package = pkgs.neovim-unwrapped;
+      viAlias = true;
+      vimAlias = true;
       defaultEditor = true;
+      # extraConfig = "lib.fileContents $HOME/.config/nvim.init.lua";
+      # programs.neovim.runtime.<name>.enable
+      # programs.neovim.runtime.<name>.text
+      # programs.neovim.runtime.<name>.target
+      # programs.neovim.runtime.<name>.source
       configure =
       {
         customRC = ''
@@ -863,6 +885,7 @@
       mpv
       vlc
       cmus
+      cmusfm
       cava
       streamlink
       moc
@@ -951,6 +974,7 @@
       axel 
       downonspot  # A spotify downloader writter in rust
       spotdl  # Download your Spotify playlists and songs along with album art and metadata
+      # motrix  # handle by flatpak
 
       # usb bootable
       woeusb
@@ -1018,6 +1042,11 @@
       docker  
       docker-compose
 
+      # gnome extensions
+      gnomeExtensions.simple-system-monitor
+      gnomeExtensions.tilingnome
+      gnomeExtensions.window-state-manager
+
       # appimage
       appimagekit
       appimage-run
@@ -1026,7 +1055,6 @@
       linuxKernel.packages.linux_xanmod_stable.zfsUnstable
     ];
   };
-
 
   # NIXPKGS CONFIG
   nixpkgs.config.permittedInsecurePackages = [
@@ -1094,12 +1122,13 @@
       enable = true;
       keys = []; 
     };
-    package = with pkgs;
-    [
-      # pkgs.nix
-      nixFlakes
-      nixUnstable
-    ];
+    # package = with pkgs;
+    # [
+    #   # pkgs.nix
+    #   # nixFlakes
+    #   # nixUnstable
+    # ];
     extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nix;
   };
 }
