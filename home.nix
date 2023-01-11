@@ -116,7 +116,7 @@
       enable = true;
       config = 
       {
-        sub-font = "ComicMono";
+        sub-font = "ComicMono-Bold";
         # sub-font = "SourceCodePro-Bold";
         sub-font-size = 38;
         # sub-color = "#FFFFFF";  # white
@@ -125,7 +125,7 @@
 	sub-border-color = "#000000";  # black
 	sub-border-size = "3";  # default
 	sub-bold = "no";
-	sub-pos = 99;
+	sub-pos = 100;
         window = "fullscreen";
         speed = 1.15;
         playback = "save-position-on-quit";
