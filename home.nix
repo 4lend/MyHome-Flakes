@@ -47,7 +47,33 @@
 	dynamic_padding = true;
 	font =
 	{
+	  normal = { 
+	    family = "ComicMono"; 
+	    style = "Regular";
+	  };
+	  bold = { 
+	    family = "ComicMono"; 
+	    style = "Bold";
+	  };
+	  italic = { 
+	    family = "ComicMono"; 
+	    style = "Italic";
+	  };
 	  size = 14;
+
+	  ## not working
+	  # normal = { 
+	  #   family = "ComicCodeDemo-Regular"; 
+	  #   style = "Regular";
+	  # };
+	  # bold = { 
+	  #   family = "ComicCodeDemo-Regular"; 
+	  #   style = "Bold";
+	  # };
+	  # italic = { 
+	  #   family = "ComicCodeDemo-Regular"; 
+	  #   style = "Italic";
+	  # };
 	};
 	selection.save_to_clipboard = true; 
 	window =
@@ -116,13 +142,10 @@
       enable = true;
       config = 
       {
-        sub-font = "ComicMono-Bold";
-        # sub-font = "SourceCodePro-Bold";
+        sub-font = "ComicCodeDemo-Regular";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold
         sub-font-size = 38;
-        # sub-color = "#FFFFFF";  # white
-        sub-color = "#FFFE25";  # yellow
-	# sub-border-color = "#202020";
-	sub-border-color = "#000000";  # black
+        sub-color = "#FFFE25";  # yellow  # #FFFFFF - white
+	sub-border-color = "#000000";  # black  # #202020
 	sub-border-size = "3";  # default
 	sub-bold = "no";
 	sub-pos = 100;
@@ -142,7 +165,8 @@
       theme = "Nord"; 
       font = 
         {
-          name = "ComicMono";
+          # name = "ComicMono";
+          name = "ComicCodeDemo-Regular";
           # name = "LexendZetta";
           # name = "ComicNeueAngular";
           size = 14;
