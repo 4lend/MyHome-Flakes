@@ -20,6 +20,15 @@
       config = { allowUnfree = true; };
       lib = nixpkgs.lib;
 
+      primaryUserInfo = 
+      {
+        username = "r17";
+        fullName = "Rin";
+        email = "hi@rin.rocks";
+        nixConfigDirectory = "/Users/r17/.config/nixpkgs";
+      };
+
+
     in {
       nixosConfigurations = 
       {

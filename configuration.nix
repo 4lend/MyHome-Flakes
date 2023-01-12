@@ -572,10 +572,10 @@
       vimAlias = true;
       defaultEditor = true;
       # extraConfig = "lib.fileContents $HOME/.config/nvim.init.lua";
-      # programs.neovim.runtime.<name>.enable
-      # programs.neovim.runtime.<name>.text
-      # programs.neovim.runtime.<name>.target
-      # programs.neovim.runtime.<name>.source
+      # programs.neovim.runtime.<name>.enable = true;
+      # programs.neovim.runtime.<name>.text = "";
+      # programs.neovim.runtime.<name>.target = '' '';
+      # programs.neovim.runtime.<name>.source = "/foo/bar";
       configure =
       {
         customRC = ''
@@ -874,6 +874,7 @@
       zip
       unrar
       p7zip
+      unzip
 
       # network
       adguardhome
