@@ -646,14 +646,14 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace	=  [ "ComicCodeDemo-Regular" ];
-        sansSerif	=  [ "ComicCodeDemo-Regular" ];
-        serif		=  [ "ComicCodeDemo-Regular" ];
 	emoji		=  [ "nerdfonts" ];
+        monospace	=  [ "ComicMono" ];
+        sansSerif	=  [ "ComicMono" ];
+        serif		=  [ "ComicMono" ];
 	# emoji		=  [ "Material-Design-Icons" ];
-        # monospace	=  [ "ComicMono" ];
-        # sansSerif	=  [ "ComicMono" ];
-        # serif		=  [ "ComicMono" ];
+        # monospace	=  [ "ComicCodeDemo-Regular" ];
+        # sansSerif	=  [ "ComicCodeDemo-Regular" ];
+        # serif		=  [ "ComicCodeDemo-Regular" ];
       };
     };
   };

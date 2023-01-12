@@ -142,7 +142,7 @@
       enable = true;
       config = 
       {
-        sub-font = "ComicCodeDemo-Regular";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold
+        sub-font = "ComicMono";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold, ComicCodeDemo-Regular
         sub-font-size = 38;
         sub-color = "#FFFE25";  # yellow  # #FFFFFF - white
 	sub-border-color = "#000000";  # black  # #202020
@@ -165,8 +165,8 @@
       theme = "Nord"; 
       font = 
         {
-          # name = "ComicMono";
-          name = "ComicCodeDemo-Regular";
+          name = "ComicMono";
+          # name = "ComicCodeDemo-Regular";
           # name = "LexendZetta";
           # name = "ComicNeueAngular";
           size = 14;
