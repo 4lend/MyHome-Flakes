@@ -564,47 +564,47 @@
       '';
     };
 
-    ## NEOVIM ##
-    neovim = {
-      enable = true;
-      package = pkgs.neovim-unwrapped;
-      viAlias = true;
-      vimAlias = true;
-      defaultEditor = true;
-      # extraConfig = "lib.fileContents $HOME/.config/nvim.init.lua";
-      # programs.neovim.runtime.<name>.enable = true;
-      # programs.neovim.runtime.<name>.text = "";
-      # programs.neovim.runtime.<name>.target = '' '';
-      # programs.neovim.runtime.<name>.source = "/foo/bar";
-      configure =
-      {
-        customRC = ''
-          imap jj <Esc>
-          set number
-          set relativenumber
-          syntax on
-          inoremap jj <Esc>
-        '';
-        packages.myVimPackage = with pkgs.vimPlugins;
-        {
-          start = 
-          [ 
-            nord-vim 
-            nord-nvim
-            # fugitive
-            # yuck-vim
-            # vim_current_word
-            # vim-lightline-coc
-            # vimoutliner
-            # tmuxline-vim
-            # cmp-cmdline-history
-            # bufferline-nvim
-            # nordic-nvim
-            # onenord-nvim
-          ]; 
-        };
-      };
-    };
+    # ## NEOVIM ##
+    # neovim = {
+    #   enable = true;
+    #   package = pkgs.neovim-unwrapped;
+    #   viAlias = true;
+    #   vimAlias = true;
+    #   defaultEditor = true;
+    #   # extraConfig = "lib.fileContents $HOME/.config/nvim.init.lua";
+    #   # programs.neovim.runtime.<name>.enable = true;
+    #   # programs.neovim.runtime.<name>.text = "";
+    #   # programs.neovim.runtime.<name>.target = '' '';
+    #   # programs.neovim.runtime.<name>.source = "/foo/bar";
+    #   configure =
+    #   {
+    #     customRC = ''
+    #       imap jj <Esc>
+    #       set number
+    #       set relativenumber
+    #       syntax on
+    #       inoremap jj <Esc>
+    #     '';
+    #     packages.myVimPackage = with pkgs.vimPlugins;
+    #     {
+    #       start = 
+    #       [ 
+    #         nord-vim 
+    #         nord-nvim
+    #         # fugitive
+    #         # yuck-vim
+    #         # vim_current_word
+    #         # vim-lightline-coc
+    #         # vimoutliner
+    #         # tmuxline-vim
+    #         # cmp-cmdline-history
+    #         # bufferline-nvim
+    #         # nordic-nvim
+    #         # onenord-nvim
+    #       ]; 
+    #     };
+    #   };
+    # };
 
     ## GIT ##
     git = 
@@ -858,6 +858,10 @@
       giara
       slack
       tdesktop
+      weechat
+      element-web
+      element-desktop
+      schildichat-web
 
       # audio
       wireplumber
@@ -1042,6 +1046,10 @@
       kodi
       docker  
       docker-compose
+      wine
+      wine64
+      playonlinux
+      bottles
 
       # gnome extensions
       gnomeExtensions.simple-system-monitor

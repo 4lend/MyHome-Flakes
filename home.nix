@@ -363,19 +363,26 @@
       # signing.signByDefault = true;
     };
 
-    # ## NEOVIM ## 
-    # neovim =
-    # {
-    #   enable = true;
-    #   viAlias = true;
-    #   vimAlias = true; 
-    #   coc.enable = true;
-    #   extraConfig = 
-    #   ''
-    #     set number
-    #     set relativenumber
-    #   '';
-    # };
+    ## NEOVIM ## 
+    neovim =
+    {
+      enable = true;
+      viAlias = true;
+      vimAlias = true; 
+      coc.enable = true;
+      plugins = with pkgs.vimPlugins;
+      [
+        telescope-nvim
+	telescope-project-nvim
+	telescope-github-nvim
+	telescope-frecency-nvim
+      ];
+      extraConfig = 
+      ''
+        set number
+        set relativenumber
+      '';
+    };
 
     qutebrowser =
     {
