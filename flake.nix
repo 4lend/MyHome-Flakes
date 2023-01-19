@@ -22,10 +22,10 @@
 
       primaryUserInfo = 
       {
-        username = "r17";
-        fullName = "Rin";
-        email = "hi@rin.rocks";
-        nixConfigDirectory = "/Users/r17/.config/nixpkgs";
+        username = "alfurqani";
+        fullName = "Alfurqani";
+        email = "syifa.alfurqoni@gmail.com";
+        nixConfigDirectory = ":home/alfurqani/.config/nixpkgs";
       };
 
 
@@ -77,10 +77,10 @@
             ];
           };
 	};
-	homeManagerModules = 
-	{
-	  alfurqani-neovim = import ./home/neovim.nix;
-	};
+	# homeManagerModules = 
+	# {
+	#   alfurqani-neovim = import ./home/neovim.nix;
+	# };
     };
   
 }

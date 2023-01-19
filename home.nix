@@ -372,18 +372,53 @@
       coc.enable = true;
       plugins = with pkgs.vimPlugins;
       [
+        # plugins
         telescope-nvim
 	telescope-project-nvim
 	telescope-github-nvim
 	telescope-frecency-nvim
+	vim-lightline-coc
+	nvim-lightline-lsp
+	lightline-vim
+	lightline-lsp
+	nvim-treesitter
+
+	# colorschemes
+	onenord-nvim
+	nordic-nvim
+	nord-nvim
+	dracula-vim
+	dracula-nvim
       ];
+
       extraConfig = 
       ''
         set number
-        set relativenumber
+	set relativenumber
+	set nobackup
+	imap jj <Esc>
+	inoremap jj <Esc>
+	syntax on
       '';
+
+      settings = 
+      {
+        # vim = 
+	# {
+	#   
+	# };
+      };
+
+      # generatedConfigs = 
+      # {
+      #   viml = 
+      #   ''
+      #     imap jj <Esc>
+      #   '';
+      # };
     };
 
+    ## qutebrowser ##
     qutebrowser =
     {
     enable = true;
