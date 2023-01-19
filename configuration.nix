@@ -670,9 +670,12 @@
       lat	= "exa -1 -g -l --icons -s type -a -T";
       du	= "${pkgs.du-dust}/bin/dust";
 
-      nbs	= "sudo nixos-rebuild switch";
-      nbb	= "sudo nixos-rebuild build";
-      nbt	= "sudo nixos-rebuild test";
+      nb	= "nix build";
+      nbs	= "sudo nixos-rebuild switch --flake .#alfurqani";
+      nbsi	= "sudo nixos-rebuild switch --flake .#alfurqani --impure";
+      nbb	= "sudo nixos-rebuild build --flake .#alfurqani";
+      nbbi	= "sudo nixos-rebuild build --flake .#alfurqani --impure";
+      # nbt	= "sudo nixos-rebuild test";
       conix	= "sudo nvim /etc/nixos/configuration.nix";
       nc	= "nix-channel";
       ncl	= "nix-channel --list"; 
