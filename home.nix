@@ -47,31 +47,44 @@
 	dynamic_padding = true;
 	font =
 	{
-	  normal = { 
-	    family = "ComicMono"; 
-	    style = "Regular";
-	  };
-	  bold = { 
-	    family = "ComicMono"; 
-	    style = "Bold";
-	  };
-	  italic = { 
-	    family = "ComicMono"; 
-	    style = "Italic";
-	  };
 	  size = 14;
-
-	  ## not working
 	  # normal = { 
-	  #   family = "ComicCodeDemo-Regular"; 
+	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
 	  #   style = "Regular";
 	  # };
 	  # bold = { 
-	  #   family = "ComicCodeDemo-Regular"; 
+	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
 	  #   style = "Bold";
 	  # };
 	  # italic = { 
-	  #   family = "ComicCodeDemo-Regular"; 
+	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
+	  #   style = "Italic";
+	  # };
+
+	  # normal = { 
+	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	  #   style = "Regular";
+	  # };
+	  # bold = { 
+	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	  #   style = "Bold";
+	  # };
+	  # italic = { 
+	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	  #   style = "Italic";
+	  # };
+
+	  ## not working
+	  # normal = { 
+	  #   family = "ComicMono"; 
+	  #   style = "Regular";
+	  # };
+	  # bold = { 
+	  #   family = "ComicMono"; 
+	  #   style = "Bold";
+	  # };
+	  # italic = { 
+	  #   family = "ComicMono"; 
 	  #   style = "Italic";
 	  # };
 	};
@@ -142,7 +155,7 @@
       enable = true;
       config = 
       {
-        sub-font = "ComicMono";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold, ComicCodeDemo-Regular
+        sub-font = "JetBrains Mono NL Regular Nerd Font Complete";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold, ComicCodeDemo-Regular, JetBrains Mono NL Regular Nerd Font Complete
         sub-font-size = 38;
         sub-color = "#FFFE25";  # yellow  # #FFFFFF - white
 	sub-border-color = "#000000";  # black  # #202020

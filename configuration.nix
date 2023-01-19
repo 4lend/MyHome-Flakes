@@ -647,13 +647,13 @@
       enable = true;
       defaultFonts = {
 	emoji		=  [ "nerdfonts" ];
-        monospace	=  [ "ComicMono" ];
-        sansSerif	=  [ "ComicMono" ];
-        serif		=  [ "ComicMono" ];
+        monospace	=  [ "JetBrains Mono NL Regular Nerd Font Complete" ];
+        sansSerif	=  [ "JetBrains Mono NL Regular Nerd Font Complete" ];
+        serif		=  [ "JetBrains Mono NL Regular Nerd Font Complete" ];
+        # monospace	=  [ "ComicMono" ];
+        # sansSerif	=  [ "ComicMono" ];
+        # serif		=  [ "ComicMono" ];
 	# emoji		=  [ "Material-Design-Icons" ];
-        # monospace	=  [ "ComicCodeDemo-Regular" ];
-        # sansSerif	=  [ "ComicCodeDemo-Regular" ];
-        # serif		=  [ "ComicCodeDemo-Regular" ];
       };
     };
   };
@@ -1050,9 +1050,13 @@
       wine64
       playonlinux
       bottles
-      android-tools
-      adb-sync
-      adbfs-rootless
+      darling-dmg  # Darling lets you open macOS dmgs on Linux
+      android-tools  # Android SDK platform tools
+      adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
+      adbfs-rootless  # Mount Android phones on Linux with adb, no root required
+      gnirehtet  # Reverse tethering over adb for Android
+      autoadb  # Execute a command whenever a device is adb-connected
+      usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
 
       # gnome extensions
       gnomeExtensions.simple-system-monitor
