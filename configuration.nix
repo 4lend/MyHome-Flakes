@@ -529,6 +529,7 @@
         unbind c 
 	unbind n
 	unbind p
+	unbind l
 
         # window
         bind-key Space new-window
@@ -662,6 +663,18 @@
   ### PACKAGES ###
   environment = 
   {
+    variables = 
+    {
+      EDITOR = "nvim";
+      VISUAL = "nvim"; 
+    };
+
+    defaultPackages = with pkgs;
+    [
+      neovim
+      vim
+    ];
+
     shellAliases = 
     {
       l		= "exa -1 -g -l --icons -s type";
