@@ -46,11 +46,12 @@
 	     ./hardware-configuration.nix
 	     home-manager.nixosModules.home-manager 
 	     {
-	       ## hashtag means it has been implemented in home.nix
 	       home-manager.useGlobalPkgs = true;
 	       home-manager.useUserPackages = true;
+	       home-manager.users.alfurqani = import ./home.nix;
+
+	       ## hashtag means it has been implemented in home.nix
 	       # home-manager.users.alfurqani.home.homeDirectory = "/home/alfurqani";
-	       home-manager.users.alfurqani = import ./home.nix ;
 	       # home-manager.users.alfurqani.home.stateVersion = "23.05";
 	     }
 	   ];

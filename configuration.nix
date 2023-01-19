@@ -1050,6 +1050,9 @@
       wine64
       playonlinux
       bottles
+      android-tools
+      adb-sync
+      adbfs-rootless
 
       # gnome extensions
       gnomeExtensions.simple-system-monitor

@@ -165,10 +165,10 @@
       theme = "Nord"; 
       font = 
         {
-          name = "ComicMono";
-          # name = "ComicCodeDemo-Regular";
-          # name = "LexendZetta";
-          # name = "ComicNeueAngular";
+          # name = "ComicMono";
+          name = "JetBrains Mono NL Regular Nerd Font Complete";
+          # name = "JetBrains Mono NL Light Nerd Font Complete";
+          # name = "JetBrains Mono ExtraLight Nerd Font Complete";
           size = 14;
         };
       extraConfig =
@@ -401,13 +401,13 @@
 	syntax on
       '';
 
-      settings = 
-      {
-        # vim = 
-	# {
-	#   
-	# };
-      };
+      # settings = 
+      # {
+      #   # vim = 
+      #   # {
+      #   #   
+      #   # };
+      # };
 
       # generatedConfigs = 
       # {
