@@ -34,7 +34,9 @@
     # hostName = "nixos"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+    ## PROXY ##
     # Configure network proxy if necessary
+    proxy.allProxy = "http://192.168.49.1:8000";
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
@@ -996,6 +998,8 @@
       ytmdl
       aria
       python310Packages.aria2p
+      httpie
+      python310Packages.httpie
       uget
       uget-integrator
       axel 
