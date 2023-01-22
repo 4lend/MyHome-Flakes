@@ -40,7 +40,7 @@
     ## ALACRITTY ##
     alacritty = 
     {
-    enable = true;
+    # enable = true;
     settings = 
       {
         # opacity = 1.0;
@@ -380,8 +380,8 @@
     neovim =
     {
       enable = true;
-      viAlias = true;
-      vimAlias = true; 
+      viAlias = false;
+      vimAlias = false; 
       coc.enable = true;
       plugins = with pkgs.vimPlugins;
       [

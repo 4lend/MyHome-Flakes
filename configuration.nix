@@ -27,7 +27,7 @@
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
   services.xserver.videoDrivers = [];
 
-  ## NETWORKING ##
+  ## networking ##
   networking =
   {
     hostName = "nixos";
@@ -560,12 +560,16 @@
         bind -n M-] paste-buffer
         bind -n M-[ copy-mode
 
-	# rename
-	bind n rename-window
+	# # rename
+	# bind n rename-window
       '';
     };
 
     # ## NEOVIM ##
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
     # neovim = {
     #   enable = true;
     #   package = pkgs.neovim-unwrapped;
@@ -669,11 +673,12 @@
       VISUAL = "nvim"; 
     };
 
-    defaultPackages = with pkgs;
-    [
-      neovim
-      vim
-    ];
+    # defaultPackages = with pkgs;
+    # [
+    #   neovim
+    #   vim
+    #   nano
+    # ];
 
     shellAliases = 
     {
@@ -753,6 +758,7 @@
       pc	= "protonvpn-cli";
       nq	= "notepadqq";
       bs	= "bash";
+      wh	= "which";
 
       ud	= "udisksctl";
       udm	= "udisksctl mount -b";
