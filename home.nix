@@ -346,7 +346,7 @@
       settings = 
       {
         sub-langs = "en";
-	downloader = "httpie";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
+	downloader = "aria2c";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
 	# downloader = "aria2c";
 	write-subs = true;
 	write-auto-subs = true;
