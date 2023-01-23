@@ -732,6 +732,10 @@
       gbl	= "git branch --list";
       gp	= "git push -u";
       gl	= "git log";
+      gd	= "git diff";
+      grs	= "git reset";
+      grss	= "git reset --soft";
+      grsh	= "git reset --hard";
 
       y		= "yt-dlp";
       yy	= "yt-dlp --ignore-config --extract-audio --audio-quality 0";
