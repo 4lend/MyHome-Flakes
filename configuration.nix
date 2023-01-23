@@ -41,6 +41,7 @@
     proxy.httpsProxy = "http://192.168.49.1:8000";
     proxy.default = "http://192.168.49.1:8000";
     proxy.ftpProxy = "http://192.168.49.1:8000";
+    proxy.rsyncProxy = "http://192.168.49.1:8000";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
@@ -277,21 +278,21 @@
     #   };
     # };
 
-    ## DNSCRYPT-PROXY2 ##
-    dnscrypt-proxy2 =
-    {
-      enable = true;
-      upstreamDefaults = true;
-      settings = 
-      {
-        sources.public-resolvers = {
-          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
-          cache_file = "public-resolvers.md";
-          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-          refresh_delay = 72;
-        };
-      };
-    };
+    # ## DNSCRYPT-PROXY2 ##
+    # dnscrypt-proxy2 =
+    # {
+    #   enable = true;
+    #   upstreamDefaults = true;
+    #   settings = 
+    #   {
+    #     sources.public-resolvers = {
+    #       urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
+    #       cache_file = "public-resolvers.md";
+    #       minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+    #       refresh_delay = 72;
+    #     };
+    #   };
+    # };
 
     # ## TOR ##
     # tor =
@@ -301,25 +302,25 @@
     #   openFirewall = true;
     # };
 
-    ## CLOUDFLARE-CFDYNDNS ##
-    cfdyndns = 
-    {
-      enable = true;
-      email = "syifa.alfurqoni@gmail.com";
-      apikeyFile = "https://api.cloudflare.com/client/v4";
-    };
+    # ## CLOUDFLARE-CFDYNDNS ##
+    # cfdyndns = 
+    # {
+    #   enable = true;
+    #   email = "syifa.alfurqoni@gmail.com";
+    #   apikeyFile = "https://api.cloudflare.com/client/v4";
+    # };
 
-    ## cloudflare-dyndns ##
-    cloudflare-dyndns =
-    {
-      enable = true;
-      ipv4 = true;
-      ipv6 = true;
-      proxied = true;
-      domains = [];
-      deleteMissing = false;
-      apiTokenFile = "";
-    };
+    # ## cloudflare-dyndns ##
+    # cloudflare-dyndns =
+    # {
+    #   enable = true;
+    #   ipv4 = true;
+    #   ipv6 = true;
+    #   proxied = true;
+    #   domains = [];
+    #   deleteMissing = false;
+    #   apiTokenFile = "";
+    # };
 
     # ## cloudflare, custom, google, opendns, quad9
     # https-dns-proxy = 
@@ -807,8 +808,7 @@
 
     systemPackages = with pkgs;
     [
-      javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm s
-      yarn  jq  nim  nimble-unwrapped
+      javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm  yarn  jq  nim  nimble-unwrapped
 
       ascii
       atool
