@@ -572,16 +572,12 @@
     };
 
     # ## NEOVIM ##
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
     # neovim = {
     #   enable = true;
+    #   defaultEditor = true;
     #   package = pkgs.neovim-unwrapped;
     #   viAlias = true;
     #   vimAlias = true;
-    #   defaultEditor = true;
     #   # extraConfig = "lib.fileContents $HOME/.config/nvim.init.lua";
     #   # programs.neovim.runtime.<name>.enable = true;
     #   # programs.neovim.runtime.<name>.text = "";
