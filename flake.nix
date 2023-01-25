@@ -11,6 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
+    neovim-flake = 
+    {
+      url = github:jordanisaacs/neovim-flake;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
