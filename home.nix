@@ -8,10 +8,11 @@
   home.homeDirectory = "/home/alfurqani";
   home.stateVersion = "23.05";
 
-  # imports = 
-  # [
-  #   ./modules
-  # ];
+  imports = 
+  [
+    # ./neovim
+  ];
+
   home = 
   {
     ## packages ##
