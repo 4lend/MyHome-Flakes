@@ -10,7 +10,7 @@
 
   imports = 
   [
-    # ./neovim
+    ./neovim
   ];
 
   home = 
