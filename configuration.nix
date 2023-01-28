@@ -1021,6 +1021,10 @@
       joplin-desktop
       kanboard
 
+      # cloud drive
+      rclone
+      rclone-browser
+
       # usb bootable
       woeusb
       woeusb-ng

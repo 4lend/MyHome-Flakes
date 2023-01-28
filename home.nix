@@ -347,7 +347,7 @@
       settings = 
       {
         sub-langs = "en";
-	downloader = "curl";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
+	downloader = "aria2c";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
 	write-subs = true;
 	write-auto-subs = true;
         # proxy = "http://192.168.49.1:8000";
