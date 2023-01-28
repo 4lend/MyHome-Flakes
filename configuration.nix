@@ -34,15 +34,15 @@
     # hostName = "nixos"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    ## PROXY ##
-    # Configure network proxy if necessary
-    proxy.allProxy = "http://192.168.49.1:8000";
-    proxy.httpProxy = "http://192.168.49.1:8000";
-    proxy.httpsProxy = "http://192.168.49.1:8000";
-    proxy.default = "http://192.168.49.1:8000";
-    proxy.ftpProxy = "http://192.168.49.1:8000";
-    proxy.rsyncProxy = "http://192.168.49.1:8000";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # ## PROXY ##
+    # # Configure network proxy if necessary
+    # proxy.allProxy = "http://192.168.49.1:8000";
+    # proxy.httpProxy = "http://192.168.49.1:8000";
+    # proxy.httpsProxy = "http://192.168.49.1:8000";
+    # proxy.default = "http://192.168.49.1:8000";
+    # proxy.ftpProxy = "http://192.168.49.1:8000";
+    # proxy.rsyncProxy = "http://192.168.49.1:8000";
+    # # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networkmanager =
@@ -480,7 +480,7 @@
     #   fuzzyCompletion = true;
     # };
 
-      ## TMUX ##
+     ## TMUX ##
     tmux = 
     {
       enable = true;
@@ -526,6 +526,7 @@
 
         set -s escape-time 0
         set -g base-index 1
+	set -g @tilish-default 'main-vertical'
 
         # bind r source-file $HOME/.config/tmux/tmux.conf \; display "Reloaded!"
         bind r source-file /etc/tmux.conf \; display "Reloaded!"
@@ -633,8 +634,9 @@
   fonts = 
   {
     enableDefaultFonts = true;
-    fonts = with pkgs; [
-      nerdfonts
+    fonts = with pkgs; 
+    [
+      ( nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       nerd-font-patcher
       comic-mono
       comic-neue
@@ -827,8 +829,9 @@
       input-remapper
       kitty-themes
       libsForQt5.dolphin
-      libreoffice
+      # libreoffice
       inkscape
+      mdds  # need by libreoffice
       nomacs
       notepadqq
       okular
@@ -841,14 +844,13 @@
       python310Packages.protonvpn-nm-lib
       qbittorrent
       shotwell
-      simplenote
       steam
       subdl
       speedtest-cli
-      standardnotes
       trash-cli
       ueberzug
-      wpsoffice
+      # wpsoffice
+      libtiff  # need by wpsoffice
       xorg.xkill
 
       # python
@@ -895,7 +897,8 @@
       wireplumber
       easyeffects
       pipewire
-      pipewire-media-session
+      # pipewire-media-session  # fail compile #
+      ninja
       ffmpeg
       freac  boca
 
@@ -921,16 +924,14 @@
       cmusfm
       cava
       streamlink
-      moc
-      musikcube
-      mp3blaster
       python310Packages.deemix  
       python310Packages.deezer-py  
       python310Packages.deezer-python  
       nuclear
       spotify
       spotify-tui
-      librespot
+      termusic
+      mps-youtube
 
       # terminal
       alacritty
@@ -969,6 +970,8 @@
       navi  # An interactive cheatsheet tool for the command-line and application launchers
       tldr  # Simplified and community-driven man pages
       tealdeer  # A very fast implementation of tldr in Rust
+      wiki-tui  # A simple and easy to use Wikipedia Text User Interface
+      fltrdr  # A TUI text reader for the terminal
 
       # text editor
       geany
@@ -993,7 +996,7 @@
       tor-browser-bundle-bin
       google-chrome
       opera
-      palemoon
+      # palemoon
       epiphany
 
       # downloader
@@ -1010,6 +1013,13 @@
       downonspot  # A spotify downloader writter in rust
       spotdl  # Download your Spotify playlists and songs along with album art and metadata
       # motrix  # handle by flatpak
+
+      # productive
+      simplenote
+      standardnotes
+      joplin
+      joplin-desktop
+      kanboard
 
       # usb bootable
       woeusb
@@ -1036,6 +1046,10 @@
       xfce.thunar
       xfce.thunar-archive-plugin
       xfce.tumbler
+
+      # qt package
+      libsForQt5.dolphin
+      libsForQt5.kturtle
 
       # shell
       starship
