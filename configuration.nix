@@ -897,7 +897,7 @@
       wireplumber
       easyeffects
       pipewire
-      # pipewire-media-session  # fail compile #
+      # pipewire-media-session
       ninja
       ffmpeg
       freac  boca
