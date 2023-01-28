@@ -97,7 +97,8 @@
       ];
 
       extraConfig = ''
-        luafile ./lua/settings.lua
+        # luafile ./lua/settings.lua
+        luafile ~/MyHome-Flakes/neovim/lua/maps.lua
         # luafile ~/.config/dotfiles/modules/users/nvim/lua/maps.lua
       '';
     };

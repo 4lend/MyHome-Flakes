@@ -14,4 +14,6 @@ map("n", "K", "<cmd>Lspsaga hover_doc<CR>", {noremap = true})
 map("n", "<C-k>", "<cmd>Lspsaga signature_help<CR>", {noremap = true})
 map("n", "gh", "<cmd>Lspsaga Lspsaga lsp_finder<CR>", {noremap = true})
 
+map("i", "jk", "<esc>", {noremap = true})
+
 vim.cmd([[let g:floaterm_keymap_toggle = '<F12>']])
