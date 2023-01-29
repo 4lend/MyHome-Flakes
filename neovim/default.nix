@@ -10,7 +10,7 @@
     ];
 
     programs.neovim = {
-      # enable = true;
+      enable = true;
       plugins = with pkgs.vimPlugins; [ 
         vim-nix
         plenary-nvim
