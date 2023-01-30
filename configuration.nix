@@ -745,6 +745,7 @@
       d		= "cd ..";
       v		= "vim";
       nv	= "nvim";
+      vd  = "neovide";
       p		= "spacevim";
       t 	= "tmux";
       e		= "exit";
