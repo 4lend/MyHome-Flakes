@@ -36,12 +36,12 @@
           '';
         }
 
-        # {
-        #   plugin = nvim-cmp;
-        #   config = ''
-        #     luafile ~/MyHome-Flakes/neovim/lua/config/cmp.lua
-        #   '';
-        # }
+        {
+          plugin = nvim-cmp;
+          config = ''
+            luafile ~/MyHome-Flakes/neovim/lua/config/cmp.lua
+          '';
+        }
 
         {
           plugin = lspkind-nvim;
