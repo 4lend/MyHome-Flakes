@@ -946,7 +946,6 @@
       vim
       page
       duf
-      neovim-unwrapped
       spacevim
       nvimpager
       neovide
