@@ -84,6 +84,20 @@
             luafile ~/MyHome-Flakes/neovim/lua/config/treesitter.lua
           '';
         }
+
+        {
+          plugin = nord-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/neovim/lua/config/nord.lua
+          '';
+        }
+
+        {
+          plugin = nordic-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/neovim/lua/config/nordic.lua
+          '';
+        }
       ];
 
       extraConfig = ''
