@@ -892,6 +892,18 @@
       element-web
       element-desktop
       schildichat-web
+      # twitter-archive https://github.com/jarulsamy/Twitter-Archive
+      python310Packages.tweepy
+      python310Packages.charset-normalizer
+      python39Packages.charset-normalizer
+      python310Packages.urllib3
+      python310Packages.tqdm
+      python310Packages.python-dotenv
+      python310Packages.oauthlib
+      python310Packages.idna
+      python310Packages.certifi
+      python310Packages.requests
+      python310Packages.requests-oauthlib
 
       # audio
       wireplumber
