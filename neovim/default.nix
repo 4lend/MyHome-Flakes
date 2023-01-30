@@ -98,6 +98,13 @@
             luafile ~/MyHome-Flakes/neovim/lua/config/nordic.lua
           '';
         }
+        
+        {
+          plugin = popup-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/neovim/lua/config/popup-nvim.lua
+          '';
+        }
       ];
 
       extraConfig = ''
