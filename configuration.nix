@@ -957,6 +957,7 @@
       pistol
       terminal-typeracer
       vim
+      neovim-remote
       page
       duf
       spacevim
