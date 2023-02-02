@@ -8,9 +8,10 @@
   home.homeDirectory = "/home/alfurqani";
   home.stateVersion = "23.05";
 
-  imports = 
+  imports = # builtins.concatMap import
   [
-    ./neovim
+    # ./neovim
+    # ./tmux
   ];
 
   home = 
@@ -347,13 +348,13 @@
       settings = 
       {
         sub-langs = "en,id";
-	downloader = "aria2c";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
-	write-subs = true;
-	write-auto-subs = true;
+	      downloader = "aria2c";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
+	      write-subs = true;
+	      write-auto-subs = true;
         # proxy = "http://192.168.49.1:8000";
-	# video-multistream = true;
-	# list-formats = true;
-	# progress = true;
+        # video-multistream = true;
+	      # list-formats = true;
+	      # progress = true;
       };
       # extraConfig = 
       # "
@@ -377,60 +378,61 @@
       # signing.signByDefault = true;
     };
 
-    # ## NEOVIM ## 
-    # neovim =
-    # {
-    #   enable = true;
-    #   viAlias = false;
-    #   vimAlias = false; 
-    #   coc.enable = true;
-    #   plugins = with pkgs.vimPlugins;
-    #   [
-    #     # plugins
-    #     telescope-nvim
-    #     telescope-project-nvim
-    #     telescope-github-nvim
-    #     telescope-frecency-nvim
-    #     vim-lightline-coc
-    #     nvim-lightline-lsp
-    #     lightline-vim
-    #     lightline-lsp
-    #     nvim-treesitter
+    ## NEOVIM ## 
+    neovim =
+    {
+      enable = true;
+      viAlias = false;
+      vimAlias = false; 
+      coc.enable = true;
+      plugins = with pkgs.vimPlugins;
+      [
+        # plugins
+        telescope-nvim
+        telescope-project-nvim
+        telescope-github-nvim
+        telescope-frecency-nvim
+        vim-lightline-coc
+        nvim-lightline-lsp
+        lightline-vim
+        lightline-lsp
+        nvim-treesitter
 
-    #     # colorschemes
-    #     onenord-nvim
-    #     nordic-nvim
-    #     nord-nvim
-    #     dracula-vim
-    #     dracula-nvim
-    #   ];
+        # colorschemes
+        onenord-nvim
+        nordic-nvim
+        nord-nvim
+        dracula-vim
+        dracula-nvim
+        kanagawa-nvim
+      ];
 
-    #   extraConfig = 
-    #   ''
-    #     set number
-    #     set relativenumber
-    #     set nobackup
-    #     imap jj <Esc>
-    #     inoremap jj <Esc>
-    #     syntax on
-    #   '';
+      extraConfig = 
+      ''
+        set number
+        set relativenumber
+        set nobackup
+        imap jj <Esc>
+        inoremap jj <Esc>
+        syntax on
+      '';
 
-    #   # settings = 
-    #   # {
-    #   #   # vim = 
-    #   #   # {
-    #   #   #   
-    #   #   # };
-    #   # };
+      # settings = 
+      # {
+      #   # vim = 
+      #   # {
+      #   #   
+      #   # };
+      # };
 
-    #   # generatedConfigs = 
-    #   # {
-    #   #   viml = 
-    #   #   ''
-    #   #     imap jj <Esc>
-    #   #   '';
-    #   # };
-    # };
+      # generatedConfigs = 
+      # {
+      #   viml = 
+      #   ''
+      #     imap jj <Esc>
+      #   '';
+      # };
+    };
 
     ## qutebrowser ##
     qutebrowser =
