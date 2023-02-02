@@ -1,6 +1,6 @@
-local nord = require('nord')
-
-nord.setup({})
+--local nord = require('nord')
+--
+--nord.setup({})
 
 -- local nord = require{'nord'}
 -- nord.setup({})

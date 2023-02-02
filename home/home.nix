@@ -8,10 +8,11 @@
   home.homeDirectory = "/home/alfurqani";
   home.stateVersion = "23.05";
 
-  imports = # builtins.concatMap import
+  # imports = # builtins.concatMap import
+  imports = 
   [
-    # ./neovim
-    # ./tmux
+    ./neovim
+    ./tmux
   ];
 
   home = 
@@ -44,55 +45,55 @@
     {
     # enable = true;
     settings = 
-      {
-        # opacity = 1.0;
-	dynamic_padding = true;
-	font =
-	{
-	  size = 14;
-	  # normal = { 
-	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	  #   style = "Regular";
-	  # };
-	  # bold = { 
-	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	  #   style = "Bold";
-	  # };
-	  # italic = { 
-	  #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	  #   style = "Italic";
-	  # };
+    {
+    # opacity = 1.0;
+	  dynamic_padding = true;
+	  font =
+	  {
+	    size = 14;
+	    # normal = { 
+	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
+	    #   style = "Regular";
+	    # };
+	    # bold = { 
+	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
+	    #   style = "Bold";
+	    # };
+	    # italic = { 
+	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
+	    #   style = "Italic";
+	    # };
 
-	  # normal = { 
-	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	  #   style = "Regular";
-	  # };
-	  # bold = { 
-	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	  #   style = "Bold";
-	  # };
-	  # italic = { 
-	  #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	  #   style = "Italic";
-	  # };
+	    # normal = { 
+	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	    #   style = "Regular";
+	    # };
+	    # bold = { 
+	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	    #   style = "Bold";
+	    # };
+	    # italic = { 
+	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
+	    #   style = "Italic";
+	    # };
 
-	  ## not working
-	  # normal = { 
-	  #   family = "ComicMono"; 
-	  #   style = "Regular";
-	  # };
-	  # bold = { 
-	  #   family = "ComicMono"; 
-	  #   style = "Bold";
-	  # };
-	  # italic = { 
-	  #   family = "ComicMono"; 
-	  #   style = "Italic";
-	  # };
-	};
-	selection.save_to_clipboard = true; 
-	window =
-	{
+	    ## not working
+	    # normal = { 
+	    #   family = "ComicMono"; 
+	    #   style = "Regular";
+	    # };
+	    # bold = { 
+	    #   family = "ComicMono"; 
+	    #   style = "Bold";
+	    # };
+	    # italic = { 
+	    #   family = "ComicMono"; 
+	    #   style = "Italic";
+	    # };
+	  };
+	  selection.save_to_clipboard = true; 
+	  window =
+	  {
 	  opacity = 1.00;
 	  # opacity = 0.90;
 	  decorations = "none";
@@ -101,7 +102,7 @@
 	    x = 5;
 	    y = 5;
 	  };
-          startup_mode = "Fullscreen";
+    startup_mode = "Fullscreen";
 	  schemes =
 	  {
 	    ### Doom One ###
@@ -378,61 +379,61 @@
       # signing.signByDefault = true;
     };
 
-    ## NEOVIM ## 
-    neovim =
-    {
-      enable = true;
-      viAlias = false;
-      vimAlias = false; 
-      coc.enable = true;
-      plugins = with pkgs.vimPlugins;
-      [
-        # plugins
-        telescope-nvim
-        telescope-project-nvim
-        telescope-github-nvim
-        telescope-frecency-nvim
-        vim-lightline-coc
-        nvim-lightline-lsp
-        lightline-vim
-        lightline-lsp
-        nvim-treesitter
+    # ## NEOVIM ## 
+    # neovim =
+    # {
+    #   enable = true;
+    #   viAlias = false;
+    #   vimAlias = false; 
+    #   coc.enable = true;
+    #   plugins = with pkgs.vimPlugins;
+    #   [
+    #     # plugins
+    #     telescope-nvim
+    #     telescope-project-nvim
+    #     telescope-github-nvim
+    #     telescope-frecency-nvim
+    #     vim-lightline-coc
+    #     nvim-lightline-lsp
+    #     lightline-vim
+    #     lightline-lsp
+    #     nvim-treesitter
 
-        # colorschemes
-        onenord-nvim
-        nordic-nvim
-        nord-nvim
-        dracula-vim
-        dracula-nvim
-        kanagawa-nvim
-      ];
+    #     # colorschemes
+    #     onenord-nvim
+    #     nordic-nvim
+    #     nord-nvim
+    #     dracula-vim
+    #     dracula-nvim
+    #     kanagawa-nvim
+    #   ];
 
-      extraConfig = 
-      ''
-        set number
-        set relativenumber
-        set nobackup
-        imap jj <Esc>
-        inoremap jj <Esc>
-        syntax on
-      '';
+    #   extraConfig = 
+    #   ''
+    #     set number
+    #     set relativenumber
+    #     set nobackup
+    #     imap jj <Esc>
+    #     inoremap jj <Esc>
+    #     syntax on
+    #   '';
 
-      # settings = 
-      # {
-      #   # vim = 
-      #   # {
-      #   #   
-      #   # };
-      # };
+    #   # settings = 
+    #   # {
+    #   #   # vim = 
+    #   #   # {
+    #   #   #   
+    #   #   # };
+    #   # };
 
-      # generatedConfigs = 
-      # {
-      #   viml = 
-      #   ''
-      #     imap jj <Esc>
-      #   '';
-      # };
-    };
+    #   # generatedConfigs = 
+    #   # {
+    #   #   viml = 
+    #   #   ''
+    #   #     imap jj <Esc>
+    #   #   '';
+    #   # };
+    # };
 
     ## qutebrowser ##
     qutebrowser =

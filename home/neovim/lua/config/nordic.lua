@@ -1,5 +1,5 @@
-local nord = require('nordic')
-nord.setup({})
+-- local nord = require('nordic')
+-- nord.setup({})
 
 -- require('nordic').colorscheme({
 --     underline_option = 'none',

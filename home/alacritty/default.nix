@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.tmux = 
+  programs.alacritty = 
   {
     enable = true;
   };

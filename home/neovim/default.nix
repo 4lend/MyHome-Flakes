@@ -25,91 +25,91 @@
         {
           plugin = lualine-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/lualine.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/lualine.lua
           '';
         }
 
         {
           plugin = nvim-tree-lua;
           config = '' 
-            luafile ~/MyHome-Flakes/neovim/lua/config/tree.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/tree.lua
           '';
         }
 
         {
           plugin = nvim-cmp;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/cmp.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/cmp.lua
           '';
         }
 
         {
           plugin = lspkind-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/lspkind.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/lspkind.lua
           '';
         }
 
         {
           plugin = telescope-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/telescope.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/telescope.lua
           '';
         }
 
         {
           plugin = indent-blankline-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/indent.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/indent.lua
           '';
         }
 
         {
           plugin = nvim-lspconfig;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/lsp.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
           '';
         }
 
         {
           plugin = bufferline-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/bufferline.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/bufferline.lua
           '';
         }
 
         {
           plugin = nvim-treesitter;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/treesitter.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/treesitter.lua
           '';
         }
 
         {
           plugin = nord-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/nord.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/nord.lua
           '';
         }
 
         {
           plugin = nordic-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/nordic.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/nordic.lua
           '';
         }
         
         {
           plugin = popup-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/neovim/lua/config/popup-nvim.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/popup-nvim.lua
           '';
         }
       ];
 
       extraConfig = ''
-        luafile ~/MyHome-Flakes/neovim/lua/settings.lua
-        luafile ~/MyHome-Flakes/neovim/lua/maps.lua
+        luafile ~/MyHome-Flakes/home/neovim/lua/settings.lua
+        luafile ~/MyHome-Flakes/home/neovim/lua/maps.lua
       '';
     };
   };
