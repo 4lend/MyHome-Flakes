@@ -20,8 +20,28 @@
         cmp-vsnip
         auto-pairs
         vim-vsnip
+        vim-css-color  # A very fast, multi-syntax context-sensitive color name highlighter
+        # theme
         kanagawa-nvim
-
+        tokyonight-nvim
+        palenight-vim
+        nightfox-nvim
+        everforest
+        edge
+        gruvbox
+        nord-vim
+        nord-nvim
+        nordic-nvim
+        onenord-nvim
+        sonokai
+        oceanic-next
+        oceanic-material
+        dracula-nvim
+        material-nvim
+        nightfox-nvim
+        awesome-vim-colorschemes
+        papercolor-theme
+        aurora
         {
           plugin = lualine-nvim;
           config = ''

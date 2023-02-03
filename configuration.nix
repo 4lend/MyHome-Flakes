@@ -830,7 +830,7 @@
       input-remapper
       kitty-themes
       libsForQt5.dolphin
-      # libreoffice
+      libreoffice
       inkscape
       mdds  # need by libreoffice
       nomacs
@@ -944,7 +944,7 @@
       spotify
       spotify-tui
       termusic
-      mps-youtube
+      yewtube
 
       # terminal
       alacritty
