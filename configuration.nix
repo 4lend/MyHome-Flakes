@@ -813,7 +813,6 @@
       yewtube
 
       # terminal
-      alacritty
       kitty
       git
       ranger

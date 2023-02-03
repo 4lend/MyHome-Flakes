@@ -11,6 +11,7 @@
   # imports = # builtins.concatMap import
   imports = 
   [
+    ./alacritty
     ./neovim
     ./tmux
   ];
@@ -39,118 +40,6 @@
   programs =
   {
     home-manager.enable = true;
-
-    ## ALACRITTY ##
-    alacritty = 
-    {
-    # enable = true;
-    settings = 
-    {
-    # opacity = 1.0;
-	  dynamic_padding = true;
-	  font =
-	  {
-	    size = 14;
-	    # normal = { 
-	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	    #   style = "Regular";
-	    # };
-	    # bold = { 
-	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	    #   style = "Bold";
-	    # };
-	    # italic = { 
-	    #   family = "Victor Mono Regular Nerd Font Complete Mono"; 
-	    #   style = "Italic";
-	    # };
-
-	    # normal = { 
-	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	    #   style = "Regular";
-	    # };
-	    # bold = { 
-	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	    #   style = "Bold";
-	    # };
-	    # italic = { 
-	    #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
-	    #   style = "Italic";
-	    # };
-
-	    ## not working
-	    # normal = { 
-	    #   family = "ComicMono"; 
-	    #   style = "Regular";
-	    # };
-	    # bold = { 
-	    #   family = "ComicMono"; 
-	    #   style = "Bold";
-	    # };
-	    # italic = { 
-	    #   family = "ComicMono"; 
-	    #   style = "Italic";
-	    # };
-	  };
-	  selection.save_to_clipboard = true; 
-	  window =
-	  {
-	  opacity = 1.00;
-	  # opacity = 0.90;
-	  decorations = "none";
-	  padding = 
-	  {
-	    x = 5;
-	    y = 5;
-	  };
-    startup_mode = "Fullscreen";
-	  schemes =
-	  {
-	    ### Doom One ###
-            DoomOne = 
-	    {
-              primary =
-	      {
-                background = "#282c34";
-                foreground = "#bbc2cf";
-	      };
-              cursor =
-	      {
-                text = "CellBackground";
-                cursor = "#528bff";
-	      };
-              selection =
-	      {
-                text = "CellForeground";
-                background = "#3e4451";
-	      };
-              normal =
-	      {
-                black =   "#1c1f24";
-                red =     "#ff6c6b";
-                green =   "#98be65";
-                yellow =  "#da8548";
-                blue =    "#51afef";
-                magenta = "#c678dd";
-                cyan =    "#5699af";
-                white =   "#202328";
-	      };
-              bright =             
-	      {
-                black =   "#5b6268";
-                red =     "#da8548";
-                green =   "#4db5bd";
-                yellow =  "#ecbe7b";
-                blue =    "#3071db";   # This is 2257a0 in Doom Emacs but I lightened it.
-                magenta = "#a9a1e1";
-                cyan =    "#46d9ff";
-                white =   "#dfdfdf";
-	      };
-	    };
-	    colors = "DoomOne";
-	  };
-	};
-      };
-    };
 
     ## MPV ##
     mpv =
