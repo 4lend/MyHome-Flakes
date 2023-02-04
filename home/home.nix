@@ -41,67 +41,6 @@
   {
     home-manager.enable = true;
 
-    ## MPV ##
-    mpv =
-    {
-      enable = true;
-      config = 
-      {
-        sub-font = "JetBrains Mono NL ExtraBold Nerd Font Complete";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold, ComicCodeDemo-Regular, JetBrains Mono NL Regular Nerd Font Complete, JetBrains Mono NL ExtraBold Nerd Font Complete
-        sub-font-size = 38;
-        sub-color = "#FFFE25";  # yellow  # #FFFFFF - white
-	      sub-border-color = "#000000";  # black  # #202020
-	      sub-border-size = "3";  # default
-	      sub-bold = "no";
-	      sub-pos = 100;
-        window = "fullscreen";
-        speed = 1.15;
-        playback = "save-position-on-quit";
-	      fullscreen = "yes";
-	      save-position-on-quit = "yes";
-	      sub-ass-override = "force";
-      };
-    };
-
-    ## KITTY ##
-    kitty = 
-    {
-      enable = true;
-      theme = "Nord"; 
-      font = {
-          # name = "ComicMono";
-          name = "JetBrains Mono NL Regular Nerd Font Complete";
-          # name = "JetBrains Mono NL Light Nerd Font Complete";
-          # name = "JetBrains Mono ExtraLight Nerd Font Complete";
-          size = 14;
-      };
-      extraConfig = ''
-	      cursor_shape block
-
-	      adjust_line_height 0
-	      adjust_colomn_width 0
-
-	      remember_window_size yes
-
-	      hide_window_decorations yes
-
-	      confirm_os_window_close 0
-
-	      fish_color_valid_path --none
-
-	      toggle_fullscreen yes
-	      macos_traditional_fullscreen yes
-	      --start-as
-      '';
-      keybindings = {
-        "ctrl+shift+h" = "scroll_line_up";
-	      "ctrl+shift+l" = "scroll_line_down";
-	      "ctrl+shift+k" = "scroll_page_up";
-	      "ctrl+shift+j" = "scroll_page_down";
-	      "ctrl+enter" = "launch --cwd=current";
-      };
-    };
-
     # ## FISH ##
     # fish = 
     # {
