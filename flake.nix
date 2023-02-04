@@ -5,14 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-    home-manager = 
-    {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
-    neovim-flake = 
-    {
+    neovim-flake = {
       url = github:jordanisaacs/neovim-flake;
     };
   };
@@ -24,8 +22,7 @@
       config = { allowUnfree = true; };
       lib = nixpkgs.lib;
 
-      primaryUserInfo = 
-      {
+      primaryUserInfo = {
         username = "alfurqani";
         fullName = "Alfurqani";
         email = "syifa.alfurqoni@gmail.com";
@@ -34,58 +31,34 @@
 
 
     in {
-      nixosConfigurations = 
-      {
-        # import = ./outputs/nixos-conf.nix
-	# { 
-	#   inherit inputs system; 
-	# }
-
-        alfurqani = lib.nixosSystem
-        {
+      nixosConfigurations = {
+        alfurqani = lib.nixosSystem {
           inherit system ;
-           modules = 
-	   [ 
-	     ./configuration.nix 
-	     ./hardware-configuration.nix
-	     home-manager.nixosModules.home-manager 
-	     {
-	       home-manager.useGlobalPkgs = true;
-	       home-manager.useUserPackages = true;
-	       home-manager.users.alfurqani = import ./home/home.nix;
-
-	       ## hashtag means it has been implemented in home.nix
-	       # home-manager.users.alfurqani.home.homeDirectory = "/home/alfurqani";
-	       # home-manager.users.alfurqani.home.stateVersion = "23.05";
-	     }
-	   ];
+            modules = [
+	            ./configuration.nix 
+	            ./hardware-configuration.nix
+	            home-manager.nixosModules.home-manager {
+	              home-manager.useGlobalPkgs = true;
+	              home-manager.useUserPackages = true;
+	              home-manager.users.alfurqani = import ./home/home.nix;
+	            }
+	          ];
         };
       };
 
-        homeConfigurations = 
-	{
-	  alfurqani = home-manager.lib.homeManagerConfiguration
-          {
-            inherit pkgs;
-            modules = 
-            [
-	      ./home/home.nix
-              ({pkgs, ...}:
-              {
-	        home = 
-	        {
-                  # packages = with pkgs;
-                  # [
-                  # ];
-	        }; 
-              })
-            ];
-          };
-	};
-	# homeManagerModules = 
-	# {
-	#   alfurqani-neovim = import ./home/neovim.nix;
-	# };
+      homeConfigurations = {
+	      alfurqani = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+	          ./home/home.nix
+            ({pkgs, ...}:
+            {
+	          home = {
+              packages = with pkgs; [  ];
+	          }; 
+            })
+          ];
+        };
+	    };
     };
-  
 }

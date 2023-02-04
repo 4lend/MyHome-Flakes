@@ -797,7 +797,6 @@
       openssl
 
       # media player
-      mpv
       vlc
       cmus
       cmusfm
@@ -813,7 +812,6 @@
       yewtube
 
       # terminal
-      kitty
       git
       ranger
       joshuto
@@ -1073,4 +1071,5 @@
     extraOptions = "experimental-features = nix-command flakes";
     package = pkgs.nix;
   };
+  # nix.registry.alfurqani.flake = "nixpkgs";
 }
