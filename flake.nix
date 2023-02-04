@@ -26,7 +26,7 @@
         username = "alfurqani";
         fullName = "Alfurqani";
         email = "syifa.alfurqoni@gmail.com";
-        nixConfigDirectory = ":home/alfurqani/.config/nixpkgs";
+        nixConfigDirectory = "/home/alfurqani/.config/nixpkgs";
       };
 
 
