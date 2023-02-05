@@ -14,13 +14,14 @@
     ./mpv
     ./neovim
     ./tmux
+    ./git
+    ./yt-dlp
   ];
 
   home = 
   {
     ## packages ##
-    packages = with pkgs;
-    [
+    packages = with pkgs; [
       cloudflare-warp
     ];
 
