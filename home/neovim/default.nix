@@ -28,6 +28,7 @@
         Vundle-vim
         nvim-lastplace
         delimitMate
+        nvim-web-devicons
         # theme
         kanagawa-nvim
         tokyonight-nvim
@@ -143,7 +144,14 @@
         {
           plugin = diffview-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/barbar-nvim.lua
+          '';
+        }
+
+        {
+          plugin = barbar-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
           '';
         }
 
