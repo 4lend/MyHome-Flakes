@@ -21,6 +21,13 @@
         auto-pairs
         vim-vsnip
         vim-css-color  # A very fast, multi-syntax context-sensitive color name highlighter
+        goyo-vim
+        vimwiki
+        vim-markdown
+        coc-markdownlint
+        Vundle-vim
+        nvim-lastplace
+        delimitMate
         # theme
         kanagawa-nvim
         tokyonight-nvim
@@ -132,6 +139,13 @@
             luafile ~/MyHome-Flakes/home/neovim/lua/config/everforest.lua
           '';
         }
+
+        # {
+        #   plugin = Vundle-vim;
+        #   config = ''
+        #     vimfile ~/MyHome-Flakes/home/neovim/lua/config/everforest.lua
+        #   '';
+        # }
       ];
 
       extraConfig = ''

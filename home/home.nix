@@ -40,6 +40,7 @@
 
   programs = {
     home-manager.enable = true;
+  };
 
     # ## FISH ##
     # fish = 
