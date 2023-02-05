@@ -42,16 +42,6 @@
     home-manager.enable = true;
   };
 
-    # ## FISH ##
-    # fish = 
-    # {
-    #   enable = true;
-    #   interactiveShellInit =
-    #   "
-    #     bind \t accept-autosuggestion
-    #   ";
-    # };
-
   # Let Home Manager install and manage itself.
 
   # This value determines the Home Manager release that your
