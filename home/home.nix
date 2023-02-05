@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+  username = "alfurqani";
+  homeDirectory = "/home/${username}";
+  configHome = "${homeDirectory}/.config";
+
+in
 {
   home.username = "alfurqani";
   home.homeDirectory = "/home/alfurqani";
