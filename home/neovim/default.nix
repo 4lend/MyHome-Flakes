@@ -125,6 +125,13 @@
             luafile ~/MyHome-Flakes/home/neovim/lua/config/popup-nvim.lua
           '';
         }
+
+        {
+          plugin = everforest;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/everforest.lua
+          '';
+        }
       ];
 
       extraConfig = ''

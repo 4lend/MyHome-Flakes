@@ -1,0 +1,6 @@
+-- local ever = require('everforest')
+-- 
+-- ever.setup({
+--   background = "hard",
+--   transparent_background_level = 0,
+-- })
