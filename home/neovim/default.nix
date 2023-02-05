@@ -33,20 +33,15 @@
         kanagawa-nvim
         tokyonight-nvim
         palenight-vim
-        nightfox-nvim
         everforest
         edge
         gruvbox
-        nord-vim
-        nord-nvim
-        nordic-nvim
         onenord-nvim
         sonokai
         oceanic-next
         oceanic-material
         dracula-nvim
         material-nvim
-        nightfox-nvim
         awesome-vim-colorschemes
         papercolor-theme
         aurora
@@ -152,6 +147,13 @@
           plugin = barbar-nvim;
           config = ''
             luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
+          '';
+        }
+
+        {
+          plugin = nightfox-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/nightfox-nvim.lua
           '';
         }
 

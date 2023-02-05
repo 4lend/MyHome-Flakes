@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    # theme = "Everforest Dark Hard";  # Everforest Dark Soft - Medium - Hard, Forest Night, Nord, Dracula, One Dark, One Half Dark, 
+    # theme = "Nightfox";  # Everforest Dark Soft - Medium - Hard, Forest Night, Nord, Dracula, One Dark, One Half Dark, 
     theme = "Nord";
     font = {
         # name = "ComicMono";
