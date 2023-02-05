@@ -38,8 +38,7 @@
     };
   };
 
-  programs =
-  {
+  programs = {
     home-manager.enable = true;
 
     # ## FISH ##
@@ -51,33 +50,6 @@
     #     bind \t accept-autosuggestion
     #   ";
     # };
-
-    ## FZF ##
-    fzf = 
-    {
-      enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-      enableZshIntegration = true;
-      tmux.enableShellIntegration = true;
-    };
-
-    ## qutebrowser ##
-    qutebrowser =
-    {
-    enable = true;
-    enableDefaultBindings = true;
-    };
-
-    ## Z-LUA ##
-    z-lua = 
-    {
-      enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-      enableZshIntegration = true;
-    };
-  };
 
   # Let Home Manager install and manage itself.
 
