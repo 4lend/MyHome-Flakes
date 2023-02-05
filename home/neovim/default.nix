@@ -140,6 +140,13 @@
           '';
         }
 
+        {
+          plugin = diffview-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview.lua
+          '';
+        }
+
         # {
         #   plugin = Vundle-vim;
         #   config = ''
