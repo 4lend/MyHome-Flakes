@@ -23,13 +23,13 @@ in
     ./yt-dlp
   ];
 
+  xdg = {
+    inherit configHome;
+    enable = true;
+  };
+
   home = 
   {
-    ## packages ##
-    packages = with pkgs; [
-      cloudflare-warp
-    ];
-
     ## keyboard ##
     keyboard = 
     {

@@ -1,5 +1,10 @@
 { pkgs, config, ... }:
 
+let
+  username = "alfurqani";
+  homeDirectory = "/home/${username}";
+  configHome = "${homeDirectory}/.config";
+in
 {
   programs.tmux = {
     enable = true;
@@ -47,8 +52,7 @@
       set -g base-index 1
       set -g @tilish-default 'main-vertical'
                                                                                
-      # bind r source-file $HOME/.config/tmux/tmux.conf \; display "Reloaded!"
-      bind r source-file /etc/tmux.conf \; display "Reloaded!"
+      bind r source-file ${configHome}/tmux/tmux.conf ; display "Reloaded!"
                                                                                
       unbind % 
       unbind '"' 
