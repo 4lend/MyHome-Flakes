@@ -19,6 +19,7 @@ in
     ./tmux
     ./git
     ./yt-dlp
+    ./shell
   ];
 
   home = 
