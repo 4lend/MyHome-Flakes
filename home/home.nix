@@ -13,13 +13,14 @@ in
 
   imports = [
     ./alacritty
+    ./aria2
+    ./git
     ./kitty
     ./mpv
     ./neovim
-    ./tmux
-    ./git
-    ./yt-dlp
     ./shell
+    ./tmux
+    ./yt-dlp
   ];
 
   home = 
