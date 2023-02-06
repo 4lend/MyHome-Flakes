@@ -91,6 +91,3 @@ local groups = {
 }
 
 require("nightfox").setup({ palettes = palettes, specs = specs, groups = groups })
-
--- setup must be called before loading
-vim.cmd("colorscheme nightfox")

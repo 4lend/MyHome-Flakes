@@ -158,6 +158,13 @@
         }
 
         # {
+        #   plugin = themer-nvim;
+        #   config = ''
+        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/themer.lua
+        #   '';
+        # }
+
+        # {
         #   plugin = Vundle-vim;
         #   config = ''
         #     vimfile ~/MyHome-Flakes/home/neovim/lua/config/everforest.lua
