@@ -34,6 +34,7 @@ in
       cpu
       open
       tilish
+      vim-tmux-navigator
       urlview
       sysstat
       sidebar
@@ -42,6 +43,8 @@ in
       prefix-highlight
       extrakto
       sensible
+      resurrect
+      online-status
     ];
     extraConfig = ''
       set -g default-terminal "xterm-256color"
@@ -52,7 +55,7 @@ in
       set -g base-index 1
       set -g @tilish-default 'main-vertical'
                                                                                
-      bind r source-file ${configHome}/tmux/tmux.conf ; display "Reloaded!"
+      bind r source-file "${configHome}/tmux/tmux.conf" ; display "Reloaded!"
                                                                                
       unbind % 
       unbind '"' 
