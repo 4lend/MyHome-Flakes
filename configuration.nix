@@ -429,67 +429,12 @@
       #   enable = true;
       # };
     };
-     
-    ## FISH ##
-    fish = 
-    {
-      enable = true;
-    }; 
 
     ## THEFUCK ##
     thefuck = 
     {
       enable = true;
       alias = "";
-    };
-
-    ## STARSHIP ##
-    starship = 
-    {
-      enable	= true;
-      # enableBashIntegration = true;
-      settings	= {
-      add_newline = true;
-      command_timeout = 1000;
-      cmd_duration = {
-        format = " [$duration]($style) ";
-        style = "bold #EC7279";
-        show_notifications = true;
-      };
-      nix_shell = {
-        format = " [$symbol$state]($style) ";
-      };
-      battery = {
-        full_symbol = "🔋 ";
-        charging_symbol = "⚡️ ";
-        discharging_symbol = "💀 ";
-      };
-      git_branch = {
-        format = "[$symbol$branch]($style) ";
-      };
-      gcloud = {
-        format = "[$symbol$active]($style) ";
-      };
-      };
-    };
-
-    # ## FZF ##
-    # fzf =
-    # {
-    #   keybindings = true;
-    #   fuzzyCompletion = true;
-    # };
-
-    ## GIT ##
-    git = 
-    {
-      enable = true;
-      package = pkgs.gitFull;
-      # config = 
-      # {
-      #   git config --global user.name "Alfurqani";
-      #   git config --global user.email "syifa.alfurqoni@gmail.com";
-      # };
     };
 
     ## AUTOJUMP ##
@@ -878,8 +823,6 @@
       yt-dlp
       youtube-dl 
       ytmdl
-      aria
-      python310Packages.aria2p
       httpie
       python310Packages.httpie
       uget
@@ -931,9 +874,6 @@
       libsForQt5.kturtle
 
       # shell
-      starship
-      fish
-      fishPlugins.bass
       zsh
       bashInteractive
 
