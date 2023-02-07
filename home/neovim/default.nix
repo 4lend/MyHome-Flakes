@@ -25,7 +25,7 @@
         vimwiki
         vim-markdown
         coc-markdownlint
-        Vundle-vim
+        packer-nvim
         nvim-lastplace
         delimitMate
         nvim-web-devicons
@@ -45,6 +45,25 @@
         awesome-vim-colorschemes
         papercolor-theme
         aurora
+
+        ### vimfile ###
+        { 
+          plugin = Vundle-vim;
+          config = '' 
+            setnocompatible              " be iMproved, required
+            filetype off                 " required
+
+            call vundle#begin()
+
+              Plugin 'nikvdp/neomux'
+
+            call vundle#end()
+
+            filetype plugin indent on
+          '';
+        }
+
+        ### neovim luafile ### 
         {
           plugin = lualine-nvim;
           config = ''
