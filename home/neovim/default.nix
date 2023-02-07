@@ -50,9 +50,6 @@
         { 
           plugin = Vundle-vim;
           config = '' 
-            setnocompatible              " be iMproved, required
-            filetype off                 " required
-
             call vundle#begin()
 
               Plugin 'nikvdp/neomux'

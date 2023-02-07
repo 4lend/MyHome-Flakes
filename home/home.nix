@@ -14,6 +14,7 @@ in
   imports = [
     ./alacritty
     ./aria2
+    ./fzf
     ./git
     ./kitty
     ./mpv
