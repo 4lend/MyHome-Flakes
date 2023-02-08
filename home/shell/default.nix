@@ -65,6 +65,7 @@ in
       grsh      = "git reset --hard";
 
       y         = "yt-dlp";
+      yp        = "yt-dlp --proxy 192.168.49.1:8000";
       yy        = "yt-dlp --ignore-config --extract-audio --audio-quality 0";
       yyp       = "yt-dlp --ignore-config --extract-audio --audio-quality 0 --proxy 192.168.49.1:8000";
       c         = "cd";

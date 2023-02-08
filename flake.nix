@@ -34,15 +34,15 @@
       nixosConfigurations = {
         alfurqani = lib.nixosSystem {
           inherit system ;
-            modules = [
-	            ./system/configuration.nix 
-	            ./system/hardware-configuration.nix
-	            home-manager.nixosModules.home-manager {
-	              home-manager.useGlobalPkgs = true;
-	              home-manager.useUserPackages = true;
-	              home-manager.users.alfurqani = import ./home/home.nix;
-	            }
-	          ];
+          modules = [
+	          ./system/configuration.nix 
+	          ./system/hardware-configuration.nix
+	          home-manager.nixosModules.home-manager {
+	            home-manager.useGlobalPkgs = true;
+	            home-manager.useUserPackages = true;
+	            home-manager.users.alfurqani = import ./home/home.nix;
+	          }
+	        ];
         };
       };
 
