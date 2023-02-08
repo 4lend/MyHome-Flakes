@@ -658,12 +658,11 @@
       python310Packages.protonvpn-nm-lib
       qbittorrent
       shotwell
-      # steam
       subdl
       speedtest-cli
       trash-cli
       ueberzug
-      # wpsoffice
+      wpsoffice
       libtiff  # need by wpsoffice
       xorg.xkill
 
@@ -700,7 +699,7 @@
       mailspring
       headset
       giara
-      # slack
+      slack
       tdesktop
       weechat
       element-web
@@ -817,9 +816,7 @@
       chromium
       tor-browser-bundle-bin
       google-chrome
-      # opera
-      # palemoon
-      epiphany
+      opera
 
       # downloader
       yt-dlp

@@ -33,7 +33,11 @@ in
       fpp
       cpu
       open
-      tilish
+      { plugin = tilish;
+      extraConfig = ''
+        set -g @tilish-navigate 'on'
+      '';
+      }
       vim-tmux-navigator
       urlview
       sysstat
@@ -88,6 +92,7 @@ in
       # switch window
       bind -n M-p previous-window
       bind -n M-n next-window
+      bind -n M-b last-window
                                                                                
       # yank
       bind -n M-] paste-buffer
