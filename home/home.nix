@@ -81,7 +81,6 @@ in
       # python310Packages.types-urllib3
       # python310Packages.soupsieve
       # python310Packages.idna
-      # python310Packages.charset-normalizer
       # python310Packages.certifi
       # python310Packages.requests
       # python310Packages.beautifulsoup4
@@ -115,7 +114,6 @@ in
       # # twitter-archive https://github.com/jarulsamy/Twitter-Archive
       # python310Packages.tweepy
       # python310Packages.charset-normalizer
-      # python39Packages.charset-normalizer
       # python310Packages.urllib3
       # python310Packages.tqdm
       # python310Packages.python-dotenv
@@ -189,7 +187,7 @@ in
       # xclip
       # mov-cli
       # vifm
-      # vifm-full
+      # # vifm-full
       # wget
       # # alternative man tools / unix documentation
       # bro

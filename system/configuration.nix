@@ -705,6 +705,8 @@
       element-web
       element-desktop
       schildichat-web
+      turses
+      cawbird
       # twitter-archive https://github.com/jarulsamy/Twitter-Archive
       python310Packages.tweepy
       python310Packages.charset-normalizer
