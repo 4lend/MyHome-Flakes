@@ -8,7 +8,7 @@
 	    downloader = "aria2c";  # native, aria2c, axel, curl, wget, ffmpeg, httpie, avconf
 	    write-subs = true;
 	    write-auto-subs = true;
-      proxy = "http://192.168.49.1:8000";
+      # proxy = "http://192.168.49.1:8000";
       # video-multistream = true;
 	    # list-formats = true;
 	    # progress = true;

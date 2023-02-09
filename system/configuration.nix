@@ -34,15 +34,15 @@
     # hostName = "nixos"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-    ## PROXY ##
-    # Configure network proxy if necessary
-    proxy.allProxy = "http://192.168.49.1:8000";
-    proxy.httpProxy = "http://192.168.49.1:8000";
-    proxy.httpsProxy = "http://192.168.49.1:8000";
-    proxy.default = "http://192.168.49.1:8000";
-    proxy.ftpProxy = "http://192.168.49.1:8000";
-    proxy.rsyncProxy = "http://192.168.49.1:8000";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # ## PROXY ##
+    # # Configure network proxy if necessary
+    # proxy.allProxy = "http://192.168.49.1:8000";
+    # proxy.httpProxy = "http://192.168.49.1:8000";
+    # proxy.httpsProxy = "http://192.168.49.1:8000";
+    # proxy.default = "http://192.168.49.1:8000";
+    # proxy.ftpProxy = "http://192.168.49.1:8000";
+    # proxy.rsyncProxy = "http://192.168.49.1:8000";
+    # # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networkmanager =
