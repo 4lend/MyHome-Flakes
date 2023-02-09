@@ -19,6 +19,7 @@ in
     ./kitty
     ./mpv
     ./neovim
+    ./packages
     ./shell
     ./tmux
     ./yt-dlp
