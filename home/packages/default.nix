@@ -198,6 +198,7 @@
     opera
 
     # downloader
+    motrix
     yt-dlp
     youtube-dl 
     ytmdl

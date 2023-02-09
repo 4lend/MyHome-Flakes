@@ -30,17 +30,17 @@ in
     enable = true;
   };
 
-  ## keyboard ##
-  keyboard = 
-  {
-    layout = "us";
-    variant = "qwerty";
-    options = 
-    [
-      "grp:win_space_toggle"
-      "grp:caps_toggle,grp_led:scroll"
-    ];
-  };
+  # ## keyboard ##
+  # keyboard = 
+  # {
+  #   layout = "us";
+  #   variant = "qwerty";
+  #   options = 
+  #   [
+  #     "grp:win_space_toggle"
+  #     "grp:caps_toggle,grp_led:scroll"
+  #   ];
+  # };
 
   programs = {
     home-manager.enable = true;
