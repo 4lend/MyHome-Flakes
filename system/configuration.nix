@@ -996,10 +996,10 @@
     };
   };
 
-  nix = 
-  {
-    sshServe = 
-    {
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+    sshServe = {
       enable = true;
       keys = []; 
     };
@@ -1009,8 +1009,6 @@
     #   # nixFlakes
     #   # nixUnstable
     # ];
-    extraOptions = "experimental-features = nix-command flakes";
-    package = pkgs.nix;
   };
   # nix.registry.alfurqani.flake = "nixpkgs";
 }
