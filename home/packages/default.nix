@@ -218,6 +218,8 @@
     joplin
     joplin-desktop
     kanboard
+    bitwarden
+    bitwarden-cli
 
     # cloud drive
     rclone
@@ -261,6 +263,7 @@
     rcm
 
     # terminal display system information
+    dt-shell-color-scripts
     btop
     htop
     neofetch

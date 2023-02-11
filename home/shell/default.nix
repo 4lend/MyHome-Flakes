@@ -5,6 +5,8 @@ let
     bind \t accept-autosuggestion
     bind X forward-word
     set -U fish_greeting
+
+    colorscript exec random
   '';
 in
 {

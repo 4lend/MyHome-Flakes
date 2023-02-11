@@ -9,6 +9,7 @@
       selection.save_to_clipboard = true;
       startup_mode = "Fullscreen";  # Windowed, Maximized, Fullscreen
       window = {
+        startup_mode = "Fullscreen";  # Windowed, Maximized, Fullscreen
         opacity = 1.00;
         decorations = "none";
         padding = {
