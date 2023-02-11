@@ -21,11 +21,11 @@
         auto-pairs
         vim-vsnip
         vim-css-color  # A very fast, multi-syntax context-sensitive color name highlighter
-        goyo-vim
-        vimwiki
-        vim-markdown
-        coc-markdownlint
-        packer-nvim
+        # goyo-vim
+        # vimwiki
+        # vim-markdown
+        # coc-markdownlint
+        # packer-nvim
         nvim-lastplace
         delimitMate
         nvim-web-devicons

@@ -21,6 +21,7 @@ in
     ./neovim
     ./packages
     ./shell
+    ./starship
     ./tmux
     ./yt-dlp
   ];

@@ -4,7 +4,7 @@
   nixpkgs.config = { allowUnfree = true; };
 
   home.packages = with pkgs; [
-    # javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm  yarn  jq  nim  nimble-unwrapped
+    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodePackages.npm  yarn  nim  jq  nodejs  
 
     ascii
     atool
@@ -140,6 +140,7 @@
 
     # terminal
     git
+    tig
     ranger
     joshuto
     deer

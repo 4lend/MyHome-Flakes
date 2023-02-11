@@ -5,17 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # <home-manager/nixos>
-    ];
+  ];
 
   # Bootloader.
-  boot = 
-  {
-    loader = 
-    {
+  boot = {
+    loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot/efi";
@@ -28,8 +25,7 @@
   services.xserver.videoDrivers = [];
 
   ## networking ##
-  networking =
-  {
+  networking = {
     hostName = "nixos";
     # hostName = "nixos"; # Define your hostname.
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -45,8 +41,7 @@
     # # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
-    networkmanager =
-    {
+    networkmanager = {
       enable = true;
       dns = "dnsmasq";  # one of "default", "dnsmasq", "unbound", "systemd-resolved", "none"
       # enableStrongSwan = true;
@@ -134,8 +129,7 @@
   # services.xserver.enable = true;
 
   ### DESKTOP ENVIRONMENT ### 
-  services.xserver = 
-  {
+  services.xserver = {
     enable = true;
 
     # GNOME
@@ -178,8 +172,7 @@
   
   # Configure keymap in X11
   console.useXkbConfig = true;
-  services.xserver = 
-  {
+  services.xserver = {
     layout = "us";
     xkbVariant = "";
     xkbOptions = "ctrl:swapcaps";
@@ -211,8 +204,7 @@
   # services.xserver.libinput.enable = true;
 
   ### SERVICES ###
-  services = 
-  {
+  services = {
     # ## PANTHEON DESKTOP ##
     # pantheon = 
     # {
@@ -369,10 +361,9 @@
   ## USERS ##
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = 
-  {
-    users.alfurqani = 
-    { isNormalUser = true;
+  users = {
+    users.alfurqani = { 
+      isNormalUser = true;
       description = "4LEND";
       extraGroups = [ "networkmanager" "wheel" ];
     };
@@ -385,36 +376,29 @@
 
   ### PROGRAMS CONFIGURATION ###
 
-  virtualisation.docker =
-  {
+  virtualisation.docker ={
     enable = true;
   };
 
   ## PROGRAMS ##
-  programs = 
-  {
+  programs = {
     # ## PANTHEON ##
     # pantheon-tweaks.enable = true;
 
     ## ZSH ##
-    zsh =
-    {
+    zsh = {
       enable = true;
       enableCompletion = true;
-      syntaxHighlighting = 
-      {
+      syntaxHighlighting = {
         enable = true;
-        highlighters = 
-        [
+        highlighters = [
           "main"
         ];
       };
-      autosuggestions =
-      {
+      autosuggestions = {
         enable = true;
         async = true;
-        strategy = 
-        [
+        strategy = [
           "history"
           "completion"
           "match_prev_cmd"
@@ -431,8 +415,7 @@
     };
 
     ## THEFUCK ##
-    thefuck = 
-    {
+    thefuck = {
       enable = true;
       alias = "";
     };
@@ -622,318 +605,318 @@
     #   elementary-wallpapers
     # ];
 
-    systemPackages = with pkgs;
-    [
-      javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm  yarn  jq  nim  nimble-unwrapped
+    # systemPackages = with pkgs;
+    # [
+    #   javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm  yarn  jq  nim  nimble-unwrapped
 
-      ascii
-      atool
-      audacious
-      bat
-      cargo
-      cmatrix
-      darktable
-      dbus
-      electron
-      exa
-      firewalld
-      font-manager
-      gnupg
-      gparted
-      input-remapper
-      kitty-themes
-      libsForQt5.dolphin
-      libreoffice
-      inkscape
-      mdds  # need by libreoffice
-      nomacs
-      notepadqq
-      okular
-      onlyoffice-bin
-      pcmanfm
-      pfetch
-      plank
-      protonvpn-cli
-      protonvpn-gui
-      python310Packages.protonvpn-nm-lib
-      qbittorrent
-      shotwell
-      subdl
-      speedtest-cli
-      trash-cli
-      ueberzug
-      wpsoffice
-      libtiff  # need by wpsoffice
-      xorg.xkill
+    #   ascii
+    #   atool
+    #   audacious
+    #   bat
+    #   cargo
+    #   cmatrix
+    #   darktable
+    #   dbus
+    #   electron
+    #   exa
+    #   firewalld
+    #   font-manager
+    #   gnupg
+    #   gparted
+    #   input-remapper
+    #   kitty-themes
+    #   libsForQt5.dolphin
+    #   libreoffice
+    #   inkscape
+    #   mdds  # need by libreoffice
+    #   nomacs
+    #   notepadqq
+    #   okular
+    #   onlyoffice-bin
+    #   pcmanfm
+    #   pfetch
+    #   plank
+    #   protonvpn-cli
+    #   protonvpn-gui
+    #   python310Packages.protonvpn-nm-lib
+    #   qbittorrent
+    #   shotwell
+    #   subdl
+    #   speedtest-cli
+    #   trash-cli
+    #   ueberzug
+    #   wpsoffice
+    #   libtiff  # need by wpsoffice
+    #   xorg.xkill
 
-      # python
-      python310Packages.dbus-python  
-      python310Full    
-      python310Packages.pip  
-      python310Packages.urllib3
-      python310Packages.types-urllib3
-      python310Packages.soupsieve
-      python310Packages.idna
-      python310Packages.charset-normalizer
-      python310Packages.certifi
-      python310Packages.requests
-      python310Packages.beautifulsoup4
-      python310Packages.soupsieve
+    #   # python
+    #   python310Packages.dbus-python  
+    #   python310Full    
+    #   python310Packages.pip  
+    #   python310Packages.urllib3
+    #   python310Packages.types-urllib3
+    #   python310Packages.soupsieve
+    #   python310Packages.idna
+    #   python310Packages.charset-normalizer
+    #   python310Packages.certifi
+    #   python310Packages.requests
+    #   python310Packages.beautifulsoup4
+    #   python310Packages.soupsieve
 
-      # an
-      hakuneko
-      yacreader
-      anime-downloader
-      anup
-      adl
-      filebot
-      nhentai
-      HentaiAtHome
+    #   # an
+    #   hakuneko
+    #   yacreader
+    #   anime-downloader
+    #   anup
+    #   adl
+    #   filebot
+    #   nhentai
+    #   HentaiAtHome
 
-      # share
-      opendrop
+    #   # share
+    #   opendrop
 
-      # social
-      discord
-      whatsapp-for-linux
-      mailspring
-      headset
-      giara
-      slack
-      tdesktop
-      weechat
-      element-web
-      element-desktop
-      schildichat-web
-      turses
-      cawbird
-      # twitter-archive https://github.com/jarulsamy/Twitter-Archive
-      python310Packages.tweepy
-      python310Packages.charset-normalizer
-      python39Packages.charset-normalizer
-      python310Packages.urllib3
-      python310Packages.tqdm
-      python310Packages.python-dotenv
-      python310Packages.oauthlib
-      python310Packages.idna
-      python310Packages.certifi
-      python310Packages.requests
-      python310Packages.requests-oauthlib
+    #   # social
+    #   discord
+    #   whatsapp-for-linux
+    #   mailspring
+    #   headset
+    #   giara
+    #   slack
+    #   tdesktop
+    #   weechat
+    #   element-web
+    #   element-desktop
+    #   schildichat-web
+    #   turses
+    #   cawbird
+    #   # twitter-archive https://github.com/jarulsamy/Twitter-Archive
+    #   python310Packages.tweepy
+    #   python310Packages.charset-normalizer
+    #   python39Packages.charset-normalizer
+    #   python310Packages.urllib3
+    #   python310Packages.tqdm
+    #   python310Packages.python-dotenv
+    #   python310Packages.oauthlib
+    #   python310Packages.idna
+    #   python310Packages.certifi
+    #   python310Packages.requests
+    #   python310Packages.requests-oauthlib
 
-      # audio
-      wireplumber
-      easyeffects
-      pipewire
-      # pipewire-media-session
-      ninja
-      ffmpeg
-      freac  boca
+    #   # audio
+    #   wireplumber
+    #   easyeffects
+    #   pipewire
+    #   # pipewire-media-session
+    #   ninja
+    #   ffmpeg
+    #   freac  boca
 
-      # archiver
-      archiver
-      xarchiver
-      fsarchiver
-      zip
-      unrar
-      p7zip
-      unzip
+    #   # archiver
+    #   archiver
+    #   xarchiver
+    #   fsarchiver
+    #   zip
+    #   unrar
+    #   p7zip
+    #   unzip
 
-      # network
-      adguardhome
-      tor
-      dnscrypt-proxy2
-      openssl
+    #   # network
+    #   adguardhome
+    #   tor
+    #   dnscrypt-proxy2
+    #   openssl
 
-      # media player
-      vlc
-      cmus
-      cmusfm
-      cava
-      streamlink
-      python310Packages.deemix  
-      python310Packages.deezer-py  
-      python310Packages.deezer-python  
-      nuclear
-      spotify
-      spotify-tui
-      termusic
-      yewtube
+    #   # media player
+    #   vlc
+    #   cmus
+    #   cmusfm
+    #   cava
+    #   streamlink
+    #   python310Packages.deemix  
+    #   python310Packages.deezer-py  
+    #   python310Packages.deezer-python  
+    #   nuclear
+    #   spotify
+    #   spotify-tui
+    #   termusic
+    #   yewtube
 
-      # terminal
-      git
-      ranger
-      joshuto
-      deer
-      pistol
-      terminal-typeracer
-      vim
-      neovim-remote
-      page
-      duf
-      spacevim
-      nvimpager
-      neovide
-      uivonim
-      z-lua
-      peco
-      autojump
-      pazi
-      fasd
-      yank
-      xsel
-      xclip
-      mov-cli
-      vifm
-      vifm-full
-      wget
-      # alternative man tools / unix documentation
-      bro
-      cheat  # Create and view interactive cheatsheets on the command-line
-      cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
-      navi  # An interactive cheatsheet tool for the command-line and application launchers
-      tldr  # Simplified and community-driven man pages
-      tealdeer  # A very fast implementation of tldr in Rust
-      wiki-tui  # A simple and easy to use Wikipedia Text User Interface
-      fltrdr  # A TUI text reader for the terminal
+    #   # terminal
+    #   git
+    #   ranger
+    #   joshuto
+    #   deer
+    #   pistol
+    #   terminal-typeracer
+    #   vim
+    #   neovim-remote
+    #   page
+    #   duf
+    #   spacevim
+    #   nvimpager
+    #   neovide
+    #   uivonim
+    #   z-lua
+    #   peco
+    #   autojump
+    #   pazi
+    #   fasd
+    #   yank
+    #   xsel
+    #   xclip
+    #   mov-cli
+    #   vifm
+    #   vifm-full
+    #   wget
+    #   # alternative man tools / unix documentation
+    #   bro
+    #   cheat  # Create and view interactive cheatsheets on the command-line
+    #   cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
+    #   navi  # An interactive cheatsheet tool for the command-line and application launchers
+    #   tldr  # Simplified and community-driven man pages
+    #   tealdeer  # A very fast implementation of tldr in Rust
+    #   wiki-tui  # A simple and easy to use Wikipedia Text User Interface
+    #   fltrdr  # A TUI text reader for the terminal
 
-      # text editor
-      geany
-      obsidian
-      vscode-with-extensions 
+    #   # text editor
+    #   geany
+    #   obsidian
+    #   vscode-with-extensions 
 
-      # nix
-      nix
-      nix-index
-      nix-prefetch
-      nix-prefetch-hg
-      nix-prefetch-git
-      nix-prefetch-github
-      nix-prefetch-scripts
-      nix-prefetch-docker
+    #   # nix
+    #   nix
+    #   nix-index
+    #   nix-prefetch
+    #   nix-prefetch-hg
+    #   nix-prefetch-git
+    #   nix-prefetch-github
+    #   nix-prefetch-scripts
+    #   nix-prefetch-docker
 
-      # browser
-      firefox
-      librewolf
-      brave
-      chromium
-      tor-browser-bundle-bin
-      google-chrome
-      opera
+    #   # browser
+    #   firefox
+    #   librewolf
+    #   brave
+    #   chromium
+    #   tor-browser-bundle-bin
+    #   google-chrome
+    #   opera
 
-      # downloader
-      yt-dlp
-      youtube-dl 
-      ytmdl
-      httpie
-      python310Packages.httpie
-      uget
-      uget-integrator
-      axel 
-      downonspot  # A spotify downloader writter in rust
-      spotdl  # Download your Spotify playlists and songs along with album art and metadata
-      # motrix  # handle by flatpak
+    #   # downloader
+    #   yt-dlp
+    #   youtube-dl 
+    #   ytmdl
+    #   httpie
+    #   python310Packages.httpie
+    #   uget
+    #   uget-integrator
+    #   axel 
+    #   downonspot  # A spotify downloader writter in rust
+    #   spotdl  # Download your Spotify playlists and songs along with album art and metadata
+    #   # motrix  # handle by flatpak
 
-      # productive
-      simplenote
-      standardnotes
-      joplin
-      joplin-desktop
-      kanboard
+    #   # productive
+    #   simplenote
+    #   standardnotes
+    #   joplin
+    #   joplin-desktop
+    #   kanboard
 
-      # cloud drive
-      rclone
-      rclone-browser
+    #   # cloud drive
+    #   rclone
+    #   rclone-browser
 
-      # usb bootable
-      woeusb
-      woeusb-ng
-      etcher
-      ventoy-bin
-      unetbootin
-      ntfs3g
-      fd
+    #   # usb bootable
+    #   woeusb
+    #   woeusb-ng
+    #   etcher
+    #   ventoy-bin
+    #   unetbootin
+    #   ntfs3g
+    #   fd
 
-      # # pantheon package
-      # pantheon.switchboard
-      # pantheon-tweaks
-      # pantheon.wingpanel
-      # pantheon.wingpanel-indicator-a11y
-      # pantheon.wingpanel-with-indicators
-      # pantheon.wingpanel-indicator-network
+    #   # # pantheon package
+    #   # pantheon.switchboard
+    #   # pantheon-tweaks
+    #   # pantheon.wingpanel
+    #   # pantheon.wingpanel-indicator-a11y
+    #   # pantheon.wingpanel-with-indicators
+    #   # pantheon.wingpanel-indicator-network
 
-      # cinnamon package
-      cinnamon.nemo
+    #   # cinnamon package
+    #   cinnamon.nemo
 
-      # xfce package
-      xfce.ristretto
-      xfce.thunar
-      xfce.thunar-archive-plugin
-      xfce.tumbler
+    #   # xfce package
+    #   xfce.ristretto
+    #   xfce.thunar
+    #   xfce.thunar-archive-plugin
+    #   xfce.tumbler
 
-      # qt package
-      libsForQt5.dolphin
-      libsForQt5.kturtle
+    #   # qt package
+    #   libsForQt5.dolphin
+    #   libsForQt5.kturtle
 
-      # shell
-      zsh
-      bashInteractive
+    #   # shell
+    #   zsh
+    #   bashInteractive
 
-      # configuration dotfiles
-      home-manager
-      rcm
+    #   # configuration dotfiles
+    #   home-manager
+    #   rcm
 
-      # terminal display system information
-      btop
-      htop
-      neofetch
-      bottom
-      checkip
-      freshfetch
-      ipfetch
-      hyfetch
-      pridefetch
+    #   # terminal display system information
+    #   btop
+    #   htop
+    #   neofetch
+    #   bottom
+    #   checkip
+    #   freshfetch
+    #   ipfetch
+    #   hyfetch
+    #   pridefetch
 
-      # virtual machine
-      anbox
-      waydroid
-      flatpak
-      gnome.gnome-boxes
-      vmware-workstation
-      virtualbox
-      qemu
-      qemu_kvm
-      qtemu
-      # virtualboxWithExtpack
-      libreelec-dvb-firmware
-      kodi
-      kodi-gbm
-      kodi
-      docker  
-      docker-compose
-      wine
-      wine64
-      playonlinux
-      bottles
-      darling-dmg  # Darling lets you open macOS dmgs on Linux
-      android-tools  # Android SDK platform tools
-      adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
-      adbfs-rootless  # Mount Android phones on Linux with adb, no root required
-      gnirehtet  # Reverse tethering over adb for Android
-      autoadb  # Execute a command whenever a device is adb-connected
-      usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
+    #   # virtual machine
+    #   anbox
+    #   waydroid
+    #   flatpak
+    #   gnome.gnome-boxes
+    #   vmware-workstation
+    #   virtualbox
+    #   qemu
+    #   qemu_kvm
+    #   qtemu
+    #   # virtualboxWithExtpack
+    #   libreelec-dvb-firmware
+    #   kodi
+    #   kodi-gbm
+    #   kodi
+    #   docker  
+    #   docker-compose
+    #   wine
+    #   wine64
+    #   playonlinux
+    #   bottles
+    #   darling-dmg  # Darling lets you open macOS dmgs on Linux
+    #   android-tools  # Android SDK platform tools
+    #   adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
+    #   adbfs-rootless  # Mount Android phones on Linux with adb, no root required
+    #   gnirehtet  # Reverse tethering over adb for Android
+    #   autoadb  # Execute a command whenever a device is adb-connected
+    #   usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
 
-      # gnome extensions
-      gnomeExtensions.simple-system-monitor
-      gnomeExtensions.tilingnome
-      gnomeExtensions.window-state-manager
+    #   # gnome extensions
+    #   gnomeExtensions.simple-system-monitor
+    #   gnomeExtensions.tilingnome
+    #   gnomeExtensions.window-state-manager
 
-      # appimage
-      appimagekit
-      appimage-run
+    #   # appimage
+    #   appimagekit
+    #   appimage-run
 
-      # kernel
-      linuxKernel.packages.linux_xanmod_stable.zfsUnstable
-    ];
+    #   # kernel
+    #   linuxKernel.packages.linux_xanmod_stable.zfsUnstable
+    # ];
   };
 
   # NIXPKGS CONFIG
@@ -944,9 +927,7 @@
 
   nixpkgs.config = 
   {
-  allowUnsupportedSystem = true;
   allowUnfree = true;
-  allowBroken = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

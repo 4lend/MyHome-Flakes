@@ -22,7 +22,8 @@ in
       nbsi      = "sudo nixos-rebuild switch --flake .#alfurqani --impure";
       nbb       = "sudo nixos-rebuild build --flake .#alfurqani";
       nbbi      = "sudo nixos-rebuild build --flake .#alfurqani --impure";
-      # nbt     = "sudo nixos-rebuild test";
+      nbt       = "sudo nixos-rebuild test --flake .#alfurqani";
+      nbti      = "sudo nixos-rebuild test --flake .#alfurqani --impure";
       conix     = "sudo nvim /etc/nixos/configuration.nix";
       nc        = "nix-channel";
       ncl       = "nix-channel --list";
@@ -72,7 +73,7 @@ in
       d         = "cd ..";
       v         = "vim";
       nv        = "nvim";
-      vd  = "neovide";
+      vd        = "neovide";
       p         = "spacevim";
       t         = "tmux";
       e         = "exit";
