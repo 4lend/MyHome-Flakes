@@ -20,6 +20,7 @@ in
     ./mpv
     ./neovim
     ./packages
+    ./services
     ./shell
     ./starship
     ./tmux

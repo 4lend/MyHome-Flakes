@@ -3,6 +3,10 @@
 {
   nixpkgs.config = { allowUnfree = true; };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-12.2.3"  # etcher
+    "python-2.7.18.6"
+  ];
   home.packages = with pkgs; [
     javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodePackages.npm  yarn  nim  jq  nodejs  
 
@@ -45,6 +49,7 @@
     wpsoffice
     libtiff  # need by wpsoffice
     xorg.xkill
+    killall
 
     # python
     python310Packages.dbus-python  
@@ -84,9 +89,9 @@
     weechat
     element-web
     element-desktop
-    # schildichat-web  # broken
     turses
     cawbird
+    franz
     # twitter-archive https://github.com/jarulsamy/Twitter-Archive
     # python310Packages.tweepy
     # python310Packages.charset-normalizer
@@ -139,7 +144,6 @@
     yewtube
 
     # terminal
-    git
     tig
     ranger
     joshuto
@@ -165,7 +169,7 @@
     mov-cli
     vifm
     wget
-    # alternative man tools / unix documentation
+    pinentry  # GnuPG’s interface to passphrase input | need by gnupg / gpg generate keys
     bro
     cheat  # Create and view interactive cheatsheets on the command-line
     cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
@@ -303,6 +307,7 @@
     gnomeExtensions.simple-system-monitor
     gnomeExtensions.tilingnome
     gnomeExtensions.window-state-manager
+    gnomeExtensions.desktop-icons-ng-ding
 
     # appimage
     appimagekit

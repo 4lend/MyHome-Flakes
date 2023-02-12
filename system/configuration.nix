@@ -605,9 +605,8 @@
     #   elementary-wallpapers
     # ];
 
-    # systemPackages = with pkgs;
-    # [
-    #   javaCup  dbus_java  maven  dotnet-sdk  dotnet-runtime  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodejs  nodePackages_latest.npm  nodePackages.npm  yarn  jq  nim  nimble-unwrapped
+    # systemPackages = with pkgs; [
+    #   javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodePackages.npm  yarn  nim  jq  nodejs  
 
     #   ascii
     #   atool
@@ -687,21 +686,21 @@
     #   weechat
     #   element-web
     #   element-desktop
-    #   schildichat-web
+    #   # schildichat-web  # broken
     #   turses
     #   cawbird
     #   # twitter-archive https://github.com/jarulsamy/Twitter-Archive
-    #   python310Packages.tweepy
-    #   python310Packages.charset-normalizer
-    #   python39Packages.charset-normalizer
-    #   python310Packages.urllib3
-    #   python310Packages.tqdm
-    #   python310Packages.python-dotenv
-    #   python310Packages.oauthlib
-    #   python310Packages.idna
-    #   python310Packages.certifi
-    #   python310Packages.requests
-    #   python310Packages.requests-oauthlib
+    #   # python310Packages.tweepy
+    #   # python310Packages.charset-normalizer
+    #   # python39Packages.charset-normalizer
+    #   # python310Packages.urllib3
+    #   # python310Packages.tqdm
+    #   # python310Packages.python-dotenv
+    #   # python310Packages.oauthlib
+    #   # python310Packages.idna
+    #   # python310Packages.certifi
+    #   # python310Packages.requests
+    #   # python310Packages.requests-oauthlib
 
     #   # audio
     #   wireplumber
@@ -734,7 +733,6 @@
     #   cava
     #   streamlink
     #   python310Packages.deemix  
-    #   python310Packages.deezer-py  
     #   python310Packages.deezer-python  
     #   nuclear
     #   spotify
@@ -744,6 +742,7 @@
 
     #   # terminal
     #   git
+    #   tig
     #   ranger
     #   joshuto
     #   deer
@@ -767,14 +766,12 @@
     #   xclip
     #   mov-cli
     #   vifm
-    #   vifm-full
     #   wget
     #   # alternative man tools / unix documentation
     #   bro
     #   cheat  # Create and view interactive cheatsheets on the command-line
     #   cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
     #   navi  # An interactive cheatsheet tool for the command-line and application launchers
-    #   tldr  # Simplified and community-driven man pages
     #   tealdeer  # A very fast implementation of tldr in Rust
     #   wiki-tui  # A simple and easy to use Wikipedia Text User Interface
     #   fltrdr  # A TUI text reader for the terminal
@@ -804,6 +801,7 @@
     #   opera
 
     #   # downloader
+    #   motrix
     #   yt-dlp
     #   youtube-dl 
     #   ytmdl
@@ -822,6 +820,8 @@
     #   joplin
     #   joplin-desktop
     #   kanboard
+    #   bitwarden
+    #   bitwarden-cli
 
     #   # cloud drive
     #   rclone
@@ -829,7 +829,6 @@
 
     #   # usb bootable
     #   woeusb
-    #   woeusb-ng
     #   etcher
     #   ventoy-bin
     #   unetbootin
@@ -862,10 +861,11 @@
     #   bashInteractive
 
     #   # configuration dotfiles
-    #   home-manager
+    #   # home-manager
     #   rcm
 
     #   # terminal display system information
+    #   dt-shell-color-scripts
     #   btop
     #   htop
     #   neofetch
@@ -883,18 +883,14 @@
     #   gnome.gnome-boxes
     #   vmware-workstation
     #   virtualbox
-    #   qemu
     #   qemu_kvm
     #   qtemu
     #   # virtualboxWithExtpack
     #   libreelec-dvb-firmware
-    #   kodi
     #   kodi-gbm
-    #   kodi
     #   docker  
     #   docker-compose
     #   wine
-    #   wine64
     #   playonlinux
     #   bottles
     #   darling-dmg  # Darling lets you open macOS dmgs on Linux
@@ -913,20 +909,16 @@
     #   # appimage
     #   appimagekit
     #   appimage-run
-
-    #   # kernel
-    #   linuxKernel.packages.linux_xanmod_stable.zfsUnstable
     # ];
   };
 
   # NIXPKGS CONFIG
   nixpkgs.config.permittedInsecurePackages = [
-                "electron-12.2.3"  # etcher
+    "electron-12.2.3"  # etcher
 		"python-2.7.18.6"
-		];
+	];
 
-  nixpkgs.config = 
-  {
+  nixpkgs.config = {
   allowUnfree = true;
   };
 
@@ -967,11 +959,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
   ### SYSTEM CONFIGURATION ## 
-  system = 
-  {
+  system = {
     stateVersion = "nixos-unstable"; 
-    autoUpgrade = 
-    { 
+    autoUpgrade = { 
       enable = true;
       channel = "https://nixos.org/channels/nixpkgs-unstable";
     };

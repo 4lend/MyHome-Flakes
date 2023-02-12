@@ -6,7 +6,7 @@ let
     bind X forward-word
     set -U fish_greeting
 
-    colorscript exec random
+    colorscript exec blocks1
   '';
 in
 {
