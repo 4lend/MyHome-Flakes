@@ -19,6 +19,17 @@
       };
       font = {
         size = 15;
+        normal = { 
+          family = "JetBrains Mono NL Regular Nerd Font"; 
+          style = "Regular";
+        };
+        # bold = { 
+        #   family = "ComicMono"; 
+        #   style = "Bold";
+        # };
+        # italic = { 
+        #   family = "ComicMono"; 
+        #   style = "Italic";
         # normal = { 
         #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
         #   style = "Regular";
@@ -31,19 +42,6 @@
         #   family = "JetBrains Mono NL Regular Nerd Font Complete"; 
         #   style = "Italic";
         # };
-
-        normal = { 
-          family = "ComicMono"; 
-          style = "Regular";
-        };
-        bold = { 
-          family = "ComicMono"; 
-          style = "Bold";
-        };
-        italic = { 
-          family = "ComicMono"; 
-          style = "Italic";
-        };
       };
     };
   };

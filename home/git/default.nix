@@ -5,13 +5,16 @@
     enable = true;
     userEmail = "syifa.alfurqoni@gmail.com";
     userName = "Alfurqani";
-    # extraConfig = ''
-    #   
-    # '';
-    # ignores = "result";
+    ignores = [ "result" ];
     # signing = 
-    # signing.gpgPath = "";
-    # signing.key = "";
+    # signing.gpgPath = ''
+
+    # '';
+    signing.key = "7EBEA7EC4513EF91";
     # signing.signByDefault = true;
+    # extraConfig = {
+    #   rerere.enable = true;
+    #   # gpg.program = "gpg";
+    # };
   };
 }

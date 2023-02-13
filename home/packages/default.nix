@@ -64,6 +64,7 @@
     python310Packages.requests
     python310Packages.beautifulsoup4
     python310Packages.soupsieve
+    python310Packages.gpt-2-simple
 
     # an
     hakuneko
@@ -144,9 +145,9 @@
     yewtube
 
     # terminal
+    ghq
     tig
-    ranger
-    joshuto
+    ranger  findutils  mlocate  
     deer
     pistol
     terminal-typeracer
@@ -154,10 +155,7 @@
     neovim-remote
     page
     duf
-    spacevim
-    nvimpager
     neovide
-    uivonim
     z-lua
     peco
     autojump

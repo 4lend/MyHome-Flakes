@@ -35,30 +35,30 @@
         alfurqani = lib.nixosSystem {
           inherit system ;
           modules = [
-	          ./system/configuration.nix 
-	          ./system/hardware-configuration.nix
 	          home-manager.nixosModules.home-manager {
+	            home-manager.users.alfurqani = import ./home/home.nix;
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
-	            home-manager.users.alfurqani = import ./home/home.nix;
 	          }
+	          ./system/configuration.nix 
+	          ./system/hardware-configuration.nix
 	        ];
         };
       };
 
-      homeConfigurations = {
-	      alfurqani = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-	          ./home/home.nix
-            ({pkgs, ...}:
-            {
-	          home = {
-              packages = with pkgs; [  ];
-	          }; 
-            })
-          ];
-        };
-	    };
+      # homeConfigurations = {
+	    #   alfurqani = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs;
+      #     modules = [
+	    #       ./home/home.nix
+      #       ({pkgs, ...}:
+      #       {
+	    #       home = {
+      #         packages = with pkgs; [  ];
+	    #       }; 
+      #       })
+      #     ];
+      #   };
+	    # };
     };
 }
