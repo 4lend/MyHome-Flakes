@@ -31,6 +31,8 @@
         nvim-lastplace
         delimitMate
         nvim-web-devicons
+        vim-fugitive
+        fugitive-gitlab-vim
         # theme
         kanagawa-nvim
         tokyonight-nvim

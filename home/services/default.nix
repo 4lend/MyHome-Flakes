@@ -1,6 +1,7 @@
 {
   services = {
     network-manager-applet.enable = true;
+    blueman-applet.enable = true; 
     gpg-agent = {
       enable = true;
       enableBashIntegration = true; 

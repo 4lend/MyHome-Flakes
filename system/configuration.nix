@@ -375,35 +375,6 @@
     # ## PANTHEON ##
     # pantheon-tweaks.enable = true;
 
-    ## ZSH ##
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      syntaxHighlighting = {
-        enable = true;
-        highlighters = [
-          "main"
-        ];
-      };
-      autosuggestions = {
-        enable = true;
-        async = true;
-        strategy = [
-          "history"
-          "completion"
-          "match_prev_cmd"
-        ];
-        # extraConfig = 
-        # {
-        #   "bindkey '\t'" = "autosuggest-accept";
-        # };
-      };
-      # ohMyZsh =
-      # {
-      #   enable = true;
-      # };
-    };
-
     ## THEFUCK ##
     thefuck = {
       enable = true;
@@ -420,7 +391,7 @@
     enableDefaultFonts = true;
     fonts = with pkgs; 
     [
-      ( nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      ( nerdfonts.override { fonts = [ "JetBrainsMono" "CodeNewRoman"]; })
       nerd-font-patcher
       comic-mono
       comic-neue
@@ -461,105 +432,6 @@
       VISUAL = "nvim"; 
     };
 
-    # defaultPackages = with pkgs;
-    # [
-    #   neovim
-    #   vim
-    #   nano
-    # ];
-
-    shellAliases = 
-    {
-      l		= "exa -1 -g -l --icons -s type";
-      la	= "exa -1 -g -l --icons -s type -a";
-      lt	= "exa -1 -g -l --icons -s type -T";
-      lat	= "exa -1 -g -l --icons -s type -a -T";
-      du	= "${pkgs.du-dust}/bin/dust";
-
-      nb	= "nix build";
-      nbs	= "sudo nixos-rebuild switch --flake .#alfurqani";
-      nbsi	= "sudo nixos-rebuild switch --flake .#alfurqani --impure";
-      nbb	= "sudo nixos-rebuild build --flake .#alfurqani";
-      nbbi	= "sudo nixos-rebuild build --flake .#alfurqani --impure";
-      # nbt	= "sudo nixos-rebuild test";
-      conix	= "sudo nvim /etc/nixos/configuration.nix";
-      nc	= "nix-channel";
-      ncl	= "nix-channel --list"; 
-      nca	= "nix-channel --add";
-      ncrm	= "nix-channel --remove";
-      ncu	= "nix-channel --update";
-      hb	= "home-manager build";
-      hs	= "home-manager switch";
-      hg	= "home-manager generations";
-
-      tls	= "tmux list-sessions";
-      tkls	= "tmux kill-session -t";
-      kat	= "pkill -f tmux";
-      tks	= "tmux kill-server";
-      
-      g		= "git";
-      gs	= "git status";
-      ge	= "git clone";
-      gcg	= "git config --global";
-      gc	= "git config";
-      gcl	= "git config --list";
-      gcgl	= "git config --global --list";
-      ga	= "git add";
-      gal	= "git add -A";
-      gcm	= "git commit -m";
-      gam	= "git commit -a -m";
-      gsi	= "git switch";
-      gco	= "git checkout";
-      gr 	= "git remote";
-      gra	= "git remote add";
-      grmv	= "git remote remove";
-      grv	= "git remote -v";
-      gb	= "git branch";
-      gbl	= "git branch --list";
-      gp	= "git push -u";
-      gl	= "git log";
-      gd	= "git diff";
-      grs	= "git reset";
-      grss	= "git reset --soft";
-      grsh	= "git reset --hard";
-
-      y		= "yt-dlp";
-      yp  = "yt-dlp --proxy 192.168.49.1:8000";
-      yy	= "yt-dlp --ignore-config --extract-audio --audio-quality 0";
-      yyp	= "yt-dlp --ignore-config --extract-audio --audio-quality 0 --proxy 192.168.49.1:8000";
-      c		= "cd";
-      d		= "cd ..";
-      v		= "vim";
-      nv	= "nvim";
-      vd  = "neovide";
-      p		= "spacevim";
-      t 	= "tmux";
-      e		= "exit";
-      lv	= "lvim";
-      sp	= "speedtest-cli";
-      py	= "python";
-      py3	= "python3";
-      b		= "bat";
-      cl	= "clear";
-      s		= "sudo su";
-      sd	= "sudo";
-      mkd	= "mkdir";
-      cpr	= "cp -r";
-      rm	= "rm";
-      rmf 	= "rm -rf"; 
-      a		= "aria2c";
-      vf	= "vifm";
-      ra	= "ranger";
-      pc	= "protonvpn-cli";
-      nq	= "notepadqq";
-      bs	= "bash";
-      wh	= "which";
-
-      ud	= "udisksctl";
-      udm	= "udisksctl mount -b";
-      udmd	= "udisksctl unmount -b";
-    };
-
     # EXCLUDE GNOME PACKAGE
     gnome.excludePackages = (with pkgs; 
     [
@@ -581,325 +453,6 @@
     atomix # puzzle game
     ]);
 
-    # # EXCLUDE PANTHEON PACKAGE
-    # pantheon.excludePackages = with pkgs.pantheon;
-    # [
-    #   elementary-sound-theme
-    #   elementary-mail
-    #   elementary-code
-    #   elementary-tasks
-    #   elementary-music
-    #   elementary-videos
-    #   elementary-photos
-    #   elementary-camera
-    #   elementary-wallpapers
-    # ];
-
-    # systemPackages = with pkgs; [
-    #   javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr  dbus  nodePackages.npm  yarn  nim  jq  nodejs  
-
-    #   ascii
-    #   atool
-    #   audacious
-    #   bat
-    #   cargo
-    #   cmatrix
-    #   darktable
-    #   dbus
-    #   electron
-    #   exa
-    #   firewalld
-    #   font-manager
-    #   gnupg
-    #   gparted
-    #   input-remapper
-    #   kitty-themes
-    #   libsForQt5.dolphin
-    #   libreoffice
-    #   inkscape
-    #   mdds  # need by libreoffice
-    #   nomacs
-    #   notepadqq
-    #   okular
-    #   onlyoffice-bin
-    #   pcmanfm
-    #   pfetch
-    #   plank
-    #   protonvpn-cli
-    #   protonvpn-gui
-    #   python310Packages.protonvpn-nm-lib
-    #   qbittorrent
-    #   shotwell
-    #   subdl
-    #   speedtest-cli
-    #   trash-cli
-    #   ueberzug
-    #   wpsoffice
-    #   libtiff  # need by wpsoffice
-    #   xorg.xkill
-
-    #   # python
-    #   python310Packages.dbus-python  
-    #   python310Full    
-    #   python310Packages.pip  
-    #   python310Packages.urllib3
-    #   python310Packages.types-urllib3
-    #   python310Packages.soupsieve
-    #   python310Packages.idna
-    #   python310Packages.charset-normalizer
-    #   python310Packages.certifi
-    #   python310Packages.requests
-    #   python310Packages.beautifulsoup4
-    #   python310Packages.soupsieve
-
-    #   # an
-    #   hakuneko
-    #   yacreader
-    #   anime-downloader
-    #   anup
-    #   adl
-    #   filebot
-    #   nhentai
-    #   HentaiAtHome
-
-    #   # share
-    #   opendrop
-
-    #   # social
-    #   discord
-    #   whatsapp-for-linux
-    #   mailspring
-    #   headset
-    #   giara
-    #   slack
-    #   tdesktop
-    #   weechat
-    #   element-web
-    #   element-desktop
-    #   # schildichat-web  # broken
-    #   turses
-    #   cawbird
-    #   # twitter-archive https://github.com/jarulsamy/Twitter-Archive
-    #   # python310Packages.tweepy
-    #   # python310Packages.charset-normalizer
-    #   # python39Packages.charset-normalizer
-    #   # python310Packages.urllib3
-    #   # python310Packages.tqdm
-    #   # python310Packages.python-dotenv
-    #   # python310Packages.oauthlib
-    #   # python310Packages.idna
-    #   # python310Packages.certifi
-    #   # python310Packages.requests
-    #   # python310Packages.requests-oauthlib
-
-    #   # audio
-    #   wireplumber
-    #   easyeffects
-    #   pipewire
-    #   # pipewire-media-session
-    #   ninja
-    #   ffmpeg
-    #   freac  boca
-
-    #   # archiver
-    #   archiver
-    #   xarchiver
-    #   fsarchiver
-    #   zip
-    #   unrar
-    #   p7zip
-    #   unzip
-
-    #   # network
-    #   adguardhome
-    #   tor
-    #   dnscrypt-proxy2
-    #   openssl
-
-    #   # media player
-    #   vlc
-    #   cmus
-    #   cmusfm
-    #   cava
-    #   streamlink
-    #   python310Packages.deemix  
-    #   python310Packages.deezer-python  
-    #   nuclear
-    #   spotify
-    #   spotify-tui
-    #   termusic
-    #   yewtube
-
-    #   # terminal
-    #   git
-    #   tig
-    #   ranger
-    #   joshuto
-    #   deer
-    #   pistol
-    #   terminal-typeracer
-    #   vim
-    #   neovim-remote
-    #   page
-    #   duf
-    #   spacevim
-    #   nvimpager
-    #   neovide
-    #   uivonim
-    #   z-lua
-    #   peco
-    #   autojump
-    #   pazi
-    #   fasd
-    #   yank
-    #   xsel
-    #   xclip
-    #   mov-cli
-    #   vifm
-    #   wget
-    #   # alternative man tools / unix documentation
-    #   bro
-    #   cheat  # Create and view interactive cheatsheets on the command-line
-    #   cht-sh  # CLI client for cheat.sh, a community driven cheat sheet
-    #   navi  # An interactive cheatsheet tool for the command-line and application launchers
-    #   tealdeer  # A very fast implementation of tldr in Rust
-    #   wiki-tui  # A simple and easy to use Wikipedia Text User Interface
-    #   fltrdr  # A TUI text reader for the terminal
-
-    #   # text editor
-    #   geany
-    #   obsidian
-    #   vscode-with-extensions 
-
-    #   # nix
-    #   nix
-    #   nix-index
-    #   nix-prefetch
-    #   nix-prefetch-hg
-    #   nix-prefetch-git
-    #   nix-prefetch-github
-    #   nix-prefetch-scripts
-    #   nix-prefetch-docker
-
-    #   # browser
-    #   firefox
-    #   librewolf
-    #   brave
-    #   chromium
-    #   tor-browser-bundle-bin
-    #   google-chrome
-    #   opera
-
-    #   # downloader
-    #   motrix
-    #   yt-dlp
-    #   youtube-dl 
-    #   ytmdl
-    #   httpie
-    #   python310Packages.httpie
-    #   uget
-    #   uget-integrator
-    #   axel 
-    #   downonspot  # A spotify downloader writter in rust
-    #   spotdl  # Download your Spotify playlists and songs along with album art and metadata
-    #   # motrix  # handle by flatpak
-
-    #   # productive
-    #   simplenote
-    #   standardnotes
-    #   joplin
-    #   joplin-desktop
-    #   kanboard
-    #   bitwarden
-    #   bitwarden-cli
-
-    #   # cloud drive
-    #   rclone
-    #   rclone-browser
-
-    #   # usb bootable
-    #   woeusb
-    #   etcher
-    #   ventoy-bin
-    #   unetbootin
-    #   ntfs3g
-    #   fd
-
-    #   # # pantheon package
-    #   # pantheon.switchboard
-    #   # pantheon-tweaks
-    #   # pantheon.wingpanel
-    #   # pantheon.wingpanel-indicator-a11y
-    #   # pantheon.wingpanel-with-indicators
-    #   # pantheon.wingpanel-indicator-network
-
-    #   # cinnamon package
-    #   cinnamon.nemo
-
-    #   # xfce package
-    #   xfce.ristretto
-    #   xfce.thunar
-    #   xfce.thunar-archive-plugin
-    #   xfce.tumbler
-
-    #   # qt package
-    #   libsForQt5.dolphin
-    #   libsForQt5.kturtle
-
-    #   # shell
-    #   zsh
-    #   bashInteractive
-
-    #   # configuration dotfiles
-    #   # home-manager
-    #   rcm
-
-    #   # terminal display system information
-    #   dt-shell-color-scripts
-    #   btop
-    #   htop
-    #   neofetch
-    #   bottom
-    #   checkip
-    #   freshfetch
-    #   ipfetch
-    #   hyfetch
-    #   pridefetch
-
-    #   # virtual machine
-    #   anbox
-    #   waydroid
-    #   flatpak
-    #   gnome.gnome-boxes
-    #   vmware-workstation
-    #   virtualbox
-    #   qemu_kvm
-    #   qtemu
-    #   # virtualboxWithExtpack
-    #   libreelec-dvb-firmware
-    #   kodi-gbm
-    #   docker  
-    #   docker-compose
-    #   wine
-    #   playonlinux
-    #   bottles
-    #   darling-dmg  # Darling lets you open macOS dmgs on Linux
-    #   android-tools  # Android SDK platform tools
-    #   adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
-    #   adbfs-rootless  # Mount Android phones on Linux with adb, no root required
-    #   gnirehtet  # Reverse tethering over adb for Android
-    #   autoadb  # Execute a command whenever a device is adb-connected
-    #   usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
-
-    #   # gnome extensions
-    #   gnomeExtensions.simple-system-monitor
-    #   gnomeExtensions.tilingnome
-    #   gnomeExtensions.window-state-manager
-
-    #   # appimage
-    #   appimagekit
-    #   appimage-run
-    # ];
   };
 
   # NIXPKGS CONFIG
@@ -908,9 +461,7 @@
 		"python-2.7.18.6"
 	];
 
-  nixpkgs.config = {
-  allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -924,29 +475,11 @@
    services.flatpak.enable = true;
    xdg.portal.enable = true;
    xdg.portal.wlr.enable = true;
-   # xdg.portal.extraPortals =
-   # {
-   #   xdg-desktop-portal-xfce
-   #   xdg-desktop-portal-gtk
-   #   xdg-desktop-portal-kde
-   # };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = true;
-
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
   ### SYSTEM CONFIGURATION ## 
   system = {
@@ -964,12 +497,5 @@
       enable = true;
       keys = []; 
     };
-    # package = with pkgs;
-    # [
-    #   # pkgs.nix
-    #   # nixFlakes
-    #   # nixUnstable
-    # ];
   };
-  # nix.registry.alfurqani.flake = "nixpkgs";
 }

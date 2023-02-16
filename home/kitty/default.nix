@@ -7,10 +7,9 @@
     theme = "Nord";
     font = {
         # name = "ComicMono";
-        name = "JetBrains Mono NL Regular Nerd Font Complete";
-        # name = "JetBrains Mono NL Light Nerd Font Complete";
-        # name = "JetBrains Mono ExtraLight Nerd Font Complete";
-        size = 14;
+        name = "Code New Roman Nerd Font Complete Mono";
+        # name = "JetBrains Mono NL Regular Nerd Font Complete";
+        size = 16;
     };
     extraConfig = ''
 	    cursor_shape block

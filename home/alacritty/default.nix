@@ -20,7 +20,7 @@
       font = {
         size = 15;
         normal = { 
-          family = "JetBrains Mono NL Regular Nerd Font"; 
+          family = "CodeNewRoman"; 
           style = "Regular";
         };
         # bold = { 
