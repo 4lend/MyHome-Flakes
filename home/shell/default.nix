@@ -6,6 +6,8 @@ let
     bind X forward-word
     set -U fish_greeting
 
+    bind \co 'tig'
+
     colorscript exec blocks1
   '';
 
@@ -94,7 +96,8 @@ let
     pc        = "protonvpn-cli";
     nq        = "notepadqq";
     bs        = "bash";
-    wh        = "which";
+    whi       = "which";
+    whe       = "whereis";
 
     ud        = "udisksctl";
     udm       = "udisksctl mount -b";
@@ -102,18 +105,22 @@ let
   };
 in
 {
-  programs.fish = {
-    enable = true;
-    shellAliases = shellAliases;
-    shellInit = fishConfig;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true; 
-    enableCompletion = true; 
-    enableSyntaxHighlighting = true; 
-    historySubstringSearch.enable = true; 
-    shellAliases = shellAliases;
+  programs = {
+    fish = {
+      enable = true;
+      shellAliases = shellAliases;
+      shellInit = fishConfig;
+    };
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true; 
+      enableCompletion = true; 
+      enableSyntaxHighlighting = true; 
+      historySubstringSearch.enable = true; 
+      shellAliases = shellAliases;
+    };
+    bash = {
+      enable = true; 
+    };
   };
 }

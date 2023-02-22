@@ -107,12 +107,12 @@
           '';
         }
 
-        {
-          plugin = nvim-lspconfig;
-          config = ''
-            luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
-          '';
-        }
+        # {
+        #   plugin = nvim-lspconfig;
+        #   config = ''
+        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
+        #   '';
+        # }
 
         {
           plugin = bufferline-nvim;

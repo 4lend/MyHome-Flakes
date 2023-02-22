@@ -6,10 +6,11 @@
     # theme = "Nightfox";  # Everforest Dark Soft - Medium - Hard, Forest Night, Nord, Dracula, One Dark, One Half Dark, 
     theme = "Nord";
     font = {
-        # name = "ComicMono";
-        name = "Code New Roman Nerd Font Complete Mono";
-        # name = "JetBrains Mono NL Regular Nerd Font Complete";
-        size = 16;
+        # name = "Lexend Deca";
+        # name = "Code New Roman Nerd Font Complete Mono";
+        # name = "Space Mono";
+        name = "JetBrains Mono NL Regular Nerd Font Complete";
+        size = 15;
     };
     extraConfig = ''
 	    cursor_shape block

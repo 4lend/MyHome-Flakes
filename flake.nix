@@ -10,9 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
-    neovim-flake = {
-      url = github:jordanisaacs/neovim-flake;
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
@@ -22,14 +19,6 @@
       config = { allowUnfree = true; };
       lib = nixpkgs.lib;
 
-      primaryUserInfo = {
-        username = "alfurqani";
-        fullName = "Alfurqani";
-        email = "syifa.alfurqoni@gmail.com";
-        nixConfigDirectory = "/home/alfurqani/.config/nixpkgs";
-      };
-
-
     in {
       nixosConfigurations = {
         alfurqani = lib.nixosSystem {
@@ -37,10 +26,15 @@
           modules = [
 	          ./system/configuration.nix 
 	          ./system/hardware-configuration.nix
-	          home-manager.nixosModules.home-manager {
+            inputs.home-manager.nixosModules.home-manager {
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
-	            home-manager.users.alfurqani = import ./home/home.nix;
+              # home-manager.users.alfurqani = import ./home/home.nix;
+              home-manager.users.alfurqani = { config, pkgs, lib, nixpkgs-unstable, ... }: {
+                imports = [ 
+                  ./home/home.nix
+                ];
+              };
 	          }
 	        ];
         };
@@ -51,12 +45,6 @@
           inherit pkgs;
           modules = [
 	          ./home/home.nix
-            ({pkgs, ...}:
-            {
-	          home = {
-              packages = with pkgs; [  ];
-	          }; 
-            })
           ];
         };
 	    };

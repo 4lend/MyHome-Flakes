@@ -46,62 +46,7 @@
       # dns = "dnsmasq";  # one of "default", "dnsmasq", "unbound", "systemd-resolved", "none"
       # enableStrongSwan = true;
     };
-
-    ## WIREGUARD ##
-    # wg-netmanager.enable = true;
-    # wireguard =
-    # {
-    #   enable = true;
-    #   interfaces = 
-    #   {
-    #     wg0 = {
-    #       ips = [
-    #         "192.168.20.4/24"
-    #       ];
-    #       peers = [
-    #         {
-    #           allowedIPs = [
-    #             "192.168.20.1/32"
-    #           ];
-    #           endpoint = "demo.wireguard.io:12913";
-    #           publicKey = "xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=";
-    #         }
-    #       ];
-    #       privateKey = "yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=";
-    #     };
-    #   };
-    # };
-
-    # wg-quick.interfaces = 
-    # {
-    #   wg0 = {
-    #     address = [
-    #       "192.168.20.4/24"
-    #     ];
-    #     peers = [
-    #       {
-    #         allowedIPs = [
-    #           "192.168.20.1/32"
-    #         ];
-    #         endpoint = "demo.wireguard.io:12913";
-    #         publicKey = "xTIBA5rboUvnH4htodjb6e697QjLERt1NAB4mZqp8Dg=";
-    #       }
-    #     ];
-    #     privateKey = "yAnz5TF+lXXJte14tji3zlMNq+hd2rYUIgJBgB3fBmk=";
-    #   };
-    # };
-
-    # # RESOLVCONF 
-    # useHostResolvConf = true;
-    # resolvconf =
-    # {
-    #   enable = true;
-    #   extraConfig = "libc=NO"; 
-    #   useLocalResolver = true;
-    # };
   };
-
-
 
   # Enable network manager applet
   programs.nm-applet.enable = true;
@@ -190,45 +135,15 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # systemWide = true;
-    # wireplumber.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    # media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  ### SERVICES ###
+  ### service ###
   services = {
-    # ## PANTHEON DESKTOP ##
-    # pantheon = 
-    # {
-    #   apps.enable = true;
-    #   contractor.enable = false;
-    # };
-
-    # ## NEXTDNS ##
-    # nextdns = 
-    # {
-    #   enable = true;
-    #   # arguments = 
-    #   # [ 
-    #   #   "-config" 
-    #   #     "149.112.112.112/20=quad9v4"
-    #   # #   "108.162.192.0/18=abcdef"
-    #   # #   "188.114.96.0/20=cfv4"
-    #   # #   "2606:4700::/32=cfv6"
-    #   # #   "2a06:98c0::/29=cfv6"
-    #   # #   # "-cache-size" "10MB"
-    #   # ];
-    # };
-
-    # ## ADGUARDHOME ##
+    # ## adguardhome ##
     # adguardhome = 
     # {
     #   enable = true;
@@ -291,60 +206,6 @@
       apikeyFile = "b471ab42b2489466d2477f86c9205cfaecd16";  # Global API Key
       # apikeyFile = "v1.0-09b4cfce06f682b668b66023-77c6005c9c09f946f0938929d87513c0543df963ea4c5d450a2b1129452610ef536e3ef1509446c5ad1363be9122c5b537dde4a5426f8a3ea7a6bf24d101a2d268ab75a49a4ff6db46";
     };  # Origin CA Key
-
-    # ## cloudflare-dyndns ##
-    # cloudflare-dyndns =
-    # {
-    #   enable = true;
-    #   ipv4 = true;
-    #   ipv6 = true;
-    #   proxied = true;
-    #   domains = [];
-    #   deleteMissing = false;
-    #   apiTokenFile = "";
-    # };
-
-    # ## cloudflare, custom, google, opendns, quad9
-    # https-dns-proxy = 
-    # {
-    # enable = true;
-    # provider.kind = "quad9";
-    # # provider.url = "94.140.14.14";
-    # # provider.ips = [
-    # # "188.114.96.0/20"
-    # # "173.245.48.0/20"
-    # # "190.93.240.0/20"
-    # # ];
-    # };
-
-    # ## RESOLVED ##
-    # resolved =
-    #   {
-    #     enable = true;
-    #     fallbackDns = 
-    #     [
-    #       # cloudflare
-    #       "1.1.1.1"
-    #       "1.0.0.1"
-    #       # # quad9
-    #       # "9.9.9.9"
-    #       # "149.112.112.112"
-    #       # # opendns
-    #       # "208.67.222.222"
-    #       # "208.67.220.220"
-    #       # # adguarddns
-    #       # "94.140.14.14"
-    #       # "94.140.15.15"
-    #       # # comodo secure dns
-    #       # "8.26.56.26"
-    #       # "8.20.247.20"
-    #     ];
-    #     domains =
-    #     [
-    #       # "https://doh-jp.blahdns.com/dns-query"
-    #       # "https://dns.adguard-dns.com/dns-query"
-    #     ];
-    #   };
   };
 
 
@@ -391,7 +252,7 @@
     enableDefaultFonts = true;
     fonts = with pkgs; 
     [
-      ( nerdfonts.override { fonts = [ "JetBrainsMono" "CodeNewRoman"]; })
+      ( nerdfonts.override { fonts = [ "JetBrainsMono" "CodeNewRoman" "SpaceMono" ]; })
       nerd-font-patcher
       comic-mono
       comic-neue
@@ -406,6 +267,8 @@
       smiley-sans  # A condensed and oblique Chinese typeface seeking a visual balance between the humanist and the geometric
       lxgw-wenkai  # An open-source Chinese font derived from Fontworks' Klee One
       lexend  # A variable font family designed to aid in reading proficiency
+      comfortaa
+      lexend
     ];
     fontconfig = {
       enable = true;
