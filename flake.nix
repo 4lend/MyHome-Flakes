@@ -14,11 +14,14 @@
 
   outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
     let 
+      username = "alfurqani";
+      homeDirectory = "/home/${username}";
+      configHome = "${homeDirectory}/.config";
+
       system = "x86_64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       config = { allowUnfree = true; };
       lib = nixpkgs.lib;
-
     in {
       nixosConfigurations = {
         alfurqani = lib.nixosSystem {

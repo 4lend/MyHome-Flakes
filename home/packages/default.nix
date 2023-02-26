@@ -127,7 +127,6 @@ let
   openssl
 
   # media player
-  vlc
   cmus
   cmusfm
   cava
