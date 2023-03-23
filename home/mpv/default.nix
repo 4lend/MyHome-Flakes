@@ -10,7 +10,7 @@
 	    sub-border-color = "#000000";  # black  # #202020
 	    sub-border-size = "3";  # default
 	    sub-bold = "no";
-	    sub-pos = 100;
+	    sub-pos = 98;
       window = "fullscreen";
       speed = 1.15;
       playback = "save-position-on-quit";

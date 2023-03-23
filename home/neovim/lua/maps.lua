@@ -7,6 +7,7 @@ map("n", "<Space>", "<NOP>", default_options)
 vim.g.mapleader = " "
 
 map("n", "<C-s>", "<cmd>Telescope find_files<CR>", {noremap = true})
+map("n", "<C-x>", "<cmd>write<CR>", {noremap = true})
 map("n", "<C-t>", "<cmd>Telescope buffers<CR>", {noremap = true})
 map("n", "<C-g>", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 map("n", "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", {noremap = true})
@@ -16,6 +17,7 @@ map("n", "gh", "<cmd>Lspsaga Lspsaga lsp_finder<CR>", {noremap = true})
 
 map("i", "jk", "<esc>", {noremap = true})
 map("n", "<C-n>", "<cmd>colorscheme nordfox<CR>", {noremap = true})
+map("n", "<C-m>", "<cmd>colorscheme nightfox<CR>", {noremap = true})
 
 vim.cmd([[let g:floaterm_keymap_toggle = '<F12>']])
 

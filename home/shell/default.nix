@@ -8,8 +8,10 @@ let
 
     bind \co 'tig'
 
-    colorscript exec blocks1
+    colorscript exec colortest
   '';
+
+  # colortest, colorwheel, blocks
 
   shellAliases = {
     l         = "exa -1 -g -l --icons -s type";
@@ -98,6 +100,7 @@ let
     bs        = "bash";
     whi       = "which";
     whe       = "whereis";
+    sn        = "sncli";
 
     ud        = "udisksctl";
     udm       = "udisksctl mount -b";
