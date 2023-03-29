@@ -30,11 +30,11 @@ let
     xorg.xkill
     killall
 
-    # # python
-    # python310Packages.dbus-python  
-    # python310Full    
-    # python310Packages.pip  
-    # python310Packages.urllib3
+    # python
+    python310Packages.dbus-python  
+    python310Full    
+    python310Packages.pip  
+    python310Packages.urllib3
     # python310Packages.types-urllib3
     # python310Packages.soupsieve
     # python310Packages.idna
@@ -58,6 +58,7 @@ let
 
     # share
     opendrop
+    owl  # An open Apple Wireless Direct Link (AWDL) implementation written in C
 
     # social
     discord
@@ -162,6 +163,8 @@ let
     tealdeer  # A very fast implementation of tldr in Rust
     wiki-tui  # A simple and easy to use Wikipedia Text User Interface
     fltrdr  # A TUI text reader for the terminal
+    pssh
+    cowsay
 
     # text editor
     geany
@@ -200,6 +203,7 @@ let
     axel 
     downonspot  # A spotify downloader writter in rust
     spotdl  # Download your Spotify playlists and songs along with album art and metadata
+    popcorntime
 
     # productive
     notepadqq

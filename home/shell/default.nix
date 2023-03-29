@@ -36,6 +36,7 @@ let
     hb        = "home-manager build";
     hs        = "home-manager switch";
     hg        = "home-manager generations";
+    nfu       = "nix flake update";
 
     tls       = "tmux list-sessions";
     tkls      = "tmux kill-session -t";
@@ -67,6 +68,7 @@ let
     grs       = "git reset";
     grss      = "git reset --soft";
     grsh      = "git reset --hard";
+    gpu       = "git pull";
 
     y         = "yt-dlp";
     yp        = "yt-dlp --proxy 192.168.49.1:8000";
@@ -77,7 +79,7 @@ let
     v         = "vim";
     nv        = "nvim";
     vd        = "neovide";
-    p         = "spacevim";
+    p         = "py *.py";
     t         = "tmux";
     e         = "exit";
     lv        = "lvim";

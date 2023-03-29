@@ -20,6 +20,7 @@ in
     ./mpv
     ./neovim
     ./packages
+    ./rtorrent
     ./services
     ./shell
     ./starship

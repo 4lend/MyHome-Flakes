@@ -10,9 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.utils.follows = "flake-utils";
     };
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, nur, ... }@inputs:
     let 
       username = "alfurqani";
       homeDirectory = "/home/${username}";
@@ -26,7 +27,14 @@
       nixosConfigurations = {
         alfurqani = lib.nixosSystem {
           inherit system ;
-          modules = [
+          modules = 
+          let
+            nur-modules = import nur {
+            nurpkgs = inputs.nixpkgs.legacyPackages.${system};
+            pkgs = inputs.nixpkgs.legacyPackages.${system};
+            };
+          in [
+            # { imports = [ nur-modules.repos.congee.sncli ]; }
 	          ./system/configuration.nix 
 	          ./system/hardware-configuration.nix
             inputs.home-manager.nixosModules.home-manager {
@@ -39,6 +47,10 @@
                 ];
               };
 	          }
+            nur.nixosModules.nur
+            ({ config, ... }: {
+              environment.systemPackages = [ config.nur.repos.congee.sncli ]; #with nur.repos; [ congee.sncli ]
+            })
 	        ];
         };
       };
