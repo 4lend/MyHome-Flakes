@@ -36,4 +36,5 @@ in
   programs = {
     home-manager.enable = true;
   };
+  programs.fish.enable = true;
 }

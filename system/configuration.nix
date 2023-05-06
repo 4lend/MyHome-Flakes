@@ -20,7 +20,10 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_10;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
   services.xserver.videoDrivers = [];
 
@@ -57,8 +60,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
 
-  i18n.extraLocaleSettings = 
-  {
+  i18n.extraLocaleSettings = {
     LC_ADDRESS = "id_ID.utf8";
     LC_IDENTIFICATION = "id_ID.utf8";
     LC_MEASUREMENT = "id_ID.utf8";
@@ -217,6 +219,7 @@
       isNormalUser = true;
       description = "4LEND";
       extraGroups = [ "networkmanager" "wheel" ];
+      useDefaultShell = true;
     };
     # Default Shells
     defaultUserShell = pkgs.fish;
@@ -235,6 +238,7 @@
   programs = {
     # ## PANTHEON ##
     # pantheon-tweaks.enable = true;
+    fish.enable = true;
 
     ## THEFUCK ##
     thefuck = {

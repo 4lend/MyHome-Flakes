@@ -42,6 +42,8 @@ let
     tkls      = "tmux kill-session -t";
     kat       = "pkill -f tmux";
     tks       = "tmux kill-server";
+    tat       = "tmux attach";
+    ts        = "tmux sessions";
 
     g         = "git";
     gs        = "git status";

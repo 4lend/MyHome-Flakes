@@ -163,12 +163,12 @@
           '';
         }
 
-        {
-          plugin = barbar-nvim;
-          config = ''
-            luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
-          '';
-        }
+        # {
+        #   plugin = barbar-nvim;
+        #   config = ''
+        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
+        #   '';
+        # }
 
         {
           plugin = nightfox-nvim;

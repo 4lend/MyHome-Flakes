@@ -211,6 +211,7 @@ let
     nomacs  # Qt-based image viewer
     inkscape
     darktable
+    digikam
     libreoffice
     mdds  # need by libreoffice
     onlyoffice-bin
@@ -232,12 +233,17 @@ let
     # taskwarrior  # Highly flexible command-line tool to manage TODO lists
     # taskwarrior-tui  # A terminal user interface for taskwarrior 
     # todo  # Simple todo cli program written in rust
-    # todoist  # Todoist CLI Client
+    todoist  # Todoist CLI Client
     # gtg  #  A personal tasks and TODO-list items organizer
     # taskell  # A command-line kanban board/task manager
     # lifeograph
     # nextcloud-client  # Nextcloud themed desktop client
     # qownnotes  # Plain-text file notepad and todo-list manager with markdown support and Nextcloud/ownCloud integration
+
+    # ai
+    chatgpt-cli
+    shell_gpt
+    aichat
     
     # cloud drive
     rclone
@@ -270,13 +276,15 @@ let
 
     # shell
     bashInteractive
+    fish
 
     # configuration dotfiles
     # home-manager
     rcm
 
     # terminal display system information
-    dt-shell-color-scripts
+    dwt1-shell-color-scripts
+    pokemon-colorscripts-mac
     btop
     htop
     neofetch
