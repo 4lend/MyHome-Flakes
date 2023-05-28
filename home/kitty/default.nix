@@ -9,7 +9,8 @@
         # name = "Lexend Deca";
         # name = "Code New Roman Nerd Font Complete Mono";
         # name = "Space Mono";
-        name = "JetBrains Mono NL Regular Nerd Font Complete";
+        # name = "JetBrains Mono NL Regular Nerd Font Complete";  # buggy
+        name = "JetBrains Mono Nerd Font";
         size = 15;
     };
     extraConfig = ''

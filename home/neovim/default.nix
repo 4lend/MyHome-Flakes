@@ -1,13 +1,22 @@
 { pkgs, config, ... }:
+let
+  node = with pkgs.nodePackages; [
+    typescript-language-server
+    pyright
+  ];
+  php = with pkgs.phpPackages; [
+    psalm
+    phpstan
+  ];
+  mix = with pkgs; [
+    rnix-lsp nixfmt 
+    lua51Packages.lua-lsp
+    # sumneko-lua-language-server stylua
+  ];
+in
 {
   config = {
-
-    home.packages = with pkgs; [
-        rnix-lsp nixfmt 
-        sumneko-lua-language-server stylua
-        nodePackages.typescript-language-server
-        nodePackages.pyright
-    ];
+    home.packages = node ++ php ++ mix;
 
     programs.neovim = {
       enable = true;
@@ -33,7 +42,7 @@
         nvim-web-devicons
         vim-fugitive
         fugitive-gitlab-vim
-        # theme
+        ### theme
         kanagawa-nvim
         tokyonight-nvim
         palenight-vim
@@ -107,12 +116,12 @@
           '';
         }
 
-        # {
-        #   plugin = nvim-lspconfig;
-        #   config = ''
-        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
-        #   '';
-        # }
+        {
+          plugin = nvim-lspconfig;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
+          '';
+        }
 
         {
           plugin = bufferline-nvim;

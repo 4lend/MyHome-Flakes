@@ -21,7 +21,7 @@
   };
 
   # boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_10;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
@@ -326,6 +326,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-12.2.3"  # etcher
 		"python-2.7.18.6"
+                "openssl-1.1.1t"
 	];
 
   nixpkgs.config = { allowUnfree = true; };

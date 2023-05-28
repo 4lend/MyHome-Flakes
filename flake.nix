@@ -54,13 +54,13 @@
         };
       };
 
-      homeConfigurations = {
-	      alfurqani = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-	          ./home/home.nix
-          ];
-        };
-	    };
+      # homeConfigurations = {
+	    #   alfurqani = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs;
+      #     modules = [
+	    #       ./home/home.nix
+      #     ];
+      #   };
+	    # };
     };
 }

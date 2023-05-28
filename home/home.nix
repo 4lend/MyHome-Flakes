@@ -16,6 +16,7 @@ in
     ./aria2
     ./fzf
     ./git
+    ./helix
     ./kitty
     ./mpv
     ./neovim
