@@ -2,12 +2,19 @@
 
 let
   packages = with pkgs; [
-    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  yarn  nim  jq  nodejs  
+    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  yarn  nim  jq  nodejs  mariadb  apacheHttpd  
 
     graphqlmap
     json_c
     jsoncpp
     # dotnet-runtime
+
+    # color picker
+    deepin.deepin-picker
+    xcolor
+    eyedropper
+    wl-color-picker
+    colorpicker
 
     apktool
     ascii
@@ -17,9 +24,11 @@ let
     cargo
     dbus
     electron
+    exfat
     font-manager
     gnupg
     gparted
+    veracrypt
     input-remapper
     kitty-themes
     pcmanfm
@@ -28,7 +37,9 @@ let
     trash-cli
     ueberzug
     xorg.xkill
-    killall
+    # killall
+    p7zip
+    fuse-7z-ng
 
     # python
     python310Packages.dbus-python  
@@ -91,8 +102,8 @@ let
     # audio
     wireplumber
     easyeffects
+    pulseeffects-legacy
     pipewire
-    # pipewire-media-session
     ninja
     ffmpeg
     freac  boca
@@ -116,6 +127,8 @@ let
     python310Packages.protonvpn-nm-lib
     speedtest-cli
     firewalld
+    busybox
+    dig
 
     # media player
     cmus
@@ -169,7 +182,7 @@ let
     # text editor
     geany
     vscode
-    # obsidian
+    obsidian
 
     # nix
     nix
@@ -187,7 +200,9 @@ let
     brave
     tor-browser-bundle-bin
     google-chrome
-    # opera
+    microsoft-edge
+    opera
+    chromium
 
     # downloader
     motrix
@@ -212,6 +227,7 @@ let
     inkscape
     darktable
     digikam
+    synfigstudio
     libreoffice
     mdds  # need by libreoffice
     onlyoffice-bin
@@ -221,24 +237,27 @@ let
     simplenote
     standardnotes
     texlive.combined.scheme-full
+    obs-studio
+    zoom-us
     # joplin
     # joplin-desktop  # An open source note taking and to-do application with synchronisation capabilities
     # trilium-desktop  # Hierarchical note taking application with focus on building large personal knowledge bases
     # trilium-server
     notion-app-enhanced  # Notion Desktop builds with Notion Enhancer for Windows, MacOS and Linux.
-    appflowy  # An open-source alternative to Notion
+    # appflowy  # An open-source alternative to Notion
     bitwarden
     bitwarden-cli
     zim
     # taskwarrior  # Highly flexible command-line tool to manage TODO lists
     # taskwarrior-tui  # A terminal user interface for taskwarrior 
-    # todo  # Simple todo cli program written in rust
+    todo  # Simple todo cli program written in rust
     todoist  # Todoist CLI Client
     # gtg  #  A personal tasks and TODO-list items organizer
     # taskell  # A command-line kanban board/task manager
     # lifeograph
     # nextcloud-client  # Nextcloud themed desktop client
     # qownnotes  # Plain-text file notepad and todo-list manager with markdown support and Nextcloud/ownCloud integration
+    vimwiki-markdown
 
     # ai
     chatgpt-cli
@@ -298,9 +317,11 @@ let
 
     # virtual machine
     # anbox
+    steam
     waydroid
     flatpak
     gnome.gnome-boxes
+    gnome.gnome-tweaks
     qemu_kvm
     # vmware-workstation
     # virtualbox
@@ -312,13 +333,16 @@ let
     # wine
     # playonlinux
     # bottles
+    lutris
     # darling-dmg  # Darling lets you open macOS dmgs on Linux
-    # android-tools  # Android SDK platform tools
-    # adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
-    # adbfs-rootless  # Mount Android phones on Linux with adb, no root required
+    android-tools  # Android SDK platform tools
+    adb-sync  # A tool to synchronise files between a PC and an Android devices using ADB (Android Debug Bridge)
+    adbfs-rootless  # Mount Android phones on Linux with adb, no root required
     # gnirehtet  # Reverse tethering over adb for Android
-    # autoadb  # Execute a command whenever a device is adb-connected
+    autoadb  # Execute a command whenever a device is adb-connected
     # usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
+    joystickwake
+    pcsx2
 
     # appimage
     appimagekit

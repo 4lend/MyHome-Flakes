@@ -1,19 +1,31 @@
 { pkgs, config, ... }:
+let
+  node = with pkgs.nodePackages; [
+    typescript-language-server
+    pyright
+  ];
+  php = with pkgs.phpPackages; [
+    psalm
+    phpstan
+  ];
+  mix = with pkgs; [
+    rnix-lsp nixfmt 
+    sumneko-lua-language-server
+    lua51Packages.lua-lsp
+    sumneko-lua-language-server stylua
+    adoptopenjdk-bin
+  ];
+in
 {
   config = {
-
-    home.packages = with pkgs; [
-        rnix-lsp nixfmt 
-        sumneko-lua-language-server stylua
-        nodePackages.typescript-language-server
-        nodePackages.pyright
-    ];
+    home.packages = node ++ php ++ mix;
 
     programs.neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [ 
+        coc-sumneko-lua
         vim-nix
         plenary-nvim
         cmp-nvim-lsp
@@ -23,6 +35,7 @@
         auto-pairs
         vim-vsnip
         vim-css-color  # A very fast, multi-syntax context-sensitive color name highlighter
+        vimwiki
         # goyo-vim
         # vimwiki
         # vim-markdown
@@ -33,7 +46,7 @@
         nvim-web-devicons
         vim-fugitive
         fugitive-gitlab-vim
-        # theme
+        ### theme
         kanagawa-nvim
         tokyonight-nvim
         palenight-vim
@@ -107,12 +120,12 @@
           '';
         }
 
-        # {
-        #   plugin = nvim-lspconfig;
-        #   config = ''
-        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
-        #   '';
-        # }
+        {
+          plugin = nvim-lspconfig;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/lsp.lua
+          '';
+        }
 
         {
           plugin = bufferline-nvim;
@@ -159,16 +172,16 @@
         {
           plugin = diffview-nvim;
           config = ''
-            luafile ~/MyHome-Flakes/home/neovim/lua/config/barbar-nvim.lua
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
           '';
         }
 
-        # {
-        #   plugin = barbar-nvim;
-        #   config = ''
-        #     luafile ~/MyHome-Flakes/home/neovim/lua/config/diffview-nvim.lua
-        #   '';
-        # }
+        {
+          plugin = barbar-nvim;
+          config = ''
+            luafile ~/MyHome-Flakes/home/neovim/lua/config/barbar-nvim.lua
+          '';
+        }
 
         {
           plugin = nightfox-nvim;

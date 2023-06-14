@@ -21,7 +21,7 @@
   };
 
   # boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_2;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_10;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable.zfs;
@@ -29,8 +29,8 @@
 
   ## networking ##
   networking = {
-    hostName = "nixos";
     # hostName = "nixos"; # Define your hostname.
+    nameservers = ["1.1.1.1"];
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # ## PROXY ##
@@ -138,6 +138,11 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    socketActivation = true;
+    wireplumber = {
+      enable = true;
+      package = pkgs.wireplumber;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -145,6 +150,28 @@
 
   ### service ###
   services = {
+    ## DNSCRYPT-PROXY2 ##
+    dnscrypt-proxy2 = {
+      enable = true;
+      upstreamDefaults = true;
+      settings = {
+        sources.public-resolvers = {
+          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
+          cache_file = "public-resolvers.md";
+          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+          refresh_delay = 72;
+        };
+      };
+    };
+
+    ## CLOUDFLARE-CFDYNDNS ##
+    cfdyndns = {
+      enable = true;
+      email = "syifa.alfurqoni@gmail.com";
+      apikeyFile = "b471ab42b2489466d2477f86c9205cfaecd16";  # Global API Key
+      # apikeyFile = "v1.0-09b4cfce06f682b668b66023-77c6005c9c09f946f0938929d87513c0543df963ea4c5d450a2b1129452610ef536e3ef1509446c5ad1363be9122c5b537dde4a5426f8a3ea7a6bf24d101a2d268ab75a49a4ff6db46";
+    };  # Origin CA Key
+
     # ## adguardhome ##
     # adguardhome = 
     # {
@@ -186,28 +213,6 @@
     #     };
     #   };
     # };
-
-    ## DNSCRYPT-PROXY2 ##
-    dnscrypt-proxy2 = {
-      enable = true;
-      upstreamDefaults = true;
-      settings = {
-        sources.public-resolvers = {
-          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
-          cache_file = "public-resolvers.md";
-          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
-          refresh_delay = 72;
-        };
-      };
-    };
-
-    ## CLOUDFLARE-CFDYNDNS ##
-    cfdyndns = {
-      enable = true;
-      email = "syifa.alfurqoni@gmail.com";
-      apikeyFile = "b471ab42b2489466d2477f86c9205cfaecd16";  # Global API Key
-      # apikeyFile = "v1.0-09b4cfce06f682b668b66023-77c6005c9c09f946f0938929d87513c0543df963ea4c5d450a2b1129452610ef536e3ef1509446c5ad1363be9122c5b537dde4a5426f8a3ea7a6bf24d101a2d268ab75a49a4ff6db46";
-    };  # Origin CA Key
   };
 
 
@@ -326,6 +331,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-12.2.3"  # etcher
 		"python-2.7.18.6"
+    "openssl-1.1.1t"
+    "openssl-1.1.1u"
 	];
 
   nixpkgs.config = { allowUnfree = true; };

@@ -10,6 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    # homebrew = {
+    #   url = "github:NixOS/brew";
+    #   inputs = {  
+    #     url = "github:Homebrew/homebrew-core";
+    #     rev = "HEAD";
+    #     path = "Formula/openssl.rb";
+    #   };
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, nur, ... }@inputs:
@@ -19,6 +27,7 @@
       configHome = "${homeDirectory}/.config";
 
       system = "x86_64-linux";
+      darwin = "x86_64-darwin";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       config = { allowUnfree = true; };
       lib = nixpkgs.lib;
@@ -54,13 +63,13 @@
         };
       };
 
-      homeConfigurations = {
-	      alfurqani = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-	          ./home/home.nix
-          ];
-        };
-	    };
+      # homeConfigurations = {
+	    #   alfurqani = home-manager.lib.homeManagerConfiguration {
+      #     inherit pkgs;
+      #     modules = [
+	    #       ./home/home.nix
+      #     ];
+      #   };
+	    # };
     };
 }

@@ -10,7 +10,8 @@
     # signing.gpgPath = ''
 
     # '';
-    signing.key = "7EBEA7EC4513EF91";
+    # signing.key = "7EBEA7EC4513EF91";
+    signing.key = "553E0E6F94B2548E";
     signing.signByDefault = true;
     extraConfig = {
       rerere.enable = true;
