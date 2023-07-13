@@ -18,7 +18,6 @@ let
     lua51Packages.lua-lsp
     sumneko-lua-language-server stylua
     adoptopenjdk-bin
-    lua-language-server
   ];
 in
 {
@@ -115,7 +114,7 @@ in
         # # coc-ltex  # problem
         latex-box
         compe-latex-symbols
-        # codeium-vim
+        codeium-vim
         vim-numbertoggle
         vim-togglelist
         nvim-autopairs

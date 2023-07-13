@@ -17,11 +17,13 @@ map("n", "<C-g>", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 -- map("n", "gh", "<cmd>Lspsaga Lspsaga lsp_finder<CR>", {noremap = true})
 
 map("i", "jk", "<esc>", {noremap = true})
-map("n", "<C-n>", "<cmd>colorscheme nordfox<CR>", {noremap = true})
-map("n", "<C-m>", "<cmd>colorscheme nightfox<CR>", {noremap = true})
-map('n', '<leader>h', ':help <C-r>=expand("<cword>")<CR><CR><C-w>_', { silent = true })
-map('n', "<C-l>", "<cmd>nohlsearch<CR>", {noremap = true})
-map('i', "<C-l>", "<cmd>nohlsearch<CR>", {noremap = true})
+-- map("n", "<C-n>", "<cmd>colorscheme nordfox<CR>", {noremap = true})
+-- map("n", "<C-m>", "<cmd>colorscheme nightfox<CR>", {noremap = true})
+map("n", "<C-l>", "<cmd>noh<CR>", {noremap = true})
+map('n', '<leader>h', ':help <C-r>=expand("<cword>")<CR><CR><C-w>_', {silent = true})
+map('n', "<C-h>", ":noh<CR>", {noremap = true})
+map("n", "<C-l>", "<cmd>noh<CR>", {noremap = true})
+map("n", "<C-i>", "<cmd>noh<CR>", {noremap = true})
 
 vim.cmd([[let g:floaterm_keymap_toggle = '<F12>']])
 
@@ -34,8 +36,8 @@ local opts = { noremap = true, silent = true }
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
 -- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+map('n', '<A-S-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<A-S->>', '<Cmd>BufferMoveNext<CR>', opts)
 -- Goto buffer in position...
 map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
 map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)

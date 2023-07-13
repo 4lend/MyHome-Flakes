@@ -2,7 +2,7 @@
 
 let
   packages = with pkgs; [
-    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  nim  jq  nodejs  mariadb  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  
+    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  nim  jq  nodejs  mariadb  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  rubyPackages_3_2.redcarpet  mastodon  rubyPackages_3_2.byebug  
 
     graphqlmap
     json_c
