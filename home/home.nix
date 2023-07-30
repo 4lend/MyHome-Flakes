@@ -10,6 +10,7 @@ in
   home.username = "alfurqani";
   home.homeDirectory = "/home/alfurqani";
   home.stateVersion = "23.05";
+  # home.stateVersion = "22.11";
 
   imports = [
     ./alacritty

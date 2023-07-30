@@ -26,8 +26,8 @@ nvim_lsp.phpactor.setup {
 }
 
 nvim_lsp.emmet_ls.setup{
-  filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" }
---filetypes = { "html", "css" }
+  -- filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" }
+  filetypes = { "html", "css" }
 }
 
 nvim_lsp.tailwindcss.setup{

@@ -7,6 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./desktop.nix
       # <home-manager/nixos>
   ];
 
@@ -80,47 +81,48 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-  ### DESKTOP ENVIRONMENT ### 
-  services.xserver = {
-    enable = true;
+  # ### DESKTOP ENVIRONMENT ### 
+  # services.xserver = {
+  #   enable = true;
 
-    # GNOME
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  #   # GNOME
+  #   displayManager.gdm.enable = true;
+  #   desktopManager.gnome.enable = true;
 
-    # # PANTHEON #
-    # displayManager.lightdm.enable = true;
-    # desktopManager = 
-    # {
-    #   pantheon = 
-    #   {
-    #     enable = true;
-    #     debug = false;
-    #     # extraWingpanelIndicators = "";
-    #     # extraSwitchboardPlugs = "";
-    #     # extraGSettingsOverrides = "";
-    #     # extraGSettingsOverridePackages = "";
-    #   };
-    # };
+  #   # # PANTHEON #
+  #   # displayManager.lightdm.enable = true;
+  #   # desktopManager = {
+  #   #   pantheon = {
+  #   #     enable = true;
+  #   #     debug = false;
+  #   #     # extraWingpanelIndicators = "";
+  #   #     # extraSwitchboardPlugs = "";
+  #   #     # extraGSettingsOverrides = "";
+  #   #     # extraGSettingsOverridePackages = "";
+  #   #   };
+  #   # programs.pantheon-tweaks.enable = true;
+  #   # environment.pantheon.excludePackages = [];
+  #   # services.xserver.desktopManager.pantheon.extraGSettingsOverridePackages = [];
+  #   # };
 
-    # # XFCE & QTILE
-    # desktopManager = 
-    # {
-    #   default = "xfce";
-    #   xfce =
-    #   {
-    #     enable = true;
-    #     enableXfwm = false;
-    #     noDesktop = true;
-    #   };
-    #   xterm.enable = true;
-    # };
-    # windowManager.qtile.enable = true;
+  #   # # XFCE & QTILE
+  #   # desktopManager = 
+  #   # {
+  #   #   default = "xfce";
+  #   #   xfce =
+  #   #   {
+  #   #     enable = true;
+  #   #     enableXfwm = false;
+  #   #     noDesktop = true;
+  #   #   };
+  #   #   xterm.enable = true;
+  #   # };
+  #   # windowManager.qtile.enable = true;
 
-    desktopManager.cinnamon.enable = false;
-    desktopManager.mate.enable = false;
-    desktopManager.xfce.enable = false;
-  };
+  #   desktopManager.cinnamon.enable = false;
+  #   desktopManager.mate.enable = false;
+  #   desktopManager.xfce.enable = false;
+  # };
   
   # Configure keymap in X11
   console.useXkbConfig = true;
@@ -275,8 +277,6 @@
 
   ## PROGRAMS ##
   programs = {
-    # ## PANTHEON ##
-    # pantheon-tweaks.enable = true;
     fish.enable = true;
 
     ## AUTOJUMP ##
@@ -286,11 +286,12 @@
   ### FONTS ### 
   fonts = 
   {
-    enableDefaultFonts = true;
-    fonts = with pkgs; 
+    # enableDefaultFonts = true;
+    packages = with pkgs; 
     [
       ( nerdfonts.override { fonts = [ "JetBrainsMono" "CodeNewRoman" "SpaceMono" "ComicShannsMono" "ProFont" "FiraCode" ]; })
       nerd-font-patcher
+      victor-mono
       comic-mono
       comic-neue
       comic-relief
@@ -333,26 +334,26 @@
       VISUAL = "nvim"; 
     };
 
-    # EXCLUDE GNOME PACKAGE
-    gnome.excludePackages = (with pkgs; 
-    [
-    gnome-photos
-    gnome-tour
-    ]) ++ (with pkgs.gnome; [
-    cheese # webcam tool
-    gnome-music
-    gnome-terminal
-    gedit # text editor
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-    ]);
+    # # EXCLUDE GNOME PACKAGE
+    # gnome.excludePackages = (with pkgs; 
+    # [
+    # gnome-photos
+    # gnome-tour
+    # ]) ++ (with pkgs.gnome; [
+    # cheese # webcam tool
+    # gnome-music
+    # gnome-terminal
+    # gedit # text editor
+    # epiphany # web browser
+    # geary # email reader
+    # evince # document viewer
+    # gnome-characters
+    # totem # video player
+    # tali # poker game
+    # iagno # go game
+    # hitori # sudoku game
+    # atomix # puzzle game
+    # ]);
 
   };
 
@@ -390,19 +391,43 @@
 
   ### SYSTEM CONFIGURATION ## 
   system = {
-    stateVersion = "nixos-unstable"; 
-    autoUpgrade = { 
-      enable = true;
-      channel = "https://nixos.org/channels/nixpkgs-unstable";
-    };
+    # stateVersion = "nixos-unstable"; 
+    stateVersion = "nixos-23.05"; 
+    # stateVersion = "nixos-23.05"; 
+    # autoUpgrade = { 
+    #   enable = true;
+    #   channel = "https://nixos.org/channels/nixos-23.11";
+    #   # channel = "https://nixos.org/channels/nixos-unstable";
+    # };
   };
 
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
+    # settings.trusted-users = [ "root" "alfurqani" ];
     sshServe = {
       enable = true;
       keys = []; 
     };
   };
+
+ # location ~/.config/nixpkgs/privateCacheProxy/nix-cache-info {
+ #    proxy_store        on;
+ #    proxy_store_access user:rw group:rw all:r;
+ #    proxy_temp_path    /data/nginx/nix-cache-info/temp;
+ #    root               /data/nginx/nix-cache-info/store;
+
+ #    proxy_set_header Host "cache.nixos.org";
+ #    proxy_pass https://cache.nixos.org;
+ #  }
+
+ #  location ~^/nar/.+$ {
+ #    proxy_store        on;
+ #    proxy_store_access user:rw group:rw all:r;
+ #    proxy_temp_path    /data/nginx/nar/temp;
+ #    root               /data/nginx/nar/store;
+
+ #    proxy_set_header Host "cache.nixos.org";
+ #    proxy_pass https://cache.nixos.org;
+ #  }
 }

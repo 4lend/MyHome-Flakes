@@ -15,6 +15,9 @@
     nvchad = { url = "github:NvChad/NvChad"; flake = false; };
     doom-nvim = { url = "github:doom-neovim/doom-nvim"; flake = false; };
     brew = { url = "github:Homebrew/brew"; flake = false; };
+    ytermusic = { url = "github:ccgauche/ytermusic"; flake = false; };
+    sn-cli = { url = "github:jonhadfield/sn-cli"; flake = false; };
+    phps = { url = "github:loophp/nix-shell"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, nur, devenv, astronvim, nvchad, doom-nvim, brew, ... }@inputs:
@@ -45,7 +48,7 @@
             # { imports = [ nur-modules.repos.congee.sncli ]; }
 	          ./system/configuration.nix 
 	          ./system/hardware-configuration.nix
-            # packages.x86_64-linux = [ devenv.packages.x86_64-linux.devenv ];
+            # packages.x86_64-linux.ytermusic = [ devenv.packages.x86_64-linux.devenv ];
             inputs.home-manager.nixosModules.home-manager {
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
@@ -53,6 +56,8 @@
               home-manager.users.alfurqani = { config, pkgs, lib, nixpkgs-unstable, ... }: {
                 imports = [ 
                   ./home/home.nix
+                  # ./overlays.nix
+                  # ./package.nix
                 ];
               };
 	          }

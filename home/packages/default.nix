@@ -16,6 +16,9 @@ let
     wl-color-picker
     colorpicker
 
+    # # keyboard
+    # bucklespring
+
     apktool
     ascii
     atool
@@ -74,7 +77,7 @@ let
 
     # social
     discord
-    whatsapp-for-linux
+    # whatsapp-for-linux
     mailspring
     # thunderbird
     headset
@@ -84,6 +87,7 @@ let
     # weechat
     element-web
     element-desktop
+    ferdium
     turses  # A Twitter client for the console
     # cawbird
     # franz
@@ -140,6 +144,7 @@ let
     python310Packages.deezer-python  
     # nuclear
     spotify
+    spotify-qt
     spotify-tui
     spotifyd
     spotify-player
@@ -151,6 +156,7 @@ let
     ghq
     cmatrix
     tig
+    lazygit
     git-crypt
     gitkraken
     smartgithg
@@ -165,6 +171,7 @@ let
     # pistol
     exa
     terminal-typeracer
+    ttyper
     internetarchive
     vim
     spacevim
@@ -196,7 +203,6 @@ let
     geany
     vscode
     sublime4
-    obsidian
     texlive.combined.scheme-full
     texmaker
     texstudio
@@ -236,12 +242,19 @@ let
     uget-integrator
     axel 
     downonspot  # A spotify downloader writter in rust
-    # spotdl  # Download your Spotify playlists and songs along with album art and metadata
+    spotdl  # Download your Spotify playlists and songs along with album art and metadata
     popcorntime
+    ariang
+    gdown
+    lgogdownloader
+    megacmd
 
     # productive
+    obsidian
+    glow
     notepadqq
     okular
+    foliate
     nomacs  # Qt-based image viewer
     inkscape
     gimp-with-plugins
@@ -253,6 +266,7 @@ let
     onlyoffice-bin
     libtiff  # need by wpsoffice
     wpsoffice
+    xchm
     shotwell
     shotcut
     flowblade
@@ -265,6 +279,7 @@ let
     # trilium-desktop  # Hierarchical note taking application with focus on building large personal knowledge bases
     # trilium-server
     notion-app-enhanced  # Notion Desktop builds with Notion Enhancer for Windows, MacOS and Linux.
+    # anytype  # P2P note-taking tool
     # appflowy  # An open-source alternative to Notion
     bitwarden
     bitwarden-cli
@@ -354,7 +369,6 @@ let
 
     # virtual machine
     # anbox
-    steam
     waydroid
     flatpak
     gnome.gnome-boxes
@@ -377,7 +391,10 @@ let
     adbfs-rootless  # Mount Android phones on Linux with adb, no root required
     # gnirehtet  # Reverse tethering over adb for Android
     autoadb  # Execute a command whenever a device is adb-connected
-    # usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
+    usbmuxd  # A socket daemon to multiplex connections from and to iOS devices
+    ifuse  # A fuse filesystem implementation to access the contents of iOS devices
+    libimobiledevice  # A software library that talks the protocols to support iPhone®, iPod Touch® and iPad® devices on Linux
+    libimobiledevice-glue  # Library with common code used by the libraries and tools around the libimobiledevice project.
     joystickwake
     pcsx2
     minigalaxy
@@ -402,7 +419,7 @@ let
   ];
 
   steamPackages = with pkgs.steamPackages; [
-    # steam
+    steam
     steamcmd
     steam-runtime-wrapped
     # steam-fhsenv-without-steam
@@ -424,6 +441,13 @@ let
     desktop-icons-ng-ding
     paperwm
   ];
+
+  # php = with pkgs; [
+  #   php
+  #   phpunit
+  #   phpactor
+  #   php82
+  # ];
 in
 {
   nixpkgs.config = { 

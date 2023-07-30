@@ -5,12 +5,12 @@
     enable = true;
     config = {
       # sub-font = "JetBrains Mono Nerd Font";  # ComicMono, ComicMono-Bold, SourceCodePro-Bold, ComicCodeDemo-Regular, JetBrains Mono NL Regular Nerd Font Complete, JetBrains Mono NL ExtraBold Nerd Font Complete
-      # sub-font = "JetBrains Mono Nerd Font";
-      sub-font = "JetBrainsMono NFM";   # "JetBrainsMonoNL NFM Thin";
+      # sub-font = "JetBrainsMono NFM";   # "JetBrainsMonoNL NFM Thin";
+      sub-font = "JetBrainsMonoNL NF ExtraBold";   # "JetBrainsMonoNL NFM Thin";
       sub-font-size = 30;  # 38;
       sub-color = "#FFFE25";  # yellow  # #FFFFFF - white
 	    sub-border-color = "#000000";  # black  # #202020
-	    sub-border-size = "3";  # default
+	    sub-border-size = "4";  # default
 	    sub-bold = "no";
 	    sub-pos = 98;
       window = "fullscreen";

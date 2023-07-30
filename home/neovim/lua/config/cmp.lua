@@ -146,6 +146,12 @@ end
   cmp.setup({
     formatting = {
       format = function(entry, vim_item)
+      -- format = function(entry, vim_item), require('lspkind').smp.format({
+      -- mode = "symbol",
+      -- maxwidth = 50,
+      -- ellipsis_char = '...',
+      -- symbol_map = { Codeium = "", }
+      -- })
         vim_item.kind = kind.presets.default[vim_item.kind]
         vim_item.menu = ({
               nvim_lsp = "[LSP]",
@@ -197,6 +203,7 @@ end
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
+      { name = 'codeium' },
     }, 
     {
       { name = 'buffer' },

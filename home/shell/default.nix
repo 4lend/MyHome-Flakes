@@ -9,9 +9,6 @@ let
     bind \co 'tig'
 
     colorscript exec colortest
-
-    # tmux new-session -d -s mysession -n window1 'command1'
-    # tmux new-window -t mysession:2 -n window2 'command2'
   '';
 
   # colortest, colorwheel, blocks
@@ -35,7 +32,7 @@ let
     ns        = "nix-shell";
     nsp       = "nix-shell -p"; 
     nclean    = "nix-collect-garbage; nix-collect-garbage -d";
-    storeopt  = "nix store optimise";
+    nopt      = "nix store optimise";
     conix     = "sudo nvim /etc/nixos/configuration.nix";
     nc        = "nix-channel";
     ncl       = "nix-channel --list";
@@ -46,6 +43,9 @@ let
     hs        = "home-manager switch";
     hg        = "home-manager generations";
     nfu       = "nix flake update";
+    homehelp  = "man home-configuration.nix";
+    conhelp   = "man configuration.nix";
+    ngit      = "nix-prefetch-url --unpack";
 
     tls       = "tmux list-sessions";
     tkls      = "tmux kill-session -t";
@@ -73,7 +73,7 @@ let
     grv       = "git remote -v";
     gb        = "git branch";
     gbl       = "git branch --list";
-    gp        = "git push -u";
+    gp        = "git push --set-upstream";
     gl        = "git log";
     glg       = "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches";
     gd        = "git diff";
@@ -81,6 +81,10 @@ let
     grss      = "git reset --soft";
     grsh      = "git reset --hard";
     gpu       = "git pull";
+
+    gq        = "ghq";
+    gqg       = "ghq get";
+    gql       = "ghq list";
 
     y         = "yt-dlp";
     yp        = "yt-dlp --proxy 192.168.49.1:8000";
@@ -118,6 +122,7 @@ let
     whe       = "whereis";
     sn        = "sncli";
     tdl       = "todoist";
+    gdo       = "gdown";
 
     ud        = "udisksctl";
     udm       = "udisksctl mount -b";

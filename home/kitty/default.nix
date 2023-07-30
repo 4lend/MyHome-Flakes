@@ -8,8 +8,11 @@
     font = {
         # name = "CodeNewRoman Nerd Font Mono";  # "ComicMono";
         # size = 13;
-        name = "JetBrainsMono NFM";
+        # name = "JetBrainsMono NFM";
+        name = "JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
         size = 12;
+        # name = "Victor Mono SemiBold";
+        # size = 15;
     };
     extraConfig = ''
 	    cursor_shape block

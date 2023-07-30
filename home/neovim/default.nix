@@ -12,6 +12,20 @@ let
     psalm
     phpstan
   ];
+  php82 = with pkgs.php82Packages; [
+    composer
+    # psysh
+    # psalm
+    # phpmd
+    # phpstan
+    # phan
+    # phpcs
+    # phpcbf
+    # grumphp
+    # deployer
+    # php-cs-fixer
+    # php-parallel-lint
+  ];
   mix = with pkgs; [
     rnix-lsp nixfmt 
     sumneko-lua-language-server
@@ -23,12 +37,12 @@ let
 in
 {
   config = {
-    home.packages = node ++ php ++ mix;
+    home.packages = node ++ php ++ php82 ++ mix;
     programs.neovim = {
       enable = true;
       viAlias = true;
       vimAlias = false;
-      coc.pluginConfig = "coc-vimtex  coc-git  coc-css  coc-yank  coc-tabnine  coc-emmet";
+      # coc.pluginConfig = "coc-vimtex  coc-git  coc-css  coc-yank  coc-tabnine  coc-emmet  coc-eslint";
       extraLuaConfig = ''
         guifontset = "JetBrainsMono NFM";
       '';
@@ -119,6 +133,11 @@ in
         vim-numbertoggle
         vim-togglelist
         nvim-autopairs
+        nvim-ale-diagnostic
+        lazygit-nvim
+        pears-nvim
+
+        phpactor
         ### vimfile ###
         { 
           plugin = Vundle-vim;
@@ -263,6 +282,11 @@ in
           { plugin = coc-nvim;
           config = ''
             luafile ~/.config/nixpkgs/home/neovim/lua/config/coc-nvim.lua
+          ''; }
+
+          { plugin = lazygit-nvim;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/lazygit-nvim.lua
           ''; }
 
       ];
