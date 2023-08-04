@@ -102,6 +102,8 @@ in
       # yank
       bind -n M-] paste-buffer
       bind -n M-[ copy-mode
+
+      bind -n C-k clear-history
     '';
   };
 }

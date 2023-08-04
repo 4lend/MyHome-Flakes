@@ -27,6 +27,8 @@ let
     nbsi      = "sudo nixos-rebuild switch --flake .#alfurqani --impure";
     nbb       = "sudo nixos-rebuild build --flake .#alfurqani";
     nbbi      = "sudo nixos-rebuild build --flake .#alfurqani --impure";
+    nbr       = "sudo nixos-rebuild build --flake .#alfurqani && sudo ./result/activate";
+    nbri       = "sudo nixos-rebuild build --flake .#alfurqani --impure && sudo ./result/activate";
     nbt       = "sudo nixos-rebuild test --flake .#alfurqani";
     nbti      = "sudo nixos-rebuild test --flake .#alfurqani --impure";
     ns        = "nix-shell";
@@ -42,7 +44,12 @@ let
     hb        = "home-manager build";
     hs        = "home-manager switch";
     hg        = "home-manager generations";
+    nf        = "nix flake";
     nfu       = "nix flake update";
+    nfa       = "nix flake archive";
+    nfs       = "nix flake show";
+    nfi       = "nix flake info";
+    nfc       = "nix flake check";
     homehelp  = "man home-configuration.nix";
     conhelp   = "man configuration.nix";
     ngit      = "nix-prefetch-url --unpack";

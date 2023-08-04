@@ -43,6 +43,19 @@
     desktopManager.xfce.enable = false;
   };
 
+  # ## HYPRLAND ##
+  # programs = {
+  #   hyprland = {
+  #     enable = true;
+  #     package = [];
+  #     xwayland = {
+  #       enable = true;
+  #       hidpi = true;
+  #     };
+  #     nvidiaPatches = false;
+  #   };
+  # };
+
   environment.gnome.excludePackages = (with pkgs;
   [ gnome-photos  gnome-tour ]) 
   ++ (with pkgs.gnome; [
@@ -60,5 +73,4 @@
     hitori # sudoku game
     atomix # puzzle game
   ]);
-
 }

@@ -2,7 +2,7 @@
 
 let
   packages = with pkgs; [
-    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  nim  jq  nodejs  mariadb  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  
+    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  yarn2nix  twitterBootstrap  nim  jq  nodejs  mariadb  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  
 
     graphqlmap
     json_c
@@ -103,6 +103,8 @@ let
     # python310Packages.certifi
     # python310Packages.requests
     # python310Packages.requests-oauthlib
+    haxor-news
+    circumflex
 
     # audio
     wireplumber
@@ -125,6 +127,7 @@ let
     # network
     tor
     dnscrypt-proxy2
+    doggo
     openssl
     linux-wifi-hotspot
     protonvpn-cli
@@ -226,10 +229,12 @@ let
     microsoft-edge
     opera
     chromium
+    tvbrowser
 
     # downloader
     motrix
     qbittorrent
+    webtorrent_desktop  # Streaming torrent app for Mac, Windows, and Linux
     yt-dlp
     youtube-dl 
     ytmdl
@@ -272,6 +277,7 @@ let
     flowblade
     simplenote
     standardnotes
+    rednotebook
     obs-studio
     zoom-us
     # joplin

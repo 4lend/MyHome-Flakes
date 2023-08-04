@@ -33,6 +33,10 @@ let
     sumneko-lua-language-server stylua
     adoptopenjdk-bin
     lua-language-server
+    python311Packages.pynvim
+    python310Packages.pynvim
+    ueberzug
+    # ueberzugpp
   ];
 in
 {
@@ -42,19 +46,9 @@ in
       enable = true;
       viAlias = true;
       vimAlias = false;
-      # coc.pluginConfig = "coc-vimtex  coc-git  coc-css  coc-yank  coc-tabnine  coc-emmet  coc-eslint";
       extraLuaConfig = ''
         guifontset = "JetBrainsMono NFM";
       '';
-      # # coc.pluginConfig = {
-      # "languageserver": {
-      #   "go": {
-      #     "command": "gopls",
-      #     "rootPatterns": ["go.mod"],
-      #     "trace.server": "verbose",
-      #     "filetypes": ["go"]
-      #   };
-      # };
       plugins = with pkgs.vimPlugins; [ 
         # coc-sumneko-lua
         vim-nix
@@ -66,26 +60,16 @@ in
         auto-pairs
         vim-vsnip
         vim-css-color  # A very fast, multi-syntax context-sensitive color name highlighter
-        # vimwiki
         vimtex
-        # coc-vimtex
-        # language
-        html5-vim
-        # emmet-vim
-        # coc-emmet
         vim-surround
         nvim-surround
-        # coc-html
-        # vim-lightline
-        vim-html-template-literals
-        # coc-snippets
+        # vim-html-template-literals
         vim-snippets
         snippets-nvim
         vim-lsp-snippets
         friendly-snippets
         goyo-vim
         vim-markdown
-        # # coc-markdownlint
         # packer-nvim
         nvim-lastplace
         delimitMate
@@ -105,7 +89,7 @@ in
         oceanic-material
         dracula-nvim
         material-nvim
-        awesome-vim-colorschemes
+        # awesome-vim-colorschemes
         papercolor-theme
         aurora
         vim-easy-align
@@ -116,15 +100,14 @@ in
         comment-nvim
         plenary-nvim
         octo-nvim
-        nvim-ts-autotag
+        # nvim-ts-autotag
         cmp-nvim-tags
         vim-tmux-navigator
         tmux-nvim
         telescope-vim-bookmarks-nvim
         vim-wordmotion
-        # coc-nvim
         ChatGPT-nvim
-        nvim-treesitter-parsers.latex
+        # nvim-treesitter-parsers.latex
         cmp-latex-symbols 
         # # coc-ltex  # problem
         latex-box
@@ -134,23 +117,44 @@ in
         vim-togglelist
         nvim-autopairs
         nvim-ale-diagnostic
-        lazygit-nvim
         pears-nvim
 
         phpactor
+        YouCompleteMe
+        vim-addon-php-manual
+        nvchad
+        nvchad-ui
+        nvchad-extensions
         ### vimfile ###
-        { 
-          plugin = Vundle-vim;
-          config = '' 
-            call vundle#begin()
-              Plugin 'nikvdp/neomux'
-              Plugin 'dbeniamine/cheat.sh-vim'
-              Plugin 'cometsong/CommentFrame.vim'
-            call vundle#end()
-            filetype plugin indent on
-          '';
-        }
+        # { plugin = Vundle-vim;
+        # config = '' 
+        #   call vundle#begin()
+        #     Plugin 'nikvdp/neomux'
+        #     Plugin 'dbeniamine/cheat.sh-vim'
+        #     Plugin 'cometsong/CommentFrame.vim'
+        #   call vundle#end()
+        #   filetype plugin indent on
+        # ''; }
+
+          # { plugin = lazy-nvim;
+          # config = ''
+          #   require("lazy").setup({
+          #     "folke/which-key.nvim",
+          #     { "folke/neoconf.nvim", cmd = "Neoconf" },
+          #     "folke/neodev.nvim",
+          #   })
+          # ''; }
+
         ### neovim luafile ### 
+          { plugin = nvchad;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/nvchad.lua
+          ''; }
+        
+          { plugin = phpactor;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/phpactor.lua
+          ''; }
         
           { plugin = lualine-nvim;
           config = ''
@@ -161,12 +165,6 @@ in
           { plugin = nvim-tree-lua;
           config = '' 
             luafile ~/.config/nixpkgs/home/neovim/lua/config/tree.lua
-          ''; }
-        
-        
-          { plugin = nvim-cmp;
-          config = ''
-            luafile ~/.config/nixpkgs/home/neovim/lua/config/cmp.lua
           ''; }
         
         
@@ -212,13 +210,6 @@ in
           ''; }
         
         
-          { plugin = nordic-nvim;
-          config = ''
-            luafile ~/.config/nixpkgs/home/neovim/lua/config/nordic.lua
-          ''; }
-        
-        
-        
           { plugin = popup-nvim;
           config = ''
             luafile ~/.config/nixpkgs/home/neovim/lua/config/popup-nvim.lua
@@ -248,17 +239,11 @@ in
             luafile ~/.config/nixpkgs/home/neovim/lua/config/nightfox-nvim.lua
           ''; }
         
-        # 
-        #   { plugin = themer-nvim;
-        #   config = ''
-        #     luafile ~/.config/nixpkgs/home/neovim/lua/config/themer.lua
-        #   ''; }
-        # 
-        
-          { plugin = lazy-nvim;
-          config = ''
-            luafile ~/.config/nixpkgs/home/neovim/lua/config/lazy-nvim.lua
-          ''; }
+
+          # { plugin = lazy-nvim;
+          # config = ''
+          #   luafile ~/.config/nixpkgs/home/neovim/lua/config/lazy-nvim.lua
+          # ''; }
         
         
           { plugin = formatter-nvim;
@@ -289,7 +274,52 @@ in
             luafile ~/.config/nixpkgs/home/neovim/lua/config/lazygit-nvim.lua
           ''; }
 
+          { plugin = cmp-npm;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/cmp-npm.lua
+          ''; }
+
+          # { plugin = cmp-tabnine;
+          # config = ''
+          #   luafile ~/.config/nixpkgs/home/neovim/lua/config/cmp-tabnine.lua
+          # ''; }
+
+          { plugin = cmp-treesitter;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/cmp-treesitter.lua
+          ''; }
+
+          { plugin = mason-nvim;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/mason.lua
+          ''; }
+
+          { plugin = mason-lspconfig-nvim;
+          config = ''
+            luafile ~/.config/nixpkgs/home/neovim/lua/config/mason-lspconfig.lua
+          ''; }
+
+          { plugin = rnvimr;
+          config = ''
+            vimfile ~/.config/nixpkgs/home/neovim/lua/config/rnvimr.vim
+          ''; }
       ];
+      coc = {
+        package = with pkgs.vimPlugins; [
+          coc-nvim
+          coc-vimtex  
+          coc-git  
+          coc-css  
+          coc-yank  
+          coc-tabnine  
+          coc-emmet  
+          coc-eslint
+
+          coc-tsserver   coc-vimtex    coc-git    coc-css    coc-yank    coc-tabnine    coc-emmet    coc-eslint    coc-sumneko-lua    coc-html    coc-snippets    coc-ltex    coc-lists    coc-highlight    coc-prettier    coc-pairs    coc-lua    coc-pyright    coc-phpls    coc-php-cs-fixer    coc-sh    coc-json    coc-texlab    coc-smartf    coc-python
+          coc-markdownlint
+        ];
+        pluginConfig = "";
+      };
       extraConfig = ''
         luafile ~/.config/nixpkgs/home/neovim/lua/settings.lua
         luafile ~/.config/nixpkgs/home/neovim/lua/maps.lua

@@ -8,6 +8,7 @@
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
+      ./audio.nix
       # <home-manager/nixos>
   ];
 
@@ -78,52 +79,6 @@
     LC_TIME = "id_ID.utf8";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # ### DESKTOP ENVIRONMENT ### 
-  # services.xserver = {
-  #   enable = true;
-
-  #   # GNOME
-  #   displayManager.gdm.enable = true;
-  #   desktopManager.gnome.enable = true;
-
-  #   # # PANTHEON #
-  #   # displayManager.lightdm.enable = true;
-  #   # desktopManager = {
-  #   #   pantheon = {
-  #   #     enable = true;
-  #   #     debug = false;
-  #   #     # extraWingpanelIndicators = "";
-  #   #     # extraSwitchboardPlugs = "";
-  #   #     # extraGSettingsOverrides = "";
-  #   #     # extraGSettingsOverridePackages = "";
-  #   #   };
-  #   # programs.pantheon-tweaks.enable = true;
-  #   # environment.pantheon.excludePackages = [];
-  #   # services.xserver.desktopManager.pantheon.extraGSettingsOverridePackages = [];
-  #   # };
-
-  #   # # XFCE & QTILE
-  #   # desktopManager = 
-  #   # {
-  #   #   default = "xfce";
-  #   #   xfce =
-  #   #   {
-  #   #     enable = true;
-  #   #     enableXfwm = false;
-  #   #     noDesktop = true;
-  #   #   };
-  #   #   xterm.enable = true;
-  #   # };
-  #   # windowManager.qtile.enable = true;
-
-  #   desktopManager.cinnamon.enable = false;
-  #   desktopManager.mate.enable = false;
-  #   desktopManager.xfce.enable = false;
-  # };
-  
   # Configure keymap in X11
   console.useXkbConfig = true;
   services.xserver = {
@@ -135,54 +90,31 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  # service.xserver.displayManager.xpra.pulseaudio = true;
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  services.mysql = { 
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    audio.enable = true;
-    socketActivation = true;
-    wireplumber = {
-      enable = true;
-      package = pkgs.wireplumber;
+    user = "mysql";
+    package = pkgs.mariadb;
+    settings = {
+      # password = "1234";
     };
+    dataDir = "/var/lib/mysql";
+    # configFile = ''
+    # '';
   };
-  # enable sound with pulseaudio
-  # hardware = {
-  #   pulseaudio.enable = true;
-  #   pulseaudio.support32Bit = true;    ## If compatibility with 32-bit applications is desired.
-  # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # ## MYSQL ##
-  # users = { 
-  #   mysql = {
-  #     enable = true;
-  #     host = "localhost";
-  #   };
-  # };
-  # services.mysql = { 
-  #   enable = true;
-  #   user = "mysql";
-  #   package = pkgs.mariadb;
-  #   settings = {
-  #     password = "1234";
-  #   };
-  # };
   ### service ###
   services = {
+    ## dnscrypt-wrapper ##
+    dnscrypt-wrapper = {
+      enable = true;
+      # address = "";
+      # prot = "";
+    };
+
     ## DNSCRYPT-PROXY2 ##
     dnscrypt-proxy2 = {
       enable = true;
       upstreamDefaults = true;
+      configFile = "/home/alfurqani/.config/dnscrypt-proxy/dnscrypt-proxy.toml"; 
       settings = {
         sources.public-resolvers = {
           urls = [ "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"  "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md" ];
@@ -191,9 +123,9 @@
           refresh_delay = 72;
           # server_names = [ cloudflare  cloudflare-ipv6  adguard  nextdns  nextdns-ipv6  libredns  libredns-noads  ];
         };
+        # server_names = [ scaleway-fr google yandex cloudflare ];
         server_names = [ sdns://AgYAAAAAAAAADjExNi4yMDIuMTc2LjI2oMwQYNOcgym2K2-8fQ1t-TCYabmB5-Y5LVzY-kCPTYDmIEROvWe7g_iAezkh6TiskXi4gr1QqtsRIx8ETPXwjffOD2RvaC5saWJyZWRucy5ncgovZG5zLXF1ZXJ5  sdns://AgIAAAAAAAAADjExNi4yMDIuMTc2LjI2oMwQYNOcgym2K2-8fQ1t-TCYabmB5-Y5LVzY-kCPTYDmIEROvWe7g_iAezkh6TiskXi4gr1QqtsRIx8ETPXwjffOD2RvaC5saWJyZWRucy5ncgQvYWRz  sdns://AQcAAAAAAAAAEzE0My4yNDQuMzMuNzQ6MTUzNTMgFTXwu5MfYkBOrRpDeoB-yOWEjCnf-l3yixhtuzuPBskfMi5kbnNjcnlwdC1jZXJ0LnNlY3VyZS5kbnMudGVzdA ];  # libredns, libredns-noads, wevpn-singapore
       };
-      # configFile = "";
     };
 
     ## CLOUDFLARE-CFDYNDNS ##
@@ -206,6 +138,16 @@
 
     yggdrasil = {
       enable = true;
+    };
+
+    ## cloudflare-dyndns ##
+    cloudflare-dyndns = {
+      enable = true;
+      ipv4 = true;
+      ipv6 = true;
+      proxied = true;
+      domains = [];
+      apiTokenFile = "";
     };
 
     # ## adguardhome ##
@@ -366,6 +308,7 @@
 	  	"python-2.7.18.6"
       "openssl-1.1.1t"
       "openssl-1.1.1u"
+      "openssl-1.1.1v"
       "electron-9.4.4"
       "electron-21.4.0"
       "ruby-2.7.8"  # ruby
@@ -402,9 +345,12 @@
   };
 
   nix = {
+    settings = {
+      trusted-users = [ "root" "alfurqani" ];
+      experimental-features = [ "nix-command" "flakes" ];
+    };
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
-    # settings.trusted-users = [ "root" "alfurqani" ];
     sshServe = {
       enable = true;
       keys = []; 

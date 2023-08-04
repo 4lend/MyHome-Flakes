@@ -1,10 +1,11 @@
 local map = vim.api.nvim_set_keymap
-vim.g.mapleader = "<C>"
+-- vim.g.mapleader = "<C>"
+vim.g.mapleader = "  "
 
-default_options = {noremap = true, silent = true}
-expr_options = {noremap = true, expr = true, silent = true}
-
-map("n", "<Space>", "<NOP>", default_options)
+-- default_options = {noremap = true, silent = true}
+-- expr_options = {noremap = true, expr = true, silent = true}
+-- 
+-- map("n", "<Space>", "<NOP>", default_options)
 
 map("n", "<C-s>", "<cmd>Telescope find_files<CR>", {noremap = true})
 map("n", "<C-x>", "<cmd>write<CR>", {noremap = true})
@@ -26,11 +27,11 @@ map("n", "<C-l>", "<cmd>noh<CR>", {noremap = true})
 map("n", "<C-i>", "<cmd>noh<CR>", {noremap = true})
 
 vim.cmd([[let g:floaterm_keymap_toggle = '<F12>']])
-
+vim.cmd([[let g:lightline={ 'enable': {'statusline': 1, 'tabline': 0} }]])
 
 ----- barbar.nvim -----
 -- barbar.nvim maps configuration
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)

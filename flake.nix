@@ -18,6 +18,9 @@
     ytermusic = { url = "github:ccgauche/ytermusic"; flake = false; };
     sn-cli = { url = "github:jonhadfield/sn-cli"; flake = false; };
     phps = { url = "github:loophp/nix-shell"; flake = false; };
+    dnote = { url = "github:dnote/dnote"; flake = false; };
+    hackernews-tui = { url = "github:aome510/hackernews-TUI"; flake = false; };
+    pulse-browser = { url = "github:pulse-browser/browser"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, nur, devenv, astronvim, nvchad, doom-nvim, brew, ... }@inputs:

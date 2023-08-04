@@ -15,6 +15,7 @@ in
   imports = [
     ./alacritty
     ./aria2
+    ./desktop
     ./fzf
     ./git
     ./helix
