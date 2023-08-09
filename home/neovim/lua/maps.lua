@@ -2,8 +2,8 @@ local map = vim.api.nvim_set_keymap
 -- vim.g.mapleader = "<C>"
 vim.g.mapleader = "  "
 
--- default_options = {noremap = true, silent = true}
--- expr_options = {noremap = true, expr = true, silent = true}
+default_options = {noremap = true, silent = true}
+expr_options = {noremap = true, expr = true, silent = true}
 -- 
 -- map("n", "<Space>", "<NOP>", default_options)
 
@@ -11,7 +11,6 @@ map("n", "<C-s>", "<cmd>Telescope find_files<CR>", {noremap = true})
 map("n", "<C-x>", "<cmd>write<CR>", {noremap = true})
 map("i", "<C-x>", "<cmd>write<CR>", {noremap = true})
 map("n", "<C-t>", "<cmd>Telescope buffers<CR>", {noremap = true})
-map("n", "<C-g>", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 -- map("n", "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", {noremap = true})
 -- map("n", "K", "<cmd>Lspsaga hover_doc<CR>", {noremap = true})
 -- map("n", "<C-k>", "<cmd>Lspsaga signature_help<CR>", {noremap = true})
@@ -19,7 +18,7 @@ map("n", "<C-g>", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 
 map("i", "jk", "<esc>", {noremap = true})
 -- map("n", "<C-n>", "<cmd>colorscheme nordfox<CR>", {noremap = true})
--- map("n", "<C-m>", "<cmd>colorscheme nightfox<CR>", {noremap = true})
+map("n", "<C-m>", "<cmd>colorscheme nightfox<CR>", {noremap = true})
 map("n", "<C-l>", "<cmd>noh<CR>", {noremap = true})
 map('n', '<leader>h', ':help <C-r>=expand("<cword>")<CR><CR><C-w>_', {silent = true})
 map('n', "<C-h>", ":noh<CR>", {noremap = true})
@@ -69,6 +68,9 @@ map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+
+-- nvim-tree
+map("n", "<C-g>", "<cmd>NvimTreeToggle<CR>", {noremap = true})
 
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)

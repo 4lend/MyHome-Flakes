@@ -46,30 +46,21 @@ let
     tmuxinator # Manage complex tmux sessions easily
 
     # python
-    python310Packages.dbus-python  
-    python310Full    
-    python310Packages.pip 
+    python311Packages.dbus-python  
     python310Packages.urllib3
-    # python310Packages.types-urllib3
-    # python310Packages.soupsieve
-    # python310Packages.idna
-    # python310Packages.charset-normalizer
-    # python310Packages.certifi
-    # python310Packages.requests
-    # python310Packages.beautifulsoup4
-    # python310Packages.soupsieve
-    # python310Packages.gpt-2-simple
-    # python310Packages.yt-dlp
+    python311Full
+    python311Packages.pip
+    pipx  # Install and run Python applications in isolated environments
 
     # an
-    hakuneko
+    # hakuneko
     yacreader
-    anime-downloader
+    # anime-downloader
     # anup  # An anime tracker for AniList featuring a TUI
-    adl  # popcorn anime-downloader + trackma wrapper
+    # adl  # popcorn anime-downloader + trackma wrapper
     filebot
-    nhentai
-    HentaiAtHome
+    # nhentai
+    # HentaiAtHome
 
     # share
     opendrop
@@ -135,7 +126,7 @@ let
     python310Packages.protonvpn-nm-lib
     speedtest-cli
     firewalld
-    busybox
+    # busybox
     dig
 
     # media player
@@ -209,6 +200,14 @@ let
     texlive.combined.scheme-full
     texmaker
     texstudio
+    # engine
+    godot
+    # godot_4 
+    godot-server
+    godot-headless
+    godot-export-templates
+    gdtoolkit  # Independent set of tools for working with Godot's GDScript - parser, linter and formatter
+    pixelorama  # A free & open-source 2D sprite editor, made with the Godot Engine!
 
     # nix
     nix
@@ -282,11 +281,11 @@ let
     zoom-us
     # joplin
     # joplin-desktop  # An open source note taking and to-do application with synchronisation capabilities
-    # trilium-desktop  # Hierarchical note taking application with focus on building large personal knowledge bases
-    # trilium-server
+    trilium-desktop  # Hierarchical note taking application with focus on building large personal knowledge bases
+    trilium-server
     notion-app-enhanced  # Notion Desktop builds with Notion Enhancer for Windows, MacOS and Linux.
-    # anytype  # P2P note-taking tool
-    # appflowy  # An open-source alternative to Notion
+    anytype  # P2P note-taking tool
+    appflowy  # An open-source alternative to Notion
     bitwarden
     bitwarden-cli
     zim
@@ -299,7 +298,7 @@ let
     # taskell  # A command-line kanban board/task manager
     # lifeograph
     # nextcloud-client  # Nextcloud themed desktop client
-    # qownnotes  # Plain-text file notepad and todo-list manager with markdown support and Nextcloud/ownCloud integration
+    qownnotes  # Plain-text file notepad and todo-list manager with markdown support and Nextcloud/ownCloud integration
     vimwiki-markdown
     audio-recorder
     kazam
@@ -313,6 +312,7 @@ let
     notify-desktop  # Little application that lets you send desktop notifications with one command
     # odoo
     firefly-desktop
+    logseq
 
     # ai
     # chatgpt-cli
@@ -468,7 +468,7 @@ in
     "electron-12.2.3"  # etcher
     "python-2.7.18.6"
   ];
-  home.packages = packages ++ xfcePkgs ++ gnomeExtension ++ steamPackages;
+  home.packages = packages ++ xfcePkgs ++ gnomeExtension;
   # nixpkgs.config.packageOverrides = pkgs: {
   #   nur = pkgs.nur.repos.congee.sncli.pkgs;
   # };

@@ -1,17 +1,25 @@
 local o = vim.opt
 local wo = vim.wo
 local fn = vim.fn
+local c = vim.cmd
 
-vim.cmd "colorscheme nightfox"
-vim.cmd "au InsertEnter * set nornu"
-vim.cmd "au InsertLeave * set rnu"
+c "colorscheme nightfox"
+c "au InsertEnter * set nornu"
+c "au InsertLeave * set rnu"
+c "set shell=/etc/profiles/per-user/alfurqani/bin/bash"
 
-vim.cmd([[
+c([[
 augroup HelpTab
   autocmd!
   autocmd FileType help wincmd L
 augroup END
 ]])
+
+-- c('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
+-- c('highlight! HarpoonActive guibg=NONE guifg=white')
+-- c('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
+-- c('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
+-- c('highlight! TabLineFill guibg=NONE guifg=white')
 
 -- o.guifont = { "JetBrainsMono", "h12" }
 -- o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode

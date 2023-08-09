@@ -1,0 +1,19 @@
+{
+    "runtime.version": "LuaJIT",
+    "diagnostics.globals": [
+        "ngx"
+    ],
+    "workspace.library": [
+        "${3rd}/OpenResty/library",
+        "${3rd}/luassert/library",
+        "${3rd}/love2d/library",
+        "${3rd}/bee/library",
+        "${3rd}/luv/library",
+        "${3rd}/lovr/library",
+        "${3rd}/skynet/library"
+    ],
+    "runtime.special": {
+        "love.filesystem.load": "loadfile"
+    },
+    "workspace.checkThirdParty": false
+}

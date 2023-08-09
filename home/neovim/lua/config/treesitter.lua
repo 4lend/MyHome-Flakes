@@ -21,7 +21,7 @@ local config = {
   modules = {},
   sync_install = false,
   ensure_installed = { "html","javascript", "typescript", "json", "lua", "bash", "markdown", "markdown_inline", ... },
-  auto_install = true,
+  auto_install = false,
   ignore_install = {},
   parser_install_dir = nil,
 }

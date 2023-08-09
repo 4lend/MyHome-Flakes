@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, options, ... }:
 
 let
   username = "alfurqani";
@@ -10,11 +10,11 @@ in
   home.username = "alfurqani";
   home.homeDirectory = "/home/alfurqani";
   home.stateVersion = "23.05";
-  # home.stateVersion = "22.11";
 
   imports = [
     ./alacritty
     ./aria2
+    # ./browser
     ./desktop
     ./fzf
     ./git
@@ -28,13 +28,9 @@ in
     ./shell
     ./starship
     ./tmux
+    ./xdg
     ./yt-dlp
   ];
-
-  xdg = {
-    inherit configHome;
-    enable = true;
-  };
 
   programs = {
     home-manager.enable = true;

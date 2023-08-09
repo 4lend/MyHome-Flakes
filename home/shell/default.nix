@@ -31,6 +31,8 @@ let
     nbri       = "sudo nixos-rebuild build --flake .#alfurqani --impure && sudo ./result/activate";
     nbt       = "sudo nixos-rebuild test --flake .#alfurqani";
     nbti      = "sudo nixos-rebuild test --flake .#alfurqani --impure";
+    nbo       = "sudo nixos-rebuild boot --flake .#alfurqani";
+    nboi      = "sudo nixos-rebuild boot --flake .#alfurqani --impure";
     ns        = "nix-shell";
     nsp       = "nix-shell -p"; 
     nclean    = "nix-collect-garbage; nix-collect-garbage -d";
@@ -41,9 +43,9 @@ let
     nca       = "nix-channel --add";
     ncrm      = "nix-channel --remove";
     ncu       = "nix-channel --update";
-    hb        = "home-manager build";
-    hs        = "home-manager switch";
-    hg        = "home-manager generations";
+    # hb        = "home-manager build";
+    # hs        = "home-manager switch";
+    # hg        = "home-manager generations";
     nf        = "nix flake";
     nfu       = "nix flake update";
     nfa       = "nix flake archive";
@@ -51,7 +53,7 @@ let
     nfi       = "nix flake info";
     nfc       = "nix flake check";
     homehelp  = "man home-configuration.nix";
-    conhelp   = "man configuration.nix";
+    confhelp   = "man configuration.nix";
     ngit      = "nix-prefetch-url --unpack";
 
     tls       = "tmux list-sessions";

@@ -344,18 +344,19 @@
     # };
   };
 
-  nix = {
-    settings = {
-      trusted-users = [ "root" "alfurqani" ];
-      experimental-features = [ "nix-command" "flakes" ];
-    };
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-    sshServe = {
-      enable = true;
-      keys = []; 
-    };
-  };
+  # nix = {
+  #   settings = {
+  #     trusted-users = [ "root" "alfurqani" ];
+  #     experimental-features = [ "nix-command" "flakes" ];
+  #     auto-optimise-store = true;
+  #   };
+  #   package = pkgs.nixFlakes;
+  #   extraOptions = "experimental-features = nix-command flakes";
+  #   sshServe = {
+  #     enable = true;
+  #     keys = []; 
+  #   };
+  # };
 
  # location ~/.config/nixpkgs/privateCacheProxy/nix-cache-info {
  #    proxy_store        on;

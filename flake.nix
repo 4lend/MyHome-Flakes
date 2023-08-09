@@ -11,19 +11,25 @@
     };
     nur.url = "github:nix-community/NUR";
     devenv.url = "github:cachix/devenv/latest";
-    astronvim = { url = "github:AstroNvim/AstroNvim"; flake = false; };
-    nvchad = { url = "github:NvChad/NvChad"; flake = false; };
-    doom-nvim = { url = "github:doom-neovim/doom-nvim"; flake = false; };
-    brew = { url = "github:Homebrew/brew"; flake = false; };
-    ytermusic = { url = "github:ccgauche/ytermusic"; flake = false; };
-    sn-cli = { url = "github:jonhadfield/sn-cli"; flake = false; };
-    phps = { url = "github:loophp/nix-shell"; flake = false; };
-    dnote = { url = "github:dnote/dnote"; flake = false; };
-    hackernews-tui = { url = "github:aome510/hackernews-TUI"; flake = false; };
-    pulse-browser = { url = "github:pulse-browser/browser"; flake = false; };
+    # astronvim = { url = "github:AstroNvim/AstroNvim"; flake = false; };
+    # nvchad = { url = "github:NvChad/NvChad"; flake = false; };
+    # doom-nvim = { url = "github:doom-neovim/doom-nvim"; flake = false; };
+    # brew = { url = "github:Homebrew/brew"; flake = false; };
+    # ytermusic = { url = "github:ccgauche/ytermusic"; flake = false; };
+    # sn-cli = { url = "github:jonhadfield/sn-cli"; flake = false; };
+    # # phps = { url = "github:loophp/nix-shell"; flake = false; };
+    # dnote = { url = "github:dnote/dnote"; flake = false; };
+    # hackernews-tui = { url = "github:aome510/hackernews-TUI"; flake = false; };
+    # pulse-browser = { url = "github:pulse-browser/browser"; flake = false; };
+    # godot = { url = "github:godotengine/godot"; flake = false; };
+    # xdm = { url = "github:subhra74/xdm"; flake = false; };
+    # pip = { url = "github:pypa/pip"; flake = false; };
+    # affine = { url = "github:toeverything/AFFiNE"; flake = false; };
+    # pake = { url = "github:tw93/Pake"; flake = false; };
+    # bulksplash = { url = "github:MehediH/Bulksplash"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, nur, devenv, astronvim, nvchad, doom-nvim, brew, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, flake-utils, nur, devenv, ... }@inputs:
     let 
       username = "alfurqani";
       homeDirectory = "/home/${username}";
@@ -35,7 +41,6 @@
       #   src = astronvim;
       # };
       pkgs = inputs.nixpkgs.legacyPackages.${system};
-      config = { allowUnfree = true; };
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
@@ -51,6 +56,8 @@
             # { imports = [ nur-modules.repos.congee.sncli ]; }
 	          ./system/configuration.nix 
 	          ./system/hardware-configuration.nix
+            ./outputs/nixos-conf.nix
+            # ./try.nix
             # packages.x86_64-linux.ytermusic = [ devenv.packages.x86_64-linux.devenv ];
             inputs.home-manager.nixosModules.home-manager {
 	            home-manager.useGlobalPkgs = true;
@@ -61,6 +68,7 @@
                   ./home/home.nix
                   # ./overlays.nix
                   # ./package.nix
+                  # ./python.nix
                 ];
               };
 	          }

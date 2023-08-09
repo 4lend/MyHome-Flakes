@@ -18,7 +18,7 @@ in
     shortcut = "a";
     resizeAmount = 10;
     # aggressiveAmount = true;
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     plugins = with pkgs.tmuxPlugins; [
       jump
       battery
@@ -52,12 +52,13 @@ in
       online-status
     ];
     extraConfig = ''
-      set -g default-terminal "xterm-256color"
+      # set -g default-terminal "xterm-256color"
       # export TERM=xterm-256color
       set -g default-command  /run/current-system/sw/bin/fish
       set -g default-shell /run/current-system/sw/bin/fish
       set-option -g automatic-rename-format ""
       # set-option -g automatic-rename-format "#{window_index}"
+      set-option -sa terminal-features ',XXX:RGB'
 
       set -s escape-time 0
       set -g base-index 1

@@ -8,9 +8,12 @@
     font = {
         # name = "CodeNewRoman Nerd Font Mono";  # "ComicMono";
         # size = 13;
-        # name = "JetBrainsMono NFM";
-        name = "JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
-        size = 12;
+        # name = "ComicMono";
+        # name = "JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
+        name = "JetBrainsMonoNL NF Light";  # JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
+        # name = "JetBrainsMonoNL NF Thin";  # JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
+        # Thin, Light, Medium, Bold
+        size = 12.0;
         # name = "Victor Mono SemiBold";
         # size = 15;
     };

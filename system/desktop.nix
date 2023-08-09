@@ -5,7 +5,13 @@
     enable = true;
 
     # GNOME
-    displayManager.gdm.enable = true;
+    displayManager = { 
+      gdm.enable = true;
+      autoLogin = { 
+        enable = false;
+        user = "alfurqani";
+      };
+    };
     desktopManager.gnome.enable = true;
 
     # # PANTHEON #
