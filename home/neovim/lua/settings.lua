@@ -21,8 +21,11 @@ augroup END
 -- c('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
 -- c('highlight! TabLineFill guibg=NONE guifg=white')
 
--- o.guifont = { "JetBrainsMono", "h12" }
+o.guifont = { "JetBrainsMono", "h12" }
+o.guifontwide = { }
+-- o.autowrite = true
 -- o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
+
 o.wrap = true;
 o.updatetime = 300 -- faster completion
 o.timeoutlen = 400 -- time to wait for a mapped sequence to complete ()

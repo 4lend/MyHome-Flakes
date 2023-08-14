@@ -4,18 +4,11 @@
   programs.kitty = {
     enable = true;
     theme = "Nightfox";  # Everforest Dark Soft - Medium - Hard, Forest Night, Nord, Dracula, One Dark, One Half Dark, 
-    # theme = "Nord";
     font = {
-        # name = "CodeNewRoman Nerd Font Mono";  # "ComicMono";
-        # size = 13;
-        # name = "ComicMono";
-        # name = "JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
         name = "JetBrainsMonoNL NF Light";  # JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
         # name = "JetBrainsMonoNL NF Thin";  # JetBrainsMono NFM";  # "JetBrainsMonoNL Nerd Font";
         # Thin, Light, Medium, Bold
         size = 12.0;
-        # name = "Victor Mono SemiBold";
-        # size = 15;
     };
     extraConfig = ''
 	    cursor_shape block
@@ -34,6 +27,12 @@
 	    toggle_fullscreen yes
 	    macos_traditional_fullscreen yes
 	    --start-as
+
+      background_opacity 1
+      background_blur 0
+      # background_image ./Nord-Wallpapers/nord_triangles.png
+      background_image_layout tiled
+      background_image_linear no
     '';
     keybindings = {
       "ctrl+shift+h" = "scroll_line_up";

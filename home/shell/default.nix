@@ -132,6 +132,7 @@ let
     sn        = "sncli";
     tdl       = "todoist";
     gdo       = "gdown";
+    df        = "duf";
 
     ud        = "udisksctl";
     udm       = "udisksctl mount -b";

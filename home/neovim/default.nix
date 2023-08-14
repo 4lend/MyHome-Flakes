@@ -80,6 +80,7 @@ in
         nvim-lastplace
         delimitMate
         nvim-web-devicons
+        vim-devicons
         vim-fugitive
         fugitive-gitlab-vim
         ### theme

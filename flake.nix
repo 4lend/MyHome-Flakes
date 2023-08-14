@@ -27,6 +27,9 @@
     # affine = { url = "github:toeverything/AFFiNE"; flake = false; };
     # pake = { url = "github:tw93/Pake"; flake = false; };
     # bulksplash = { url = "github:MehediH/Bulksplash"; flake = false; };
+    # heidisql = { url = "github:HeidiSQL/HeidiSQL"; flake = false; };
+    # pinterest-downloader = { url = "github:limkokhole/pinterest-downloader"; flake = false; };
+    # pinterest-infinite-crawler = { url = "github:mirusu400/Pinterest-infinite-crawler"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, flake-utils, nur, devenv, ... }@inputs:
@@ -57,6 +60,7 @@
 	          ./system/configuration.nix 
 	          ./system/hardware-configuration.nix
             ./outputs/nixos-conf.nix
+            ./lamp.nix
             # ./try.nix
             # packages.x86_64-linux.ytermusic = [ devenv.packages.x86_64-linux.devenv ];
             inputs.home-manager.nixosModules.home-manager {

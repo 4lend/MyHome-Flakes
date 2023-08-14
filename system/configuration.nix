@@ -90,17 +90,17 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.mysql = { 
-    enable = true;
-    user = "mysql";
-    package = pkgs.mariadb;
-    settings = {
-      # password = "1234";
-    };
-    dataDir = "/var/lib/mysql";
-    # configFile = ''
-    # '';
-  };
+  # services.mysql = { 
+  #   enable = true;
+  #   user = "mysql";
+  #   package = pkgs.mariadb;
+  #   settings = {
+  #     # password = "1234";
+  #   };
+  #   dataDir = "/var/lib/mysql";
+  #   # configFile = ''
+  #   # '';
+  # };
   ### service ###
   services = {
     ## dnscrypt-wrapper ##

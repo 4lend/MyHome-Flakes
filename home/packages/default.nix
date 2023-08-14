@@ -2,7 +2,7 @@
 
 let
   packages = with pkgs; [
-    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  yarn2nix  twitterBootstrap  nim  jq  nodejs  mariadb  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  
+    javaCup  dbus_java  maven  glib  lua  xdg-desktop-portal  xdg-desktop-portal-wlr xdg-desktop-portal-gnome  dbus  nodePackages.npm  nodePackages_latest.pnpm  nodePackages_latest.npm-check-updates  yarn  yarn2nix  twitterBootstrap  nim  jq  nodejs  apacheHttpd  php  cachix  direnv  nix-direnv  ruby_3_2  yajl  mysql  mysql-workbench  dbeaver  
 
     graphqlmap
     json_c
@@ -128,6 +128,7 @@ let
     firewalld
     # busybox
     dig
+    netdata
 
     # media player
     cmus
@@ -232,10 +233,10 @@ let
 
     # downloader
     motrix
-    qbittorrent
-    webtorrent_desktop  # Streaming torrent app for Mac, Windows, and Linux
+    # qbittorrent
+    # webtorrent_desktop  # Streaming torrent app for Mac, Windows, and Linux
     yt-dlp
-    youtube-dl 
+    # youtube-dl 
     ytmdl
     youtube-music
     youtube-tui
@@ -260,6 +261,7 @@ let
     okular
     foliate
     nomacs  # Qt-based image viewer
+    imgbrd-grabber  # Very customizable imageboard/booru downloader with powerful filenaming features
     inkscape
     gimp-with-plugins
     darktable
@@ -406,6 +408,10 @@ let
     minigalaxy
     grapejuice
     rpcs3
+    ryujinx 
+    # yuzu-mainline
+    yuzu-early-access
+    dolphin-emu
 
     # appimage
     appimagekit
@@ -446,6 +452,7 @@ let
     window-state-manager
     desktop-icons-ng-ding
     paperwm
+    cairo-clock
   ];
 
   # php = with pkgs; [

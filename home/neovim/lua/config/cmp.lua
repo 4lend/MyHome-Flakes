@@ -13,13 +13,47 @@ end
 
 codeium.setup({})
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 cmp.setup({
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+  require('lspconfig')['html'].setup {
+    capabilities = capabilities
+  }
+  
+  require('lspconfig')['lua_ls'].setup {
+    capabilities = capabilities
+  }
+
+  require('lspconfig')['phpactor'].setup {
+    capabilities = capabilities
+  }
+  
+  require('lspconfig')['emmet_ls'].setup {
+   filetypes = { "astro", "css", "eruby", "html", "htmldjango", "javascript", "javascriptreact", "less", "pug", "sass", "scss", "svelte", "typescriptreact", "vue" };
+    capabilities = capabilities
+  }
+
+  sources = {
+    { name = "codeium" }
+  }
+
 	formatting = {
+    format = require('lspkind').cmp_format({
+      mode = "symbol",
+      maxwidth = 50,
+      ellipsis_char = '...',
+      symbol_map = { Codeium = "", }
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function (entry, vim_item)
+        ...
+        return vim_item
+      end
+    })
 		format = function(entry, vim_item)
 			local icons = {
 				Class = " ",
